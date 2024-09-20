@@ -1,0 +1,327 @@
+/* General page styling */
+:root {
+    /* Define color variables for reusability */
+    --white: #ffffff;
+    --black: #000000;
+    --green: #7ded89;
+    --red: #ff002f;
+    --antracite: #60625f;
+    --light_gray: #edebea;
+    --light_blue: #42bedd;
+    --dark_blue: #2f7193;
+    --pink: #EB6363;
+}
+
+input[type="number"] {
+    width: 60px;
+    /* Input field width */
+    padding: 5px;
+    /* Inner padding for input field */
+    font-size: 16px;
+    /* Font size for input */
+    border: 1px solid #ccc;
+    /* Gray border around the input */
+    border-radius: 4px;
+    /* Rounded corners for the input */
+    text-align: center;
+    /* Center align text inside input */
+    appearance: textfield;
+    /* Remove browser-specific spinner styling */
+}
+
+/* Ensure spinner buttons (up/down) stay visible in Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    opacity: 1;
+    /* Keep spinners visible */
+}
+
+/* Modify size of inner up/down arrows */
+input[type="number"]::-webkit-inner-spin-button {
+    width: 18px;
+    /* Make inner spinner larger */
+}
+
+/* Modify size of outer up/down arrows */
+input[type="number"]::-webkit-outer-spin-button {
+    width: 18px;
+    /* Make outer spinner larger */
+}
+
+body {
+    /* Basic styling for body */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2 {
+    /* Styling for h1 and h2 headers */
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    color: var(--black); /* Use variable for black color */
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    /* Larger font size for h1 with bottom margin */
+}
+
+h2 {
+    font-size: 24px;
+    margin-top: 80px;
+    margin-bottom: 20px;
+    margin-left: 5px;
+    /* Margins for spacing around h2 */
+}
+
+/* Shopping Cart Section */
+.shopping-cart {
+    padding: 20px;
+    background-color: var(--white); /* White background for cart */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    /* Center the container with max-width */
+}
+
+/* Layout for cart section */
+.cart-section {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    /* Flexbox layout with spacing */
+}
+
+/* Layout for cart items */
+.cart-items {
+    flex: 1 1 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* More space for cart items with vertical spacing */
+}
+
+/* Style individual cart item */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for card effect */
+    background-color: var(--white); /* White background for each item */
+}
+
+/* Layout for item details */
+.item-info {
+    display: flex;
+    gap: 15px;
+    /* Align item info with gap between elements */
+}
+
+.item-icon {
+    font-size: 60px;
+    color: var(--black); /* Large black icon for the item */
+    margin-top: 10px;
+}
+
+.item-description h3 {
+    margin: 0;
+    font-size: 18px;
+    color: var(--antracite); /* Styling for item name */
+}
+
+.item-description p {
+    margin: 5px 0 0 0;
+    font-size: 14px;
+    color: var(--antracite); /* Styling for item description */
+    max-width: 300px; /* Limit width of text */
+}
+
+/* Layout for quantity and price display */
+.item-quantity-price {
+    display: flex;
+    gap: 0px;
+    align-items: center;
+    /* Align quantity and price with gap */
+}
+
+/* Styling for price and quantity values */
+.item-quantity-price span {
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--black);
+}
+
+.quantity-control input {
+    width: 50px;
+    text-align: center;
+    border: 1px solid var(--white);
+    border-radius: 5px;
+    padding: 5px;
+    /* Styling for quantity input */
+}
+
+.delete-item {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--red); /* Red color for delete button */
+    font-size: 24px;
+}
+
+/* Subtotal section layout */
+.subtotal-container {
+    flex: 1 1 35%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    background-color: var(--white); /* White background */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Space items evenly */
+    max-height: 500px; /* Set maximum height */
+    overflow: hidden; /* Hide overflow content */
+    position: relative;
+}
+
+.subtotal {
+    margin: 0 0 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--black); /* Styling for subtotal */
+}
+
+/* Layout for product info */
+.product-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.product-name {
+    font-size: 16px;
+    color: var(--black); /* Styling for product name */
+}
+
+.product-price {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--black); /* Styling for product price */
+}
+
+/* Total price section styling */
+.total-price {
+    margin-right: 10px;
+}
+
+/* Divider line for total */
+.total-divider {
+    border: 0;
+    height: 1px;
+    background: var(--black); /* Black line divider */
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* Layout for total price display */
+.total-info {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    position: relative;
+    bottom: 0; /* Align at bottom of the container */
+    margin-bottom: auto;
+}
+
+/* Checkout button styling */
+.checkout-btn {
+    width: 100%;
+    background-color: var(--pink); /* Use pink color for button */
+    border: none;
+    border-radius: 7px;
+    padding: 15px 40px;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    color: var(--white); /* White text on button */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+    position: relative;
+    margin-top: 20px;
+}
+
+/* Recommendations section */
+.recommendations {
+    display: flex;
+    gap: 20px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+    /* Flexbox layout with wrapping for recommendations */
+}
+
+/* Individual recommendation item */
+.recommendation-item {
+    background-color: var(--white);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+}
+
+.recommendation-item .material-icons {
+    font-size: 40px;
+    color: var(--black); /* Black icon for recommendations */
+}
+
+/* Go back button section */
+.go-back-container {
+    margin: 20px 0; /* Space around go back button */
+}
+
+.go-back-btn {
+    display: flex;
+    align-items: center;
+    background-color: var(--pink); /* Pink background for go back button */
+    color: var(--white); /* White text */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px; /* Rounded button */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.go-back-btn .material-icons {
+    font-size: 20px;
+    margin-right: 15px; /* Space between icon and text */
+}
+
+/* Product list inside subtotal */
+.product-list {
+    flex-grow: 1;
+    max-height: 250px; /* Limit product list height */
+    overflow-y: auto; /* Make scrollable */
+    margin-bottom: 20px;
+    padding-right: 10px;
+}
+
+/* Mobile responsiveness for screens smaller than 768px */
+@media (max-width: 768px) {
+    .cart-section {
+        flex-direction: column; /* Stack cart sections vertically */
+    }
+
+    .cart-items, .subtotal-container {
+        flex: 1 1 100%; /* Take full width in mobile view */
+    }
+}

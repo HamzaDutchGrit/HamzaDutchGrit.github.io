@@ -1,0 +1,222 @@
+/* Standard colors */
+:root {
+    --white: #ffffff;
+    --light_gray: #edebea;
+    --dark_gray: #60625f;
+    --red: #EB6363;
+    --blue: #42bedd;
+    --light_border: #d1d1d1;
+}
+
+/* Base styles for the body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--white);
+    margin: 0;
+    padding: 0;
+}
+
+/* Product wrapper layout */
+.product-wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    width: 100%;
+    padding: 0 20px;
+}
+
+/* Back button container */
+.back-button-container {
+    flex-shrink: 0;
+}
+
+/* Styling for the back button */
+.back-button {
+    padding: 10px 20px;
+    background-color: var(--red);
+    color: var(--white);
+    font-size: 1em;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+/* Hover effect for the back button */
+.back-button:hover {
+    background-color: #d75454; 
+    color: var(--white);
+}
+
+/* Main container for product information */
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+    max-width: 1000px;
+    padding: 20px;
+    border: 1px solid var(--light_border);
+    border-radius: 10px;
+    background-color: var(--white);
+    box-sizing: border-box;
+}
+
+/* Product image container */
+.product-image {
+    flex: 1;
+    max-width: 400px;
+    padding-right: 20px;
+}
+
+/* Styling for the product image */
+.product-image img {
+    height: 400px;
+    width: 400px;
+    border-radius: 10px;
+}
+
+/* Frequently bought together section */
+.frequently-bought {
+    margin-top: 20px;
+    border-top: 1px solid var(--light_border);
+    padding-top: 20px;
+}
+
+/* Title in the frequently bought together section */
+.frequently-bought h3 {
+    margin: 10px 0;
+    font-size: 1.2em;
+    color: var(--dark_gray);
+}
+
+/* Thumbnail images in the frequently bought together section */
+.product-thumbnails {
+    display: flex;
+    gap: 10px;
+}
+
+.product-thumbnails img {
+    width: 80px;
+    height: 80px;
+    border: 1px solid var(--light_border);
+    border-radius: 5px;
+}
+
+/* Product details section */
+.product-details {
+    flex: 1;
+    max-width: 600px;
+    color: var(--dark_gray);
+}
+
+/* Container for product options (form, language) */
+.product-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+/* Styling for form elements (e.g., size, language options) */
+.product-form,
+.product-language {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Labels in the product form and language section */
+.product-form label,
+.product-language label {
+    width: 100px;
+    text-align: left;
+    font-weight: bold;
+    color: var(--dark_gray);
+}
+
+/* Select dropdowns in the product form and language section */
+.product-form select,
+.product-language select {
+    width: 200px;
+    padding: 5px 10px;
+    font-size: 1em;
+    border: 1px solid var(--light_border);
+    border-radius: 5px;
+    background-color: var(--white);
+    transition: border-color 0.3s ease;
+}
+
+/* Focus state for select elements */
+.product-form select:focus,
+.product-language select:focus {
+    border-color: var(--blue);
+}
+
+/* Product description styling */
+.product-description {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    color: var(--dark_gray);
+}
+
+/* Add to cart button */
+.add-to-cart {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--red);
+    color: var(--white);
+    font-size: 1.2em;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    transition: background-color 0.3s;
+}
+
+/* Hover effect for add to cart button */
+.add-to-cart:hover {
+    background-color: #d75454; 
+    color: var(--white);
+}
+
+/* Responsive design for screens smaller than 1160px */
+@media (max-width: 1160px) {
+    .product-wrapper {
+        flex-direction: column;
+        margin-right: 10px;
+    }
+    .product-details {
+        margin-right: 20px;
+    }
+}
+
+/* Responsive design for tablet-sized screens */
+@media (max-width: 700px) {
+    .product-wrapper {
+        flex-direction: column;
+    }
+}
+
+/* Responsive design for phone-sized screens */
+@media (max-width: 475px) {
+    .product-wrapper {
+        flex-direction: column;
+    }
+
+    /* Resize product image for smaller screens */
+    .product-image img {
+        width: 95%;
+    }
+
+    /* Resize thumbnails for smaller screens */
+    .product-thumbnails img {
+        width: 80px;
+        height: 80px;
+        transition: none;
+    }
+}

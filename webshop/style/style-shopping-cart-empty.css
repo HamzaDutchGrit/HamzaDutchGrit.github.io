@@ -1,0 +1,136 @@
+:root {
+    /* Define color variables for consistent use throughout the stylesheet */
+    --white: #ffffff;
+    --black: #000000;
+    --green: #7ded89;
+    --red: #ff002f;
+    --antracite: #60625f;
+    --light_gray: #edebea;
+    --light_blue: #42bedd;
+    --dark_blue: #2f7193;
+    --pink: #EB6363;
+}
+
+/* Center the cart icon with responsive height */
+.center-cart-icon {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 30vh; /* Set height for responsiveness */
+    margin-top: 20px; /* Add margin for spacing */
+}
+
+/* Center the cart title */
+.title-cart {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center horizontally */
+    margin: 20px 0; /* Add margin for spacing */
+}
+
+/* Style for empty cart text */
+.text-empty-cart {
+    display: flex; /* Use flex for centering */
+    flex-direction: column; /* Stack text vertically */
+    align-items: center; /* Center align items */
+    margin: 20px 0; /* Add margin for spacing */
+}
+
+/* Style for the continue shopping button */
+.continue-shopping {
+    width: 15%; /* Set width as needed */
+    max-width: 200px; /* Set a max-width for larger screens */
+    background-color: var(--pink); /* Use pink variable for background */
+    border: none; /* Remove border */
+    padding: 10px; /* Add padding for spacing */
+    border-radius: 15px; /* Round corners */
+    font-size: 20px; /* Set font size */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    text-align: center; /* Center text inside button */
+    color: var(--white); /* Use white variable for text color */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+    margin: 20px auto; /* Center the button */
+    display: block; /* Ensure it behaves like a block element */
+    margin-top: -5px; /* Adjust top margin */
+    margin-bottom: 100px; /* Add bottom margin */
+}
+
+/* Recommendations section styling */
+.recommendations-empty-cart {
+    display: flex; /* Use flexbox for layout */
+    gap: 10px; /* Space between items */
+    margin: 40px 0; /* Vertical spacing */
+    justify-content: flex-start; /* Align items to the left */
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    margin-left: 5%; /* Consistent left spacing */
+}
+
+/* Individual recommendation item styling */
+.recommendation-item-empty-cart {
+    background-color: var(--white); /* Set background color */
+    padding: 20px; /* Add padding */
+    border-radius: 10px; /* Round corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+    text-align: center; /* Center text */
+    width: 100px; /* Set fixed width */
+    height: 100px; /* Set fixed height */
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center contents horizontally */
+    align-items: center; /* Center contents vertically */
+    margin-left: 5px; /* Add left margin */
+}
+
+/* Style for section heading */
+h2 {
+    text-align: left; /* Align heading to the left */
+    margin-left: 85px; /* Add left margin */
+    margin-top: 20px; /* Top margin */
+    margin-bottom: -20px; /* Adjust bottom margin */
+}
+
+/* Style for main title */
+h1 {
+    margin-top: 10px; /* Top margin for spacing */
+    margin-bottom: 40px; /* Bottom margin for spacing */
+}
+
+/* Style for paragraphs in empty cart text */
+.text-empty-cart p {
+    margin: -10px 100px; /* Margin above and below each paragraph */
+    line-height: 1.5; /* Adjust line height for readability */
+    margin-top: -30px; /* Adjust top margin */
+}
+
+/* Size for material icons */
+.material-symbols-outlined {
+    font-size: 180px; /* Set icon size */
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+    .center-cart-icon {
+        height: 20vh; /* Smaller height for mobile screens */
+    }
+
+    .title-cart {
+        margin: 10px 0; /* Reduce margin */
+    }
+
+    .text-empty-cart {
+        margin: 10px 0; /* Reduce margin */
+        text-align: center; /* Center text */
+    }
+
+    .continue-shopping {
+        width: 80%; /* Make button wider on mobile screens */
+        max-width: none; /* Remove max width for adjustment */
+        margin: 20px auto; /* Center button */
+    }
+}
+
+/* Additional responsive styles for text alignment */
+@media (max-width: 768px) {
+    .text-empty-cart p {
+        text-align: center; /* Center text */
+        margin: 0 10px; /* Add margin for spacing */
+    }
+}

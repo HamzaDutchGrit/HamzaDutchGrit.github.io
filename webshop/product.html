@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta tags for character set and responsive design -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Linking external CSS files for header, footer, and product styles -->
+    <link rel="stylesheet" href="../header & footer/style_header-footer.css">
+    <link rel="shortcut icon" href="favicon.ico" type="media/fav-icon">
+
+    <!-- Linking Google fonts for Material Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons&family=Material+Symbols+Outlined" />
+
+    <!-- Linking stylesheet for the product page -->
+    <link rel="stylesheet" href="../webshop/style/product style.css">
+
+    <!-- Page title -->
+    <title>Product - Depot Software</title>
+</head>
+
+<body>
+    <!-- Header section -->
+    <header>
+        <!-- Navigation bar -->
+        <nav class="navbar">
+            <!-- Logo for the navbar -->
+            <div class="navbar-logo">
+                <img src="../media/depotsoftware.webp" alt="Depot Software Logo">
+            </div>
+
+            <!-- Mobile menu icon -->
+            <div class="nav-bar-menu-icon">
+                <span class="material-icons">menu</span>
+            </div>
+
+            <!-- Navbar links for page navigation -->
+            <div class="navbar-links">
+                <a href="../pages/home.html" class="shine">Home</a>
+                <a href="store.html" class="pink_button shine">Store</a>
+                <a href="../pages/implementations.html" class="shine">Implementation</a>
+                <a href="../pages/about us & meet our team.html" class="shine">About Us</a>
+                <a href="../pages/contact us.html" class="shine">Contact</a>
+            </div>
+
+            <!-- Search bar in the navbar -->
+            <div class="nav-bar-search-container">
+                <input type="text" placeholder="Search">
+                <span class="material-icons nav-bar-search-icon">search</span>
+            </div>
+
+            <!-- Icons for login and shopping cart -->
+            <div class="nav-bar-icons">
+                <a href="../pages/login.html" class="icon-button shine">
+                    <span class="material-symbols-outlined">person</span>
+                </a>
+                <a href="shopping cart.html" class="icon-button shine">
+                    <span class="material-icons">shopping_cart</span>
+                </a>
+            </div>
+
+            <!-- Navbar script for interactivity -->
+            <script src="../header & footer/script_navbar.js" defer></script>
+        </nav>
+    </header>
+
+    <!-- Main content section -->
+    <main>
+        <div class="product-wrapper">
+            <!-- Button to go back to the store -->
+            <div class="back-button-container">
+                <button class="back-button" onclick="window.history.back();">← Back</button>
+            </div>
+
+            <!-- Container for product details and images -->
+            <div class="product-container">
+                <!-- Product image section -->
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/600x800" alt="Basic hooded sweatshirt in pink">
+
+                    <!-- Frequently bought together section -->
+                    <div class="frequently-bought">
+                        <h3>Frequently Bought Together</h3>
+                        <div class="product-thumbnails">
+                            <img src="https://via.placeholder.com/80x80" alt="Thumbnail 1">
+                            <img src="https://via.placeholder.com/80x80" alt="Thumbnail 2">
+                            <img src="https://via.placeholder.com/80x80" alt="Thumbnail 3">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product details section -->
+                <div class="product-details">
+                    <!-- Product title -->
+                    <h1>Depot Software Cloud Edition</h1>
+
+                    <!-- Product options for form and language selection -->
+                    <div class="product-options">
+                        <!-- Product form option (e.g., book, animation) -->
+                        <div class="product-form">
+                            <label for="form">Form:</label>
+                            <select id="form">
+                                <option value="book">Book</option>
+                                <option value="animation">Animation</option>
+                            </select>
+                        </div>
+
+                        <!-- Language selection dropdown -->
+                        <div class="product-language">
+                            <label for="language">Language:</label>
+                            <select id="Language">
+                                <option value="D">Dutch</option>
+                                <option value="E">English</option>
+                                <option value="S">Spanish</option>
+                                <option value="G">German</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Product description -->
+                    <p class="product-description">
+                        Depot Software Cloud Edition is a flexible, cloud-based solution for managing depot operations, including order management, inventory control, and container tracking. It offers real-time data access, enhanced security, and easy scalability to optimize workflows and improve efficiency.
+                    </p>
+
+                    <!-- Button to add the product to the cart -->
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer section -->
+    <footer class="collom">
+        <hr style="margin-top: -1px;">
+        <!-- Area for the logo and the links around the site -->
+        <div class="footer_logo">
+            <img src="../media/depotsoftware.webp" alt="Depot Software" onclick="window.location.href='../pages/home.html';">
+        </div>
+        <div class="footer-container">
+            <div class="left-side">
+                <div class="contact">
+                    <h3>Contact</h3>
+                    <p>Email: <a href="mailto:info@depotsoftware.com">info@depotsoftware.com</a></p>
+                    <p>Telefoon: <a href="tel:31889998999">+31 88 999 8999</a></p>
+                    <p>Adres: <a href="https://www.google.com/maps?rlz=1C1ONGR_nlNL987NL987&sxsrf=ALiCzsYZG5MF2WryvnxhslGB4Gt3lF2r0w:1666708591893&q=De+Zelling+8+3342+GS+Hendrik-Ido-Ambacht+The+Netherlands&biw=1680&bih=931&dpr=1&um=1&ie=UTF-8&sa=X&ved=2ahUKEwjx2d6tzfv6AhXZhv0HHf-UDDgQ_AUoAXoECAIQAw">De Zelling 8<br>3342GS Hendrik-Ido-Ambacht<br>The Netherlands</a></p>
+
+                </div>
+            </div>
+
+            <div class="container-start-cus">
+                <div class="start-using">
+                    <h3>Start Using Depot Software</h3>
+                    <p><a href="../pages/about us 1.html">About us</a></p>
+                    <p><a href="../webshop/store.html">Solution's store</a></p>
+                    <p><a href="../pages/implementations.html">Implementations</a></p>
+                </div>
+
+                <div class="customers">
+                    <h3>Customers</h3>
+                    <p><a href="../portal/login.html">Login portal</a></p>
+                    <p><a href="../pages/contact.html">Send a support ticket</a></p>
+                    <p><a href="../pop-up/privacy settings.html">Privacy settings</a></p>
+                </div>
+            </div>
+            <!-- Image of our team -->
+            <div class="img-about-us right-side">
+                <img src="../media/team.webp.jpg">
+            </div>
+            <!-- Search bar -->
+            <div class="footer-search-container">
+                <div class="footer-bar-search-container">
+                    <input type="text" placeholder="Search">
+                    <span class="material-icons nav-bar-search-icon">search</span>
+                </div>
+                <div class="language-flags-container">
+                    <div class="language-flags">
+                        <img href="#" src="../media/germany.webp" alt="DE">
+                        <img href="#" src="../media/netherlands.webp" alt="NL">
+                        <img href="#" src="../media/spain.webp" alt="ES">
+                        <img href="#" src="../media/english.webp" alt="ENG">
+                    </div>
+                </div>
+            </div>
+            <!-- Logo's of our partners -->
+            <div class="partner-logos">
+                <div class="logo-row">
+                    <img class="itco_logo" src="../media/itco-sgf.webp" alt="ITCO logo & SGF logo">
+                </div>
+                <img class="microsoft_logo" src="../media/microsoft.webp" alt="Microsoft Partner logo">
+            </div>
+        </div>
+
+        <hr>
+        <!-- Bottom layer of the footer with additional info -->
+        <div class="footer-bottom">
+            <button href="#" class="privacy-btn">Privacy Settings</button>
+            <p class="terms_bottom">&copy; 2024 - Terms & Conditions | Privacy Policy | Sitemap</p>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/company/depotsoftware#"><img src="../media/linkedin.webp"
+                        alt="LinkedIn"></a>
+                <a href="https://www.youtube.com/playlist?list=PLumDEh0xMtUTWHhcQ6U19IQeum00ztJYI"><img
+                        src="../media/youtube.webp" alt="YouTube"></a>
+                <a href="https://www.instagram.com/lucrasoftict?igsh=cGJxcXBka3hhM2h3"><img
+                        src="../media/instagram.webp" alt="Instagram"></a>
+                <a href="https://www.depotsoftware.com/news-customer-cases/rss/"><img src="../media/rss.webp"
+                        alt="RSS"></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script for interactivity on the product page -->
+    <script src="script_product_page.js"></script>
+</body>
+
+</html>
