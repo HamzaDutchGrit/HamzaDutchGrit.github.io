@@ -114,6 +114,25 @@ body {
     background-color: #d75454;
 }
 
+/* Kleine knoppen voor 'View our store' en 'Check the FAQ' */
+.contact1-pink_button {
+    background-color: var(--pink);
+    color: var(--white);
+    border: none;
+    padding: 10px 20px; /* Kleinere padding voor kleinere knoppen */
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px; /* Maakt de knoppen meer afgerond */
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease; /* Voor een soepele hover-overgang */
+    width: auto; /* Zorg ervoor dat de knoppen hun standaardgrootte behouden */
+}
+
+.contact1-pink_button:hover {
+    background-color: #d75454; /* Iets donkerder roze bij hover */
+}
+
 /* Contact info section */
 .contact-info {
     display: flex;
