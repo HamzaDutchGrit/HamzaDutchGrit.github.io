@@ -343,10 +343,9 @@ h1 {
     margin: 20px 0; /* Add margin for spacing */
 }
 
-/* Style for the continue shopping button */
 .continue-shopping {
-    width: 15%; /* Set width as needed */
-    max-width: 200px; /* Set a max-width for larger screens */
+    width: 100%; /* Set width as needed */
+    max-width: 300px; /* Set a max-width for larger screens */
     background-color: var(--pink); /* Use pink variable for background */
     border: none; /* Remove border */
     padding: 10px; /* Add padding for spacing */
@@ -360,6 +359,13 @@ h1 {
     display: block; /* Ensure it behaves like a block element */
     margin-top: -5px; /* Adjust top margin */
     margin-bottom: 100px; /* Add bottom margin */
+}
+
+.continue-shopping a {
+    display: block; /* Make the link fill the button */
+    text-decoration: none; /* Remove underline from link */
+    color: var(--white); /* Ensure text color is white */
+    font-size: 24px; /* Increase font size */
 }
 
 /* Recommendations section styling */
