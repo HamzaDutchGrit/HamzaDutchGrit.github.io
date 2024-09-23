@@ -246,6 +246,7 @@ body {
     .contact-content {
         height: auto;
         margin-bottom: 0;
+        margin-left: -15px;
     }
     .contact-left-side {
         padding: 0px;
