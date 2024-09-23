@@ -243,6 +243,10 @@ body {
 
 /* Responsive styling for screens up to 480px wide */
 @media (max-width: 480px) {
+    .contact-pink_button {
+        width: 106%;
+    }
+
     .contact-content {
         height: auto;
         margin-bottom: 0;
