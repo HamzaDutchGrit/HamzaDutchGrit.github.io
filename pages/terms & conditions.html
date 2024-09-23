@@ -1,19 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <!-- Meta information -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/style.css">
-    <link rel="shortcut icon" href="favicon.ico" type="media/fav-icon">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <title>Home</title>
-</head>
-<body>
-
-
-<footer>
-
     
-</footer>
+    <!-- Link to external CSS for header and footer -->
+    <link rel="stylesheet" href="../header & footer/style_header-footer.css">
+    
+    <!-- Favicon for the tab -->
+    <link rel="icon" href="../media/favicon.ico">
+    
+    <!-- Google Fonts for icons -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Icons&family=Material+Symbols+Outlined" />
+    
+    <!-- Link to the CSS specific to this page -->
+    <link rel="stylesheet" href="../pages/style/t&c.css"/>
+    
+    <title>Contact us</title>
+</head>
+
+<body>
+    <header>
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <!-- Logo for the company -->
+            <div class="navbar-logo">
+                <img src="../media/depotsoftware.webp" alt="Depot Software" onclick="window.location.href='../pages/home.html';">
+            </div>
+
+            <!-- Menu Icon for mobile view -->
+            <div class="nav-bar-menu-icon">
+                <span class="material-icons">menu</span>
+            </div>
+
+            <!-- Navbar Links for navigation -->
+            <div class="navbar-links">
+                <a href="home.html" class="shine">Home</a>
+                <a href="../webshop/store.html" class="shine">Store</a>
+                <a href="implementations.html" class="shine">Implementation</a>
+                <a href="about us 1.html" class="shine">About Us</a>
+                <a href="contact.html" class="shine">Contact</a>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="nav-bar-search-container">
+                <input type="text" placeholder="Search">
+                <span class="material-icons nav-bar-search-icon">search</span>
+            </div>
+
+            <!-- User & Cart Icons -->
+            <div class="nav-bar-icons">
+                <a href="../portal/login.html" class="icon-button shine">
+                    <span class="material-symbols-outlined">person</span>
+                </a>
+                <a href="../webshop/shopping cart.html" class="icon-button shine">
+                    <span class="material-icons ">shopping_cart</span>
+                </a>
+            </div>
+
+            <!-- JavaScript for responsive navbar functionality -->
+            <script src="../header & footer/script_navbar.js" defer></script>
+        </nav>
+    </header>
+
+    <main>
+        <div class="content-wrapper">
+            <div class="tc-container">
+                <div class="tc-text">
+                    <h2>Terms & Conditions</h2>
+                    <p><a href="https://www.depotsoftware.com/media/e3sjis04/nldigital-voorwaarden-nl-2020-1.pdf">Terms and conditions NL Digital (2020)</a></p>
+                    <p><a href="https://www.depotsoftware.com/media/szvd5bib/nldigital-terms-en-2020-1.pdf">Terms and conditions ENG Digital (2020)</a></p>
+                    <p><a href="https://www.depotsoftware.com/media/szvd5bib/nldigital-terms-en-2020-1.pdf">Terms and conditions ESP Digital (2020)</a></p>
+                    <p><a href="https://www.depotsoftware.com/media/szvd5bib/nldigital-terms-en-2020-1.pdf">Terms and conditions GER Digital (2020)</a></p>
+                    <h2> Data Processing Agreements</h2>
+                    <p><a href="https://www.depotsoftware.com/media/djnb50he/lucrasoft-solutions-bv-data-processing-agreement-2024-01-en.pdf">Lucrasoft Solutions BV - Data processing agreement 2024-01 (EN)</a></p>
+                    <p><a href="https://www.depotsoftware.com/media/a40licx0/lucrasoft-solutions-bv-data-processing-agreement-2024-01-nl.pdf">Lucrasoft Solutions BV - Data processing agreement 2024-01 (NL)</a></p>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+    </main>
+
+    <footer class="collom">
+        <hr style="margin-top: -1px;">
+        <!-- Area for the logo and the links around the site -->
+        <div class="footer_logo">
+            <img src="../media/depotsoftware.webp" alt="Depot Software" onclick="window.location.href='../pages/home.html';">
+        </div>
+        <div class="footer-container">
+            <div class="left-side">
+                <div class="contact">
+                    <h3>Contact</h3>
+                    <p>Email: <a href="mailto:info@depotsoftware.com">info@depotsoftware.com</a></p>
+                    <p>Telefoon: <a href="tel:31889998999">+31 88 999 8999</a></p>
+                    <p>Adres: <a href="https://www.google.com/maps?rlz=1C1ONGR_nlNL987NL987&sxsrf=ALiCzsYZG5MF2WryvnxhslGB4Gt3lF2r0w:1666708591893&q=De+Zelling+8+3342+GS+Hendrik-Ido-Ambacht+The+Netherlands&biw=1680&bih=931&dpr=1&um=1&ie=UTF-8&sa=X&ved=2ahUKEwjx2d6tzfv6AhXZhv0HHf-UDDgQ_AUoAXoECAIQAw">De Zelling 8<br>3342GS Hendrik-Ido-Ambacht<br>The Netherlands</a></p>
+
+                </div>
+            </div>
+
+            <div class="container-start-cus">
+                <div class="start-using">
+                    <h3>Start Using Depot Software</h3>
+                    <p><a href="../pages/about us 1.html">About us</a></p>
+                    <p><a href="../webshop/store.html">Solution's store</a></p>
+                    <p><a href="../pages/implementations.html">Implementations</a></p>
+                </div>
+
+                <div class="customers">
+                    <h3>Customers</h3>
+                    <p><a href="../portal/login.html">Login portal</a></p>
+                    <p><a href="../pages/contact.html">Send a support ticket</a></p>
+                    <p><a href="../pop-up/privacy settings.html">Privacy settings</a></p>
+                </div>
+            </div>
+            <!-- Image of our team -->
+            <div class="img-about-us right-side">
+                <img src="../media/team.webp.jpg">
+            </div>
+            <!-- Search bar -->
+            <div class="footer-search-container">
+                <div class="footer-bar-search-container">
+                    <input type="text" placeholder="Search">
+                    <span class="material-icons nav-bar-search-icon">search</span>
+                </div>
+                <div class="language-flags-container">
+                    <div class="language-flags">
+                        <img href="#" src="../media/germany.webp" alt="DE">
+                        <img href="#" src="../media/netherlands.webp" alt="NL">
+                        <img href="#" src="../media/spain.webp" alt="ES">
+                        <img href="#" src="../media/english.webp" alt="ENG">
+                    </div>
+                </div>
+            </div>
+            <!-- Logo's of our partners -->
+            <div class="partner-logos">
+                <div class="logo-row">
+                    <img class="itco_logo" src="../media/itco-sgf.webp" alt="ITCO logo & SGF logo">
+                </div>
+                <img class="microsoft_logo" src="../media/microsoft.webp" alt="Microsoft Partner logo">
+            </div>
+        </div>
+
+        <hr>
+        <!-- Bottom layer of the footer with additional info -->
+        <div class="footer-bottom">
+            <button href="#" class="privacy-btn">Privacy Settings</button>
+            <p class="terms_bottom">&copy; 2024 - Terms & Conditions | Privacy Policy | Sitemap</p>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/company/depotsoftware#"><img src="../media/linkedin.webp"
+                        alt="LinkedIn"></a>
+                <a href="https://www.youtube.com/playlist?list=PLumDEh0xMtUTWHhcQ6U19IQeum00ztJYI"><img
+                        src="../media/youtube.webp" alt="YouTube"></a>
+                <a href="https://www.instagram.com/lucrasoftict?igsh=cGJxcXBka3hhM2h3"><img
+                        src="../media/instagram.webp" alt="Instagram"></a>
+                <a href="https://www.depotsoftware.com/news-customer-cases/rss/"><img src="../media/rss.webp"
+                        alt="RSS"></a>
+            </div>
+        </div>
+    </footer>
 </body>
+
 </html>

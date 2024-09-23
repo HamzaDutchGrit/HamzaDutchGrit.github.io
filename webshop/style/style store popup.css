@@ -1,0 +1,164 @@
+/* General page styling */
+:root {
+    /* Define color variables for reusability */
+    --white: #ffffff;
+    --black: #000000;
+    --green: #7ded89;
+    --red: #ff002f;
+    --antracite: #60625f;
+    --light_gray: #edebea;
+    --light_blue: #42bedd;
+    --dark_blue: #2f7193;
+    --pink: #EB6363;
+}
+
+/* Styles the pink button with a specific background, padding, font size, and transition effects. */
+.pink_button {
+    background-color: var(--pink);
+    border: none;
+    border-radius: 7px;
+    padding: 20px 40px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    color: var(--white);
+    transition: background-color 0.3s ease;
+}
+
+/* Changes the background color of the pink button on hover for a visual effect. */
+.pink_button:hover {
+    background-color: #d15454;
+}
+
+/* Popup container */
+.popup-container {
+    position: fixed;
+    top: 10%;
+    right: 10%;
+    background-color: var(--light_gray);
+    width: 350px;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+   /*display: none;  Hidden by default, show it when needed */
+}
+
+/* X knop rechtsboven om popup te sluiten */
+.popup-close {
+    float: right;
+    cursor: pointer;
+}
+
+/* Succes bericht styling */
+.popup-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.success-icon {
+    color: var(--green);
+    margin-right: 10px;
+}
+
+.popup-header p {
+    font-size: 1.2rem;
+    color: var(--black);
+}
+
+/* Product in de popup */
+.popup-product {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.popup-product img {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    margin-right: 15px;
+}
+
+.product-info h3 {
+    font-size: 1.1rem;
+    color: var(--black);
+}
+
+.product-info p {
+    color: var(--dark_blue);
+}
+
+/* Sectie 'You may also like' */
+.popup-recommendation {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.popup-recommendation img {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    margin-right: 15px;
+}
+
+.recommendation-info h3 {
+    font-size: 1rem;
+    color: var(--black);
+}
+
+.recommendation-info p {
+    font-size: 0.9rem;
+    color: var(--antracite);
+    margin-bottom: 10px;
+}
+
+.recommendation-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.recommendation-footer p {
+    color: var(--dark_blue);
+    font-size: 1rem;
+}
+
+.recommendation-footer .pink_button {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+/* Footer knoppen onderaan de popup */
+.popup-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dark-blue-button {
+    background-color: var(--dark_blue);
+    color: var(--white);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.light-blue-button {
+    background-color: var(--light_blue);
+    color: var(--white);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* Standaard knoppen hover effect */
+button:hover {
+    opacity: 0.9;
+}
