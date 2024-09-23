@@ -4,16 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Link to external CSS for header and footer styling -->
     <link rel="stylesheet" href="../header & footer/style_header-footer.css">
-    <!-- Shortcut icon for the webpage -->
-    <link rel="icon" href="../media/favicon.ico">
-    <!-- Link to Google Fonts for Material Icons -->
+    <link rel="shortcut icon" href="favicon.ico" type="media/fav-icon">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Icons&family=Material+Symbols+Outlined" />
-    <!-- Link to external CSS for shopping cart styling -->
-    <link rel="stylesheet" href="style/style-shopping-cart.css">
-
+    <link rel="stylesheet" href="style/style shopping cart.css">
     <title>Shopping Cart</title>
 </head>
 
@@ -21,56 +16,64 @@
     <header>
         <!-- Navigation Bar -->
         <nav class="navbar">
+            <!-- Logo that redirects to home page when clicked -->
             <div class="navbar-logo">
-                <img src="../media/depotsoftware.webp" alt="Depot Software" onclick="window.location.href='../pages/home.html';">
+                <img src="../media/depotsoftware.webp" alt="Depot Software"
+                    onclick="window.location.href='../pages/home.html';">
             </div>
 
-            <!-- Menu Icon for mobile -->
+            <!-- Menu icon for mobile view -->
             <div class="nav-bar-menu-icon">
                 <span class="material-icons">menu</span>
             </div>
 
-            <!-- Navbar Links -->
+            <!-- Navigation links -->
             <div class="navbar-links">
-                <a href="../pages/home.html" class="shine">Home</a>
-                <a href="../webshop/store.html" class="shine">Store</a>
-                <a href="../pages/implementations.html" class="shine">Implementation</a>
-                <a href="../pages/about us 1.html" class="shine">About Us</a>
-                <a href="../pages/contact.html" class="shine">Contact</a>
+                <a href="#" class="pink_button shine">Home</a>
+                <a href="store.html" class="shine">Store</a>
+                <a href="implementations.html" class="shine">Implementation</a>
+                <a href="about_us.html" class="shine">About Us</a>
+                <a href="contact.html" class="shine">Contact</a>
             </div>
 
-            <!-- Search Bar -->
+            <!-- Search bar container -->
             <div class="nav-bar-search-container">
                 <input type="text" placeholder="Search">
                 <span class="material-icons nav-bar-search-icon">search</span>
             </div>
 
-            <!-- User & Cart Icons -->
+            <!-- Icons for user login and shopping cart -->
             <div class="nav-bar-icons">
                 <a href="../portal/login.html" class="icon-button shine">
                     <span class="material-symbols-outlined">person</span>
                 </a>
-                <a href="../webshop/shopping cart.html" class="icon-button pink_button shine">
-                    <span class="material-icons ">shopping_cart</span>
+                <a href="shopping cart.html" class="icon-button shine">
+                    <span class="material-icons">shopping_cart</span>
                 </a>
             </div>
+
+            <!-- Script for navbar functionality -->
             <script src="../header & footer/script_navbar.js" defer></script>
-            <!-- Use the 'defer' so that the JS loads after the HTML loads -->
         </nav>
     </header>
 
-    <section class="middel" class="col-1">
+    <!-- Section for shopping cart with products -->
+    <!-- Sectie voor winkelwagen met producten -->
+    <section class="middel col-1 visible">
         <main class="shopping-cart">
+            <!-- Button to go back to the previous page -->
             <div class="go-back-container">
-                <!-- Button to go back to the previous page -->
                 <button class="go-back-btn" onclick="window.history.back()">
                     <span class="material-icons">arrow_back</span> Go back
                 </button>
             </div>
+
             <div class="container">
                 <h1>Your shopping cart</h1>
                 <div class="cart-section">
                     <div class="cart-items">
+                        <!-- Cart items here -->
+                        <!-- Example of a cart item -->
                         <div class="cart-item" data-id="1">
                             <div class="item-info">
                                 <div class="item-icon material-icons">article</div>
@@ -89,7 +92,8 @@
                                 </button>
                             </div>
                         </div>
-                    
+
+                        <!-- Repeat the cart-item structure for more products -->
                         <div class="cart-item" data-id="2">
                             <div class="item-info">
                                 <div class="item-icon material-icons">article</div>
@@ -108,7 +112,9 @@
                                 </button>
                             </div>
                         </div>
-                    
+
+                        <!-- Add more cart items as needed -->
+                        <!-- Example of additional cart items -->
                         <div class="cart-item" data-id="3">
                             <div class="item-info">
                                 <div class="item-icon material-icons">article</div>
@@ -127,7 +133,8 @@
                                 </button>
                             </div>
                         </div>
-                    
+                        <!-- Continue adding items... -->
+
                         <div class="cart-item" data-id="4">
                             <div class="item-info">
                                 <div class="item-icon material-icons">article</div>
@@ -146,7 +153,7 @@
                                 </button>
                             </div>
                         </div>
-                    
+
                         <div class="cart-item" data-id="5">
                             <div class="item-info">
                                 <div class="item-icon material-icons">article</div>
@@ -165,7 +172,7 @@
                                 </button>
                             </div>
                         </div>
-                    
+
                         <div class="cart-item" data-id="6">
                             <div class="item-info">
                                 <div class="item-icon material-icons">article</div>
@@ -184,84 +191,106 @@
                                 </button>
                             </div>
                         </div>
-                    
-                        <div class="cart-item" data-id="7">
-                            <div class="item-info">
-                                <div class="item-icon material-icons">article</div>
-                                <div class="item-description">
-                                    <h3>Product 7</h3>
-                                    <p>Beschrijving voor Product 7.</p>
-                                </div>
-                            </div>
-                            <div class="item-quantity-price">
-                                <span class="item-price">€5.00</span>
-                                <div class="quantity-control">
-                                    <input type="number" value="1" min="1">
-                                </div>
-                                <button class="delete-item">
-                                    <span class="material-icons">delete</span>
-                                </button>
-                            </div>
-                        </div>
+
                     </div>
 
+                    <!-- Subtotal and checkout section -->
                     <div class="subtotal-container">
                         <h3 class="subtotal">Subtotal</h3>
-                        <!-- Scrollable product list -->
                         <div class="product-list">
                             <div class="product-info">
-                                <span class="product-name">Product 2 (<span class="product-quantity">1</span>)</span>
-                                <span class="product-price">€29.99</span>
+                                <span class="product-name">Product 1</span>
+                                <span class="product-price">€5.00</span>
                             </div>
-                            <div class="product-info">
-                                <span class="product-name">Product 2</span>
-                                <span class="product-price">€19.99</span>
-                            </div>
-                            <!-- Additional products can be added -->
-                            <div class="product-info">
-                                <span class="product-name">Product 2</span>
-                                <span class="product-price">€19.99</span>
-                            </div>
-
-
+                            <!-- Additional product info here -->
                         </div>
-                        <!-- Divider line -->
                         <div class="total-divider"></div>
-                        <!-- Total price info -->
                         <div class="total-info">
                             <span>Total:</span>
-                            <span class="total-price">€49.98</span>
+                            <span class="total-price">€5.00</span>
                         </div>
-                        <!-- Checkout button -->
                         <button class="checkout-btn">Proceed to Checkout</button>
                     </div>
                 </div>
+            </div>
 
+            <!-- Recommendations section -->
+            <div class="recommendation-text">
                 <h2>You may also like</h2>
-                <div class="recommendations">
-                    <!-- Recommendation items -->
-                    <div class="recommendation-item">
-                        <span class="material-icons">star</span>
-                    </div>
-                    <div class="recommendation-item">
-                        <span class="material-icons">star</span>
-                    </div>
-                    <div class="recommendation-item">
-                        <span class="material-icons">star</span>
-                    </div>
-                    <div class="recommendation-item">
-                        <span class="material-icons">star</span>
-                    </div>
+            </div>
+            <div class="recommendations">
+                <div class="recommendation-item">
+                    <span class="material-icons">star</span>
                 </div>
+                <div class="recommendation-item">
+                    <span class="material-icons">star</span>
+                </div>
+                <div class="recommendation-item">
+                    <span class="material-icons">star</span>
+                </div>
+                <div class="recommendation-item">
+                    <span class="material-icons">star</span>
+                </div>
+                <!-- More recommendations here -->
             </div>
         </main>
     </section>
+
+    <!-- Section for empty shopping cart -->
+    <section id="empty-cart" class="hidden">
+        <!-- Icon representing an empty cart -->
+        <div class="center-cart-icon">
+            <span class="material-symbols-outlined">shopping_bag</span>
+        </div>
+
+        <!-- Title for the empty cart -->
+        <div class="title-cart">
+            <h1>Your cart is empty</h1>
+        </div>
+
+        <!-- Messages explaining the empty cart status -->
+        <div class="text-empty-cart">
+            <p>There are no products in your shopping cart.</p>
+            <p>Click the button below to continue shopping.</p>
+        </div>
+
+        <!-- Button to continue shopping -->
+        <button class="continue-shopping">
+            <span>Continue Shopping</span>
+        </button>
+
+        <!-- Recommendations section for empty cart -->
+        <div class="recommendation-empty-text">
+            <h2>You may also like</h2>
+        </div>
+        <div class="recommendations-empty-cart">
+            <!-- Example of recommendation items -->
+            <div class="recommendation-item-empty-cart">
+                <span class="material-icons">star</span>
+            </div>
+            <div class="recommendation-item-empty-cart">
+                <span class="material-icons">star</span>
+            </div>
+            <div class="recommendation-item-empty-cart">
+                <span class="material-icons">star</span>
+            </div>
+            <div class="recommendation-item-empty-cart">
+                <span class="material-icons">star</span>
+            </div>
+            <div class="recommendation-item-empty-cart">
+                <span class="material-icons">star</span>
+            </div>
+        </div>
+    </section>
+
+
 
     <footer class="collom">
         <hr style="margin-top: -1px;">
         <!-- Area for the logo and the links around the site -->
         <div class="footer_logo">
-            <img src="../media/depotsoftware.webp" alt="Depot Software" onclick="window.location.href='../pages/home.html';">
+            <img src="../media/depotsoftware.webp" alt="Depot Software"
+                onclick="window.location.href='../pages/home.html';">
         </div>
         <div class="footer-container">
             <div class="left-side">
@@ -269,7 +298,9 @@
                     <h3>Contact</h3>
                     <p>Email: <a href="mailto:info@depotsoftware.com">info@depotsoftware.com</a></p>
                     <p>Telefoon: <a href="tel:31889998999">+31 88 999 8999</a></p>
-                    <p>Adres: <a href="https://www.google.com/maps?rlz=1C1ONGR_nlNL987NL987&sxsrf=ALiCzsYZG5MF2WryvnxhslGB4Gt3lF2r0w:1666708591893&q=De+Zelling+8+3342+GS+Hendrik-Ido-Ambacht+The+Netherlands&biw=1680&bih=931&dpr=1&um=1&ie=UTF-8&sa=X&ved=2ahUKEwjx2d6tzfv6AhXZhv0HHf-UDDgQ_AUoAXoECAIQAw">De Zelling 8<br>3342GS Hendrik-Ido-Ambacht<br>The Netherlands</a></p>
+                    <p>Adres: <a
+                            href="https://www.google.com/maps?rlz=1C1ONGR_nlNL987NL987&sxsrf=ALiCzsYZG5MF2WryvnxhslGB4Gt3lF2r0w:1666708591893&q=De+Zelling+8+3342+GS+Hendrik-Ido-Ambacht+The+Netherlands&biw=1680&bih=931&dpr=1&um=1&ie=UTF-8&sa=X&ved=2ahUKEwjx2d6tzfv6AhXZhv0HHf-UDDgQ_AUoAXoECAIQAw">De
+                            Zelling 8<br>3342GS Hendrik-Ido-Ambacht<br>The Netherlands</a></p>
 
                 </div>
             </div>
@@ -308,6 +339,7 @@
                     </div>
                 </div>
             </div>
+
             <!-- Logo's of our partners -->
             <div class="partner-logos">
                 <div class="logo-row">
@@ -334,8 +366,7 @@
             </div>
         </div>
     </footer>
-    <!-- Include JavaScript for shopping cart functionality -->
-    <script src="script/shopping-cart.js"></script>
+    <script src="script/shopping cart.js"></script>
 </body>
 
 </html>

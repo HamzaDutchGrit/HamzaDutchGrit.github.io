@@ -1,3 +1,23 @@
+function updateCart() {
+    // Select all elements with the class 'cart-item'
+    const cartItems = document.querySelectorAll('.cart-item'); 
+    // Get the cart section by its ID
+    const cart = document.getElementById('cart');
+    // Get the empty cart section by its ID
+    const emptyCart = document.getElementById('empty-cart');
+
+    // Check if there are any items in the cart
+    if (cartItems.length === 0) {
+        // If no items, hide the cart and show the empty cart message
+        cart.style.display = 'none';
+        emptyCart.style.display = 'block';
+    } else {
+        // If there are items, show the cart and hide the empty cart message
+        cart.style.display = 'block';
+        emptyCart.style.display = 'none';
+    }
+}
+
 // Select necessary elements
 const cartItemsContainer = document.querySelector(".cart-items");
 const productList = document.querySelector(".product-list");
@@ -132,3 +152,52 @@ document.addEventListener("DOMContentLoaded", function () {
     updateSubtotal();
     setupDeleteButtons(); // Attach event listeners to delete buttons and quantity inputs on page load
 });
+
+function checkCart() {
+    const cartItems = getCartItems(); // Vervang dit door jouw eigen logica om de winkelmand items op te halen
+    if (cartItems.length === 0) {
+        // Redirect naar de lege winkelwagentje-pagina
+        window.location.href = "shopping cart empty.html"; // Zorg ervoor dat de bestandsnaam klopt
+    }
+}
+
+// Roep de functie aan wanneer de pagina laadt
+document.addEventListener("DOMContentLoaded", checkCart);
+
+document.addEventListener('DOMContentLoaded', function () {
+    const cartItems = document.querySelector('.cart-items');
+    const cartSection = document.querySelector('.shopping-cart');
+    const emptyCartSection = document.getElementById('empty-cart');
+
+    // Function to check if cart is empty and toggle sections
+    function checkCartStatus() {
+        const items = cartItems.querySelectorAll('.cart-item');
+        if (items.length === 0) {
+            // If there are no items, show the empty cart section
+            cartSection.style.display = 'none';
+            emptyCartSection.classList.remove('hidden');
+            emptyCartSection.classList.add('visible');
+        } else {
+            // If there are items, show the cart section
+            cartSection.style.display = 'block';
+            emptyCartSection.classList.add('hidden');
+            emptyCartSection.classList.remove('visible');
+        }
+    }
+
+    // Initial check for cart status on page load
+    checkCartStatus();
+
+    // Assuming you have a delete item button, update the cart after an item is deleted
+    const deleteButtons = document.querySelectorAll('.delete-item');
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const cartItem = this.closest('.cart-item');
+            cartItem.remove();
+            checkCartStatus();
+        });
+    });
+});
+
+// Call the updateCart function to execute the logic
+updateCart();
