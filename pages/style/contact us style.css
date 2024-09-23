@@ -233,6 +233,11 @@ body {
     .contact-row {
         flex-direction: column;
         padding: 0 10px;
+        margin-left: 0; /* Remove margin-left for mobile */
+    }
+    .contact-row p {
+        width: 100%; /* Make the contact info take full width */
+        text-align: center; /* Center the text */
     }
 }
 
@@ -247,6 +252,7 @@ body {
     }
     .right-side {
         height: 200px;
+        padding: 0px;
     }
     .contact-form,
     .contact-newsletter {
@@ -260,5 +266,13 @@ body {
     .contact-row {
         flex-direction: column;
         padding: 0 10px;
+        margin-left: 150px; /* Ensure no margin */
+    }
+    .contact-row p {
+        width: 100%; /* Full width for contact info */
+        text-align: left; /* Center the text */
+    }
+    .contact-info{
+        margin-left: 0; /* Remove the margin-left */
     }
 }
