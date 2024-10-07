@@ -1,7 +1,6 @@
 let count = 0; // Initialize the count
 
 function cartIcon(event) {
-    console.log("test")
     event.preventDefault(); // Voorkom dat de knop naar een andere pagina leidt
     count++; // Verhoog de count met 1
     const cartCount = document.getElementById('cart-count'); // Selecteer het juiste element
