@@ -461,6 +461,44 @@ h1 {
     display: block;
 }
 
+.modal {
+    display: none; /* Verberg de modal standaard */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Donkere achtergrond */
+  }
+  
+  .modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    border-radius: 10px;
+  }
+  
+  .confirm-btn, .cancel-btn {
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+  }
+  
+  .confirm-btn {
+    background-color: red;
+    color: white;
+  }
+  
+  .cancel-btn {
+    background-color: grey;
+    color: white;
+  }
+  
+
 /* Mobile responsiveness for screens smaller than 768px */
 @media (max-width: 768px) {
     .cart-section {

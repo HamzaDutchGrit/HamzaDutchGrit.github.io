@@ -1,0 +1,347 @@
+:root {
+    --white: #ffffff;
+    --black: #000000;
+    --green: #7ded89;
+    --red: #ff002f;
+    --antracite: #60625f;
+    --light_gray: #edebea;
+    --light_blue: #42bedd;
+    --dark_blue: #2f7193;
+    --pink: #EB6363;
+}
+
+/* Ensure html and body take full height */
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+/* Body styling with flex layout and background color */
+body {
+    display: flex;
+    background-color: var(--white);
+    min-height: 100vh;
+}
+
+/* Main content area styling */
+main {
+    flex: 1;
+    padding: 30px;
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-buttons{
+    flex-direction: row;
+    gap: 20px;
+}
+
+
+/* Styles for the portal header */
+.portal-header {
+    position: relative;
+    height: 50vh;
+    width: calc(100% - 60px);
+    margin: 0 30px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+/* Styling for the header background image */
+.portal-header-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+/* Overlay for the header with a darker background */
+.portal-header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 500px;
+    background-color: #00567070;
+    z-index: 2;
+}
+
+/* Content styling within the header */
+.portal-header-content {
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    color: var(--white);
+    z-index: 3;
+    font-size: 20px;
+}
+
+/* Box for header content with shadow and rounded corners */
+.header-box {
+    background-color: var(--white);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 3;
+    bottom: 130px;
+    width: 1000px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+/* Styling for the text within the header box */
+.header-box span {
+    font-size: 50px;
+    margin-bottom: 10px;
+    color: var(--antracite);
+}
+
+/* Button styling within the header box */
+.header-box a.pink_button {
+    background-color: var(--pink);
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: var(--white);
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold;
+}
+
+/* Hover effect for the button */
+.header-box a.pink_button:hover {
+    background-color: #d15454;
+}
+
+/* Styles for the orders table container */
+.orders-table {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: var(--light_gray);
+    box-shadow: 0 4px 50px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    width: calc(100% - 60px);
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* Table styling within the orders table */
+.orders-table table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: var(--white);
+    border-radius: 5px;
+}
+
+/* Padding and text alignment for table headers and cells */
+.orders-table th,
+.orders-table td {
+    padding: 10px 15px;
+    text-align: left;
+}
+
+/* Header styles for the table */
+.orders-table thead th {
+    color: var(--antracite);
+    border-bottom: 2px solid var(--antracite);
+}
+
+/* Row styling in the table body */
+.orders-table tbody tr {
+    border-bottom: 1px solid #ddd;
+    /* Light gray border between rows */
+}
+
+/* Remove bottom border for the last row */
+.orders-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+/* Status color coding for completed, failed, and pending */
+.orders-table td.normal {
+    color: var(--green);
+    /* Green for completed status */
+}
+
+.orders-table td.banned {
+    color: var(--pink);
+    /* Pink for failed status */
+}
+
+.orders-table td.suspended {
+    color: var(--light_blue);
+    /* Light blue for pending status */
+}
+
+/* Default text color for table cells */
+.orders-table td {
+    color: var(--antracite);
+    /* Antracite for text */
+}
+
+/* Styles for links styled as buttons within the table */
+.orders-table a.pink_button {
+    background-color: var(--pink);
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-size: 0.9rem;
+    color: var(--white);
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+/* Hover effect for button links */
+.orders-table a.pink_button:hover {
+    background-color: #d15454;
+}
+
+
+@media (max-width: 1200px) {
+
+    .portal-header{
+        height: 350px;
+    }
+
+    /* Overlay for the header with a dark background for contrast */
+    .portal-header-overlay {
+        position: absolute;
+        flex-direction: column;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 330px;
+        background-color: rgba(0, 86, 112, 0.5);
+        z-index: 2;
+    }
+
+    /* Full-width header adjustments */
+    .portal-header {
+        width: 100%;
+        margin: 0;
+    }
+
+    /* Set the height for the header image */
+    .portal-header-image {
+        height: 330px;
+    }
+
+    /* Positioning for the header content */
+    .portal-header-content {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        right: 20px;
+        font-size: 18px;
+        text-align: center;
+    }
+
+    /* Box for header content */
+    .header-box {
+        width: 80%;
+        height: auto;
+        bottom: 80px;
+        flex-direction: row;
+        
+    }
+
+    /* Font size adjustment for header text */
+    .header-box span {
+        font-size: 40px;
+    }
+
+    /* Adjust table layout for mobile view */
+    .orders-table {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        background-color: var(--light_gray);
+    }
+
+    /* Hide the table header on mobile */
+    .orders-table thead {
+        display: none;
+    }
+
+    /* Display block for table body */
+    .orders-table tbody {
+        display: block;
+        width: 100%;
+    }
+
+    /* Flexbox layout for table rows */
+    .orders-table tr {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+        padding: 10px;
+        background-color: var(--white);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+    }
+
+    /* Cell layout for table data */
+    .orders-table td {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+        font-size: 14px;
+    }
+
+    /* Remove border for the last cell */
+    .orders-table td:last-child {
+        border-bottom: none;
+    }
+
+    /* Label for each cell */
+    .orders-table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        margin-right: 5px;
+    }
+
+    /* Styles for links styled as buttons within the table */
+    .orders-table a.pink_button {
+        font-size: 14px;
+        padding: 8px 20px;
+        display: inline-block;
+        text-align: center;
+        background-color: var(--pink);
+        color: var(--white);
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+    /* Hover effect for button links */
+    .orders-table a.pink_button:hover {
+        background-color: var(--dark-pink);
+    }
+}
+
+@media (max-width: 875px) {
+    .material-symbols-outlined{
+        display: none;
+    }
+    .header-box{
+        padding: 5px;
+        flex-direction: column
+    }
+}

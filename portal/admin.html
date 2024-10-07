@@ -2,24 +2,15 @@
 <html lang="en">
 
 <head>
-    <!-- Meta information -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Link to external CSS for header and footer -->
     <link rel="stylesheet" href="../header & footer/style_header-footer.css">
-    
-    <!-- Favicon for the tab -->
     <link rel="icon" href="../media/favicon.ico">
-    
-    <!-- Google Fonts for icons -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Icons&family=Material+Symbols+Outlined" />
-    
-    <!-- Link to the CSS specific to this page -->
-    <link rel="stylesheet" href="../pages/style/t&c.css"/>
-    
-    <title>Contact us</title>
+    <link rel="stylesheet" href="style/style-admin-portal.css">
+    <script src="/portal/script/script-admin.js"></script>
+    <title>admin</title>
 </head>
 
 <body>
@@ -68,22 +59,30 @@
     </header>
 
     <main>
-        <div class="content-wrapper">
-            <div class="tc-container">
-                <div class="tc-text">
-                    <h2>Terms & Conditions</h2>
-                    <p><a href="https://www.depotsoftware.com/media/e3sjis04/nldigital-voorwaarden-nl-2020-1.pdf">Terms and conditions NL Digital (2020)</a></p>
-                    <p><a href="https://www.depotsoftware.com/media/szvd5bib/nldigital-terms-en-2020-1.pdf">Terms and conditions ENG Digital (2020)</a></p>
-                    <p><a href="https://www.depotsoftware.com/media/szvd5bib/nldigital-terms-en-2020-1.pdf">Terms and conditions ESP Digital (2020)</a></p>
-                    <p><a href="https://www.depotsoftware.com/media/szvd5bib/nldigital-terms-en-2020-1.pdf">Terms and conditions GER Digital (2020)</a></p>
-                    <h2> Data Processing Agreements</h2>
-                    <p><a href="https://www.depotsoftware.com/media/djnb50he/lucrasoft-solutions-bv-data-processing-agreement-2024-01-en.pdf">Lucrasoft Solutions BV - Data processing agreement 2024-01 (EN)</a></p>
-                    <p><a href="https://www.depotsoftware.com/media/a40licx0/lucrasoft-solutions-bv-data-processing-agreement-2024-01-nl.pdf">Lucrasoft Solutions BV - Data processing agreement 2024-01 (NL)</a></p>
+        <!-- Header Section -->
+        <section class="portal-header">
+            <img src="../media/admin-bg.webp" alt="Portal Background" class="portal-header-image">
+            <div class="portal-header-overlay"></div>
+            <div class="portal-header-content">
+                <h1>Welcome {name}</h1>
+            </div>
+            <div class="header-buttons header-box">
+                <div class="header-box" style="margin-bottom: 0px;">
+                    <span class="material-symbols-outlined">manage_accounts</span>
+                    <a href="#" class="pink_button shine">Accounts DB</a>
                 </div>
-            </div>
-            
-            </div>
-        </div>
+                <div class="header-buttons header-box" style="margin-bottom: 0px;">
+                    <span class="material-symbols-outlined">database</span>
+                    <a href="#" class="pink_button shine">Store DB</a>
+                </div> 
+                <div class="header-buttons header-box" style="margin-bottom: 0px;">
+                    <span class="material-symbols-outlined">query_stats</span>
+                    <a href="#" class="pink_button shine">Analytics DB</a>
+                </div>
+                
+            </div>           
+        </section>
+        
     </main>
 
     <footer class="collom">

@@ -510,6 +510,14 @@ body {
 
 /* Why us phone Styling */
 @media (max-width: 768px) {
+
+    .home-hero .pink_button {
+        margin-top: 0px;
+        font-size: 15px;
+        width: 120px;
+        font-weight: bold;
+    }
+    
     /* Styles the "home-reviews" container to arrange its items in a vertical column and center them. */
     .home-reviews {
         flex-direction: column;

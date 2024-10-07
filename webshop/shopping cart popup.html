@@ -9,6 +9,7 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Icons&family=Material+Symbols+Outlined" />
     <link rel="stylesheet" href="style/style store popup.css">
+    <script src="script/script store popup.js"></script>
     <title>store popup</title>
 </head>
 
@@ -46,58 +47,97 @@
                     <span class="material-symbols-outlined">person</span>
                 </a>
                 <a href="../webshop/shopping cart.html" class="icon-button shine">
-                    <span class="material-icons ">shopping_cart</span>
+                    <span class="material-icons">shopping_cart</span>
+                    <span id="cart-count" class="cart-count" style="display: none;">0</span>
                 </a>
             </div>
             <script src="../header & footer/script_navbar.js" defer></script>
             <!-- Use the 'defer' so that the JS loads after the HTML loads -->
+            <link rel="stylesheet" href="../header & footer/style shopping cart icon.css">
+            <script src="../header & footer/shopping cart icoon.js"></script>
         </nav>
     </header>
 
     <main>
-        <div class="popup-container" id="popup">
-            <!-- X knop om de popup te sluiten -->
-            <span class="material-icons popup-close">close</span>
-    
-            <!-- Succes bericht met checkmark -->
+        <button id="show-popup-btn" onclick="showPopup()">Show Popup</button>
+        
+        <div id="popup-overlay" class="popup-overlay" style="display:none;" onclick="hidePopup()""></div> <!-- Donkere overlay -->
+
+        <div id="popup" class="popup-container" style="display:none;">
+            <!-- Popup Header -->
             <div class="popup-header">
                 <span class="material-icons success-icon">check_circle</span>
-                <p>The item has been successfully added to your shopping cart!</p>
+                <p>Success! Your product has been added.</p>
+                <span class="material-icons popup-close"  onclick="hidePopup()">close</span> <!-- Sluitknop -->
             </div>
     
-            <!-- Product dat is toegevoegd -->
+            <!-- Product Details -->
             <div class="popup-product">
-                <img src="../media/product.jpg" alt="Product Image">
+                <img src="https://via.placeholder.com/150" alt="Product Image">
                 <div class="product-info">
-                    <h3>Product Title</h3>
-                    <p>€25.00</p>
+                    <h3>Product Name</h3>
+                    <p>$Price</p>
                 </div>
             </div>
     
-            <!-- Suggesties voor andere producten -->
-            <h4>You may also like</h4>
-            <div class="popup-recommendation">
-                <img src="../media/recommendation.jpg" alt="Recommendation Image">
-                <div class="recommendation-info">
-                    <h3>Recommended Product</h3>
-                    <p>Short description of the product</p>
+            <!-- 'You may also like' Section -->
+            <div class="popup-recommendations">
+                <div class="popup-header">
+                    <p>You may also like.</p>
+                </div>
+                <!-- First recommended product -->
+                <div class="popup-recommendation">
+                    <img src="https://via.placeholder.com/150" alt="Recommendation Image 1">
+                    <div class="recommendation-info">
+                        <h3>Product 1</h3>
+                        <p>$Price1</p>
+                    </div>
                     <div class="recommendation-footer">
-                        <p>€20.00</p>
                         <button class="pink_button">
-                            <span class="material-icons">add_shopping_cart</span> Add to basket
+                            Add to Cart
+                            <span class="material-icons">add_shopping_cart</span>
                         </button>
+                    </div>
+                </div>
+    
+                <!-- Second recommended product -->
+                <div class="popup-recommendation">
+                    <img src="https://via.placeholder.com/150" alt="Recommendation Image 2">
+                    <div class="recommendation-info">
+                        <h3>Product 2</h3>
+                        <p>$Price2</p>
+                    </div>
+                    <div class="recommendation-footer">
+                        <button class="pink_button">
+                            Add to Cart
+                            <span class="material-icons">add_shopping_cart</span>
+                        </button>                        
+                    </div>
+                </div>
+
+                <!-- Third recommended product -->
+                <div class="popup-recommendation">
+                    <img src="https://via.placeholder.com/150" alt="Recommendation Image 3">
+                    <div class="recommendation-info">
+                        <h3>Product 3</h3>
+                        <p>$Price3</p>
+                    </div>
+                    <div class="recommendation-footer">
+                        <button class="pink_button">
+                            Add to Cart
+                            <span class="material-icons">add_shopping_cart</span>
+                        </button>                        
                     </div>
                 </div>
             </div>
     
-            <!-- Navigatie knoppen onderaan -->
+            <!-- Footer Buttons -->
             <div class="popup-footer">
-                <button class="dark-blue-button">Proceed Shopping</button>
-                <button class="light-blue-button">View Shopping Cart</button>
+                <button class="dark-blue-button">Continue Shopping</button>
+                <button class="light-blue-button">View shopping cart</button>
             </div>
         </div>
-    </main>
-      
+    </main>    
 
     <footer class="collom">
         <hr style="margin-top: -1px;">
@@ -133,7 +173,7 @@
             </div>
             <!-- Image of our team -->
             <div class="img-about-us right-side">
-                <img src="../media/team.webp.jpg">
+                <img src="../media/team.webp">
             </div>
             <!-- Search bar -->
             <div class="footer-search-container">
@@ -163,19 +203,28 @@
         <!-- Bottom layer of the footer with additional info -->
         <div class="footer-bottom">
             <button href="#" class="privacy-btn">Privacy Settings</button>
-            <p class="terms_bottom">&copy; 2024 - Terms & Conditions | Privacy Policy | Sitemap</p>
+            <p class="terms_bottom">&copy; 2024 - <a href="terms & conditions.html">Terms & Conditions</a> | <a href="privacy policy.html">Privacy Policy</a> | <a href="sitemap.html">Sitemap</a></p>
             <div class="social-icons">
-                <a href="https://www.linkedin.com/company/depotsoftware#"><img src="../media/linkedin.webp"
-                        alt="LinkedIn"></a>
-                <a href="https://www.youtube.com/playlist?list=PLumDEh0xMtUTWHhcQ6U19IQeum00ztJYI"><img
-                        src="../media/youtube.webp" alt="YouTube"></a>
-                <a href="https://www.instagram.com/lucrasoftict?igsh=cGJxcXBka3hhM2h3"><img
-                        src="../media/instagram.webp" alt="Instagram"></a>
-                <a href="https://www.depotsoftware.com/news-customer-cases/rss/"><img src="../media/rss.webp"
-                        alt="RSS"></a>
-            </div>
+                <a href="https://www.linkedin.com/company/depotsoftware#" target="_blank" rel="noopener noreferrer">
+                    <img src="../media/linkedin.webp" alt="LinkedIn">
+                </a>
+                <a href="https://www.youtube.com/playlist?list=PLumDEh0xMtUTWHhcQ6U19IQeum00ztJYI" target="_blank" rel="noopener noreferrer">
+                    <img src="../media/youtube.webp" alt="YouTube">
+                </a>
+                <a href="https://www.instagram.com/lucrasoftict?igsh=cGJxcXBka3hhM2h3" target="_blank" rel="noopener noreferrer">
+                    <img src="../media/instagram.webp" alt="Instagram">
+                </a>
+                <a href="https://www.depotsoftware.com/news-customer-cases/rss/" target="_blank" rel="noopener noreferrer">
+                    <img src="../media/rss.webp" alt="RSS">
+                </a>
+            </div>            
         </div>
     </footer>
+    <button id="scrollToTopBtn">
+        <link rel="stylesheet" href="../header & footer/style_scroll.css">
+        <script src="../header & footer/script_scroll.js"></script>
+        <span class="material-symbols-outlined scroll-icon">keyboard_double_arrow_up</span>
+    </button>
 </body>
 
 </html>

@@ -1,6 +1,4 @@
-/* General page styling */
 :root {
-    /* Define color variables for reusability */
     --white: #ffffff;
     --black: #000000;
     --green: #7ded89;
@@ -12,153 +10,273 @@
     --pink: #EB6363;
 }
 
-/* Styles the pink button with a specific background, padding, font size, and transition effects. */
-.pink_button {
-    background-color: var(--pink);
-    border: none;
-    border-radius: 7px;
-    padding: 20px 40px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    text-align: center;
-    display: inline-block;
-    text-decoration: none;
-    color: var(--white);
-    transition: background-color 0.3s ease;
+main, .popup-header, .popup-product, .popup-recommendations {
+    color: var(--antracite);
 }
 
-/* Changes the background color of the pink button on hover for a visual effect. */
-.pink_button:hover {
-    background-color: #d15454;
-}
-
-/* Popup container */
-.popup-container {
-    position: fixed;
-    top: 10%;
-    right: 10%;
-    background-color: var(--light_gray);
-    width: 350px;
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-   /*display: none;  Hidden by default, show it when needed */
-}
-
-/* X knop rechtsboven om popup te sluiten */
-.popup-close {
-    float: right;
-    cursor: pointer;
-}
-
-/* Succes bericht styling */
-.popup-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.success-icon {
-    color: var(--green);
-    margin-right: 10px;
-}
-
-.popup-header p {
-    font-size: 1.2rem;
-    color: var(--black);
-}
-
-/* Product in de popup */
-.popup-product {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.popup-product img {
+.popup-product img,
+.popup-recommendations img {
     width: 50px;
     height: 50px;
     border-radius: 10px;
     margin-right: 15px;
 }
 
-.product-info h3 {
-    font-size: 1.1rem;
-    color: var(--black);
+/* Popup container */
+.popup-container {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: var(--light_gray);
+    width: 400px;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* X button for closing popup */
+.popup-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Success message styling */
+.popup-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.recommendation-info p {
+    color: var(--dark_blue);
+    font-weight: bold;
+}
+
+.recommendation-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .product-info p {
     color: var(--dark_blue);
+    font-weight: bold;
 }
 
-/* Sectie 'You may also like' */
-.popup-recommendation {
+.success-icon {
+    color: var(--green);
+    font-size: 2rem;
+    margin-right: 10px;
+}
+
+/* Product display inside the popup */
+.popup-product {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
 }
 
-.popup-recommendation img {
-    width: 60px;
-    height: 60px;
-    border-radius: 10px;
-    margin-right: 15px;
+/* Recommended products section */
+.popup-recommendations {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.popup-recommendation {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.recommendation-info {
+    flex-grow: 1;
 }
 
 .recommendation-info h3 {
-    font-size: 1rem;
-    color: var(--black);
-}
-
-.recommendation-info p {
-    font-size: 0.9rem;
-    color: var(--antracite);
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
     margin-bottom: 10px;
 }
 
-.recommendation-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.recommendation-footer p {
-    color: var(--dark_blue);
-    font-size: 1rem;
-}
-
-.recommendation-footer .pink_button {
-    display: flex;
-    align-items: center;
-    font-size: 0.9rem;
-}
-
-/* Footer knoppen onderaan de popup */
+/* Footer buttons at the bottom of the popup */
 .popup-footer {
     display: flex;
-    justify-content: space-between;
+    justify-content: right;
+    gap: 10px;
+}
+
+main .pink_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--pink);
+    border: none;
+    border-radius: 7px;
+    padding: 10px 30px; 
+    font-size: 16px; 
+    cursor: pointer;
+    color: var(--white);
+    transition: background-color 0.3s ease;
+    height: 40px; 
+    min-width: 150px; 
+}
+
+.pink_button span{
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.pink_button:hover {
+    background-color: #d15454;
+}
+
+.dark-blue-button, .light-blue-button {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 .dark-blue-button {
     background-color: var(--dark_blue);
     color: var(--white);
-    border: none;
-    padding: 10px 20px;
-    border-radius: 10px;
-    cursor: pointer;
 }
 
 .light-blue-button {
     background-color: var(--light_blue);
     color: var(--white);
-    border: none;
-    padding: 10px 20px;
-    border-radius: 10px;
-    cursor: pointer;
 }
 
-/* Standaard knoppen hover effect */
-button:hover {
-    opacity: 0.9;
+.popup-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    z-index: 998;
+    transition: opacity 0.3s ease;
 }
+
+.popup-header p {
+    text-align: left;
+    font-size: 18px;
+    color: var(--antracite);
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* Popup hide animation */
+.popup-container.hide {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.popup-overlay.hide {
+    opacity: 0;
+}
+
+@media (max-height: 723px) {
+    .popup-container {
+        bottom: auto; /* Verwijder de onderrand */
+        margin-bottom: 20px; /* Voeg marge toe onder de popup */
+        width: 90%; /* Maak de popup smaller */
+        max-width: 400px; /* Beperk de maximale breedte */
+    }
+
+    .popup-header p,
+    .product-info p,
+    .recommendation-info h3 {
+        font-size: 14px; /* Kleinere tekst voor betere aanpassing */
+    }
+
+    main .pink_button {
+        padding: 8px 20px; /* Kleinere knoppen */
+        font-size: 14px; /* Kleinere tekst in de knop */
+    }
+
+    .dark-blue-button,
+    .light-blue-button {
+        padding: 8px 15px; /* Kleinere knoppen */
+        font-size: 14px; /* Kleinere tekst in de knop */
+    }
+}
+
+
+/* Responsive Popup Styles */
+@media (max-width: 480px) {
+    .popup-container {
+        position: fixed;
+        top: 5%;
+        left: 2.5%; /* Start in het midden */
+        
+        background-color: var(--light_gray);
+        width: auto;
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        opacity: 1; /* Begin onzichtbaar */
+    }
+    
+    .popup-container.show {
+        opacity: 1; /* Maak het zichtbaar */
+    }
+    
+
+    .popup-header p {
+        font-size: 14px; /* Kleinere tekst voor mobiel */
+    }
+
+    .popup-product img,
+    .popup-recommendations img {
+        width: 40px; /* Kleinere afbeeldingen */
+        height: 40px;
+    }
+
+    .popup-product,
+    .popup-recommendations {
+        margin-bottom: 15px; /* Verminder marge */
+    }
+
+    .product-info h3,
+    .recommendation-info h3 {
+        font-size: 16px; /* Kleinere productnamen */
+    }
+
+    .product-info p,
+    .recommendation-info p {
+        font-size: 14px; /* Kleinere prijzen */
+    }
+
+    main .pink_button {
+        padding: 8px 14px; /* Kleinere knoppen */
+        font-size: 14px; /* Kleinere tekst */
+    }
+
+    .dark-blue-button,
+    .light-blue-button {
+        padding: 8px 12px; /* Kleinere knoppen */
+        font-size: 14px; /* Kleinere tekst */
+    }
+
+    .success-icon {
+        font-size: 2rem; /* Kleinere iconen */
+    }
+}
+

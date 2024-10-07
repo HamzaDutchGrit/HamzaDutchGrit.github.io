@@ -9,7 +9,7 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Icons&family=Material+Symbols+Outlined" />
     <link rel="stylesheet" href="style/style contact information order.css">
-    <title>contact information order</title>
+    <title>Contact Information Order</title>
 </head>
 
 <body>
@@ -21,23 +21,52 @@
                     onclick="window.location.href='../pages/home.html';">
             </div>
             <script src="../header & footer/script_navbar.js" defer></script>
-            <!-- Use the 'defer' so that the JS loads after the HTML loads -->
         </nav>
     </header>
 
     <main>
+        <div class="go-back-container">
+            <button class="go-back-btn" onclick="window.history.back()">
+                <span class="material-icons">arrow_back</span> Go back
+            </button>
+        </div>
+        <!-- Progress bar -->
+        <div class="progress-bar">
+            <div class="step active">
+                <div class="step-number">1</div>
+                <div class="step-label">Adres</div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-label">Request</div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-label">Placed</div>
+            </div>
+        </div>
+
         <div class="container">
             <!-- Form Section -->
             <div class="form-container">
-                <input type="text" id="name" name="name" placeholder="Name">
-                <input type="text" id="lastname" name="lastname" placeholder="Last name">
-                <input type="email" id="email" name="email" placeholder="Email address">
-                <input type="tel" id="telephone" name="telephone" placeholder="Telephone">
-                <textarea id="message" name="message" rows="4" placeholder="Message"></textarea>
-                <button type="submit">Submit</button>
+                <form id="contactForm" onsubmit="submitForm(event)">
+                    <div class="form-row">
+                        <input type="text" id="name" name="name" placeholder="Name" required>
+                    </div>
+                    <div class="form-row">
+                        <input type="text" id="lastname" name="lastname" placeholder="Last name" required>
+                    </div>
+                    <div class="form-row">
+                        <input type="email" id="email" name="email" placeholder="Email address" required>
+                    </div>
+                    <div class="form-row">
+                        <input type="tel" id="telephone" name="telephone" placeholder="Telephone" required pattern="[0-9]{10}">
+                    </div>
+                    <button type="submit" class="submit-btn">Submit</button>
+                </form>
             </div>
 
-            <!-- Subtotal Section -->
+            <!-- Subtotal and checkout section -->
             <div class="subtotal-container">
                 <h3 class="subtotal">Subtotal</h3>
                 <div class="product-list">
@@ -45,17 +74,27 @@
                         <span class="product-name">Product 1</span>
                         <span class="product-price">€5.00</span>
                     </div>
+                    <!-- Additional product info here -->
                     <div class="product-info">
-                        <span class="product-name">Product 2</span>
-                        <span class="product-price">€10.00</span>
+                        <span class="product-name">Product 1</span>
+                        <span class="product-price">€5.00</span>
+                    </div>
+
+                    <div class="product-info">
+                        <span class="product-name">Product 1</span>
+                        <span class="product-price">€5.00</span>
+                    </div>
+
+                    <div class="product-info">
+                        <span class="product-name">Product 1</span>
+                        <span class="product-price">€5.00</span>
                     </div>
                 </div>
                 <div class="total-divider"></div>
                 <div class="total-info">
                     <span>Total:</span>
-                    <span class="total-price">€15.00</span>
+                    <span class="total-price">€5.00</span>
                 </div>
-                <button class="checkout-btn">Proceed to Checkout</button>
             </div>
         </div>
     </main>
@@ -127,7 +166,8 @@
         <!-- Bottom layer of the footer with additional info -->
         <div class="footer-bottom">
             <button href="#" class="privacy-btn">Privacy Settings</button>
-            <p class="terms_bottom">&copy; 2024 - Terms & Conditions | Privacy Policy | Sitemap</p>
+            <p class="terms_bottom">&copy; 2024 - <a href="terms & conditions.html">Terms & Conditions</a> | <a
+                    href="privacy policy.html">Privacy Policy</a> | <a href="sitemap.html">Sitemap</a></p>
             <div class="social-icons">
                 <a href="https://www.linkedin.com/company/depotsoftware#"><img src="../media/linkedin.webp"
                         alt="LinkedIn"></a>
@@ -140,6 +180,12 @@
             </div>
         </div>
     </footer>
+    <script src="script/script contact.js" defer></script>
+    <button id="scrollToTopBtn">
+        <link rel="stylesheet" href="../header & footer/style_scroll.css">
+        <script src="../header & footer/script_scroll.js"></script>
+        <span class="material-symbols-outlined scroll-icon">keyboard_double_arrow_up</span>
+    </button>
 </body>
 
 </html>

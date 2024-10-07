@@ -89,6 +89,7 @@ body {
     justify-content: center;
     gap: 20px;
     margin-top: 20px;
+    margin-bottom: 30px;
     width: 100%;
 }
 
@@ -112,6 +113,25 @@ body {
 /* Hover effect for the pink button */
 .contact-pink_button:hover {
     background-color: #d75454;
+}
+
+/* Kleine knoppen voor 'View our store' en 'Check the FAQ' */
+.contact1-pink_button {
+    background-color: var(--pink);
+    color: var(--white);
+    border: none;
+    padding: 10px 20px; /* Kleinere padding voor kleinere knoppen */
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px; /* Maakt de knoppen meer afgerond */
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease; /* Voor een soepele hover-overgang */
+    width: auto; /* Zorg ervoor dat de knoppen hun standaardgrootte behouden */
+}
+
+.contact1-pink_button:hover {
+    background-color: #d75454; /* Iets donkerder roze bij hover */
 }
 
 /* Contact info section */
@@ -213,6 +233,11 @@ body {
     .contact-row {
         flex-direction: column;
         padding: 0 10px;
+        margin-left: 0; /* Remove margin-left for mobile */
+    }
+    .contact-row p {
+        width: 100%; /* Make the contact info take full width */
+        text-align: center; /* Center the text */
     }
 }
 
@@ -227,6 +252,7 @@ body {
     }
     .right-side {
         height: 200px;
+        padding: 0px;
     }
     .contact-form,
     .contact-newsletter {
@@ -240,5 +266,13 @@ body {
     .contact-row {
         flex-direction: column;
         padding: 0 10px;
+        margin-left: 150px; /* Ensure no margin */
+    }
+    .contact-row p {
+        width: 100%; /* Full width for contact info */
+        text-align: left; /* Center the text */
+    }
+    .contact-info{
+        margin-left: 0; /* Remove the margin-left */
     }
 }
