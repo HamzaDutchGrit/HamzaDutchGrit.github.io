@@ -1,24 +1,335 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/style.css">
-    <link rel="shortcut icon" href="favicon.ico" type="media/fav-icon">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <title>Home</title>
+    <link rel="stylesheet" href="../header & footer/style_header-footer.css">
+    <link rel="icon" href="../media/favicon.ico">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons&family=Material+Symbols+Outlined" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style/style-store.css">
+    <title>Store</title>
 </head>
+
 <body>
+    <header>
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="navbar-logo">
+                <img src="../media/depotsoftware.webp" alt="Depot Software" onclick="window.location.href='../pages/home.html';">
+            </div>
 
+            <!-- Menu Icon for mobile -->
+            <div class="nav-bar-menu-icon">
+                <span class="material-icons">menu</span>
+            </div>
 
-<footer>
+            <!-- Navbar Links -->
+            <div class="navbar-links">
+                <a href="../pages/home.html" class="shine">Home</a>
+                <a href="../webshop/store.html" class="pink_button shine">Store</a>
+                <a href="../pages/implementations.html" class="shine">Implementation</a>
+                <a href="../pages/about us 1.html" class="shine">About Us</a>
+                <a href="../pages/contact.html" class="shine">Contact</a>
+            </div>
 
-    
-</footer>
-<button id="scrollToTopBtn">
-    <link rel="stylesheet" href="../header & footer/style_scroll.css">
-    <script src="../header & footer/script_scroll.js"></script>
-    <span class="material-symbols-outlined scroll-icon">keyboard_double_arrow_up</span>
-</button>
+            <!-- Search Bar -->
+            <div class="nav-bar-search-container">
+                <input type="text" placeholder="Search">
+                <span class="material-icons nav-bar-search-icon">search</span>
+            </div>
+
+            <!-- User & Cart Icons -->
+            <div class="nav-bar-icons">
+                <a href="../portal/login.html" class="icon-button shine">
+                    <span class="material-symbols-outlined">person</span>
+                </a>
+                <a href="../webshop/shopping cart.html" class="icon-button shine">
+                    <span class="material-icons ">shopping_cart</span>
+                </a>
+            </div>
+            <script src="../header & footer/script_navbar.js" defer></script>
+            <!-- Use the 'defer' so that the JS loads after the HTML loads -->
+        </nav>
+    </header>
+
+    <main>
+        <div class="store-content-wrapper">
+            <div class="store-container">
+                <!-- Sidebar -->
+                <aside class="store-sidebar">
+                    <!-- Filter Toggle Button -->
+                    <button class="close-sidebar-button">✖</button>
+                    <button class="filter-toggle-btn">Filters</button>
+                
+                    <div class="filter-options-container">
+                        <div class="filter-category">
+                            <div class="selected-filters-card-side" id="selected-filters-2">
+                        </div>
+                            <button class="filter-header">Foundation</button>
+                            <div class="filter-options">
+                                <div class="filter-option-card">Basic</div>
+                                <div class="filter-option-card">Add. Options</div>
+                            </div>
+                        </div>
+            
+                        <div class="filter-category">
+                            <button class="filter-header">Depot Services</button>
+                            <div class="filter-options">
+                                <div class="filter-option-card">Basic</div>
+                                <div class="filter-option-card">Optimized</div>
+                                <div class="filter-option-card">Add. Options</div>
+                            </div>
+                        </div>
+            
+                        <div class="filter-category">
+                            <button class="filter-header">Loaded Services</button>
+                            <div class="filter-options">
+                                <div class="filter-option-card">Basic</div>
+                                <div class="filter-option-card">Optimized</div>
+                                <div class="filter-option-card">Add. Options</div>
+                            </div>
+                        </div>
+            
+                        <div class="filter-category">
+                            <button class="filter-header">Cleaning Services</button>
+                            <div class="filter-options">
+                                <div class="filter-option-card">Basic</div>
+                                <div class="filter-option-card">Optimized</div>
+                                <div class="filter-option-card">Add. Options</div>
+                            </div>
+                        </div>
+            
+                        <div class="filter-category">
+                            <button class="filter-header">M&R Services</button>
+                            <div class="filter-options">
+                                <div class="filter-option-card">Basic</div>
+                                <div class="filter-option-card">Optimized</div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            
+                <!-- Store Main Content -->
+                <section class="store-main-content">
+                    <!-- Search Bar -->
+                    
+                    <div class="search-filters-container">
+                        <div class="hamburger-menu">
+                            <span class="material-icons">menu</span>
+                        </div>
+                        <div id="selected-filters" class="selected-filters-card"></div>
+                        
+                        <div class="store-search-bar-card">
+                            <div class="store-search-bar">
+                                <span class="material-icons search-icon">search</span>
+                                <input type="text" placeholder="Search" class="store-search-input">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="store-product-grid">
+                        <!-- Product Card 1 -->
+                        <div class="store-product-card">
+                            <h3 class="store-product-title">Product 1</h3>
+                            <div class="store-product-image">
+                                <img src="https://via.placeholder.com/150" alt="Product Image">
+                            </div>
+                            <div class="store-product-department">
+                                <p> Foundation Department</p>
+                            </div>
+                            <div class="store-product-footer">
+                                <p class="store-product-price">€5</p>
+                                <button class="pink_button_shop" >
+                                    <p class="cart" style="margin-left: 15px;">Add To Cart</p>
+                                    <span class="material-icons-outlined">add_shopping_cart</span>
+                                </button>
+                            </div>
+                        </div>
+        
+                        <!-- Product Card 2 -->
+                        <div class="store-product-card">
+                            <h3 class="store-product-title">Product 2</h3>
+                            <div class="store-product-image">
+                                <img src="https://via.placeholder.com/150" alt="Product Image">
+                            </div>
+                            <div class="store-product-department">
+                                <p> Foundation Department</p>
+                            </div>
+                            <div class="store-product-footer">
+                                <p class="store-product-price">€5</p>
+                                <button class="pink_button_shop" onclick="addToCart()">
+                                    <p class="cart" style="margin-left: 15px;">Add To Cart</p>
+                                    <span class="material-icons-outlined">add_shopping_cart</span>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Product Card 3 -->
+                        <div class="store-product-card">
+                            <h3 class="store-product-title">Product 3</h3>
+                            <div class="store-product-image">
+                                <img src="https://via.placeholder.com/150" alt="Product Image">
+                            </div>
+                            <div class="store-product-department">
+                                <p> Foundation Department</p>
+                            </div>
+                            <div class="store-product-footer">
+                                <p class="store-product-price">€5</p>
+                                <button class="pink_button_shop" onclick="addToCart()">
+                                    <p class="cart" style="margin-left: 15px;">Add To Cart</p>
+                                    <span class="material-icons-outlined">add_shopping_cart</span>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Product Card 4 -->
+                        <div class="store-product-card">
+                            <h3 class="store-product-title">Product 4</h3>
+                            <div class="store-product-image">
+                                <img src="https://via.placeholder.com/150" alt="Product Image">
+                            </div>
+                            <div class="store-product-department">
+                                <p> Foundation Department</p>
+                            </div>
+                            <div class="store-product-footer">
+                                <p class="store-product-price">€5</p>
+                                <button class="pink_button_shop" onclick="addToCart()">
+                                    <p class="cart" style="margin-left: 15px;">Add To Cart</p>
+                                    <span class="material-icons-outlined">add_shopping_cart</span>
+                                </button>
+                            </div>
+                        </div>
+        
+                        <!-- Product Card 5 -->
+                        <div class="store-product-card">
+                            <h3 class="store-product-title">Product 5</h3>
+                            <div class="store-product-image">
+                                <img src="https://via.placeholder.com/150" alt="Product Image">
+                            </div>
+                            <div class="store-product-department">
+                                <p> Foundation Department</p>
+                            </div>
+                            <div class="store-product-footer">
+                                <p class="store-product-price">€5</p>
+                                <button class="pink_button_shop" onclick="addToCart()">
+                                    <p class="cart" style="margin-left: 15px;">Add To Cart</p>
+                                    <span class="material-icons-outlined">add_shopping_cart</span>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Product Card 6 -->
+                        <div class="store-product-card">
+                            <h3 class="store-product-title">Product 6</h3>
+                            <div class="store-product-image">
+                                <img src="https://via.placeholder.com/150" alt="Product Image">
+                            </div>
+                            <div class="store-product-department">
+                                <p> Foundation Department</p>
+                            </div>
+                            <div class="store-product-footer">
+                                <p class="store-product-price">€5</p>
+                                <button class="pink_button_shop" onclick="addToCart()">
+                                    <p class="cart" style="margin-left: 15px;">Add To Cart</p>
+                                    <span class="material-icons-outlined">add_shopping_cart</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pagination">
+                        <button class="pagination-button" onclick="previousPage()" id="prevButton">Previous</button>
+                        <button class="pagination-button" onclick="goToPage(1)">1</button>
+                        <button class="pagination-button" onclick="goToPage(2)">2</button>
+                        <button class="pagination-button" onclick="goToPage(3)">3</button>
+                        <button class="pagination-button" onclick="nextPage()" id="nextButton">Next</button>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>    
+
+    <footer class="collom">
+        <hr style="margin-top: -1px;">
+        <!-- Area for the logo and the links around the site -->
+        <div class="footer_logo">
+            <img src="../media/depotsoftware.webp" alt="Depot Software" onclick="window.location.href='../pages/home.html';">
+        </div>
+        <div class="footer-container">
+            <div class="left-side">
+                <div class="contact">
+                    <h3>Contact</h3>
+                    <p>Email: <a href="mailto:info@depotsoftware.com">info@depotsoftware.com</a></p>
+                    <p>Telefoon: <a href="tel:31889998999">+31 88 999 8999</a></p>
+                    <p>Adres: <a href="https://www.google.com/maps?rlz=1C1ONGR_nlNL987NL987&sxsrf=ALiCzsYZG5MF2WryvnxhslGB4Gt3lF2r0w:1666708591893&q=De+Zelling+8+3342+GS+Hendrik-Ido-Ambacht+The+Netherlands&biw=1680&bih=931&dpr=1&um=1&ie=UTF-8&sa=X&ved=2ahUKEwjx2d6tzfv6AhXZhv0HHf-UDDgQ_AUoAXoECAIQAw">De Zelling 8<br>3342GS Hendrik-Ido-Ambacht<br>The Netherlands</a></p>
+
+                </div>
+            </div>
+
+            <div class="container-start-cus">
+                <div class="start-using">
+                    <h3>Start Using Depot Software</h3>
+                    <p><a href="../pages/about us 1.html">About us</a></p>
+                    <p><a href="../webshop/store.html">Solution's store</a></p>
+                    <p><a href="../pages/implementations.html">Implementations</a></p>
+                </div>
+
+                <div class="customers">
+                    <h3>Customers</h3>
+                    <p><a href="../portal/login.html">Login portal</a></p>
+                    <p><a href="../pages/contact.html">Send a support ticket</a></p>
+                    <p><a href="../pop-up/privacy settings.html">Privacy settings</a></p>
+                </div>
+            </div>
+            <!-- Image of our team -->
+            <div class="img-about-us right-side">
+                <img src="../media/team.webp">
+            </div>
+            <!-- Search bar -->
+            <div class="footer-search-container">
+                <div class="footer-bar-search-container">
+                    <input type="text" placeholder="Search">
+                    <span class="material-icons nav-bar-search-icon">search</span>
+                </div>
+                <div class="language-flags-container">
+                    <div class="language-flags">
+                        <img href="#" src="../media/germany.webp" alt="DE">
+                        <img href="#" src="../media/netherlands.webp" alt="NL">
+                        <img href="#" src="../media/spain.webp" alt="ES">
+                        <img href="#" src="../media/english.webp" alt="ENG">
+                    </div>
+                </div>
+            </div>
+            <!-- Logo's of our partners -->
+            <div class="partner-logos">
+                <div class="logo-row">
+                    <img class="itco_logo" src="../media/itco-sgf.webp" alt="ITCO logo & SGF logo">
+                </div>
+                <img class="microsoft_logo" src="../media/microsoft.webp" alt="Microsoft Partner logo">
+            </div>
+        </div>
+
+        <hr>
+        <!-- Bottom layer of the footer with additional info -->
+        <div class="footer-bottom">
+            <button href="#" class="privacy-btn">Privacy Settings</button>
+            <p class="terms_bottom">&copy; 2024 - <a href="terms & conditions.html">Terms & Conditions</a> | <a href="privacy policy.html">Privacy Policy</a> | <a href="sitemap.html">Sitemap</a></p>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/company/depotsoftware#" target="_blank" rel="noopener noreferrer">
+                    <img src="../media/linkedin.webp" alt="LinkedIn">
+                </a>
+                <a href="https://www.youtube.com/playlist?list=PLumDEh0xMtUTWHhcQ6U19IQeum00ztJYI" target="_blank" rel="noopener noreferrer">
+                    <img src="../media/youtube.webp" alt="YouTube">
+                </a>
+                <a href="https://www.instagram.com/lucrasoftict?igsh=cGJxcXBka3hhM2h3" target="_blank" rel="noopener noreferrer">
+                    <img src="../media/instagram.webp" alt="Instagram">
+                </a>
+                <a href="https://www.depotsoftware.com/news-customer-cases/rss/" target="_blank" rel="noopener noreferrer">
+                    <img src="../media/rss.webp" alt="RSS">
+                </a>
+            </div>            
+        </div>
+    </footer>
+    <script src="script/script-store.js" defer></script>
 </body>
+
 </html>

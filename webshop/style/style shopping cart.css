@@ -452,52 +452,49 @@ h1 {
     margin-bottom: 20px;
     padding-right: 10px;
 }
+.visible {
+    display: block;
+}
 
 .hidden {
     display: none;
 }
 
-.visible {
-    display: block;
+#delete-popup #text{
+    color: #2f7193;
 }
 
-.modal {
-    display: none; /* Verberg de modal standaard */
+#delete-popup {
     position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Donkere achtergrond */
-  }
-  
-  .modal-content {
-    background-color: white;
-    margin: 15% auto;
-    padding: 20px;
-    width: 80%;
-    max-width: 400px;
-    text-align: center;
-    border-radius: 10px;
-  }
-  
-  .confirm-btn, .cancel-btn {
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
     padding: 10px 20px;
-    margin: 10px;
-    cursor: pointer;
-  }
-  
-  .confirm-btn {
-    background-color: red;
-    color: white;
-  }
-  
-  .cancel-btn {
-    background-color: grey;
-    color: white;
-  }
-  
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 1000;
+    display: flex; /* Flexbox toevoegen */
+    align-items: center; /* Zorgt ervoor dat ze verticaal gecentreerd zijn */
+    
+}
+
+#delete-popup .material-icons {
+    color: var(--green);
+    font-size: 25px;
+    margin-right: 5px; /* Optioneel */
+    vertical-align: middle; /* Uitlijning aanpassen */
+    margin-bottom: 3px;
+}
+
+
+#delete-popup.show {
+    opacity: 1; /* Zichtbaar maken */
+    transition: opacity 0.5s ease; /* Gladde overgang */
+}
 
 /* Mobile responsiveness for screens smaller than 768px */
 @media (max-width: 768px) {

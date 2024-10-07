@@ -1,0 +1,487 @@
+/* Zorg ervoor dat je alle imports hebt, zoals in je originele bestand */
+@import url('../../header & footer/color_pallet.css');
+
+/* Root variables */
+:root {
+    --white: #ffffff;
+    --black: #000000;
+    --green: #7ded89;
+    --red: #ff002f;
+    --antracite: #60625f;
+    --light_gray: #edebea;
+    --light_blue: #42bedd;
+    --dark_blue: #2f7193;
+    --pink: #EB6363;
+}
+
+.pink_button {
+    background-color: var(--pink);
+    border: none;
+    color: var(--white);
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 7px;
+}
+
+.pink_button_shop {
+    background-color: var(--pink);
+    color: var(--white);
+    border: none;
+    margin-right: 40px;
+    font-size: 14px;
+    border-radius: 7px;
+    height: 40px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.pink_button_shop .material-icons-outlined {
+    margin-left: 8px;
+}
+
+.store-content-wrapper {
+    margin-left: 0px;
+    margin-right: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.search-filters-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.selected-filter {
+    display: inline-block;
+    background-color: var(--pink);
+    color: white;
+    padding: 5px 10px;
+    margin: 2px;
+    margin-top: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.selected-filters-card {
+    background-color: var(--white);
+    border-radius: 4px;
+    margin-left: 55px;
+    margin-right: 50px;
+    padding: 5px;
+    height: 50px;
+    margin-top: 20px;
+    flex: 0 0 auto;
+    width: 600px;
+    
+}
+
+.store-search-bar-card {
+    background: var(--white);
+    justify-content: flex-start;
+    border-radius: 4px;
+    padding: 10px 20px;
+    display: flex;
+    margin-bottom: -30px;
+}
+
+.store-search-bar {
+    display: flex;
+    align-items: center;
+    border: 2px solid var(--light_gray);
+    border-radius: 7px;
+    background: white;
+    padding: 5px 10px;
+    margin-left: auto;
+}
+
+.store-search-input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    margin-left: 10px;
+    flex-grow: 1;
+}
+
+.search-icon {
+    color: var(--antracite);
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.store-container {
+    display: flex;
+    width: 90%;
+    margin-left: -50px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.filter-toggle-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--light_blue);
+    color: var(--white);
+    border: none;
+    cursor: default;
+    font-size: 18px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.store-sidebar {
+    width: 250px;
+    background-color: var(--light_gray);
+    padding: 15px;
+    transition: width 0.3s ease;
+    border-radius: 8px;
+    margin-top: 105px;
+    height: 673px;
+    margin-left: 0px;
+    overflow-y: auto;
+    
+}
+
+
+.filter-header {
+    width: 100%;
+    height: 60px;
+    padding: 15px;
+    background-color: var(--white);
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.filter-header:hover {
+    background-color: var(--dark_blue);
+    color: var(--white);
+}
+
+.filter-option-card {
+    background-color: var(--white);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: normal;
+    transition: background-color 0.3s, transform 0.2s;
+    cursor: pointer;
+}
+
+.filter-option-card.selected {
+    background-color: var(--pink);
+    color: var(--white);
+    transform: none;
+}
+
+.filter-option-card.selected:hover {
+    background-color: var(--light_blue);
+    color: var(--white);
+}
+
+.filter-options {
+    display: none;
+    padding-left: 0;
+}
+
+.filter-options.show {
+    display: block;
+}
+
+.store-main-content {
+    background-color: var(--white);
+    margin-right: 100px;
+    width: 750px;
+    margin-bottom: 50px;
+}
+
+.store-product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-left: 60px;
+}
+
+.store-product-card {
+    padding: 10px;
+    width: 255px;
+    background-color: var(--light_gray);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.store-product-card:hover {
+    transform: scale(1.02);
+}
+
+.store-product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.store-product-price {
+    margin-top: 5px;
+    margin-bottom: 0px;
+    margin-left: 45px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.store-product-image {
+    display: inline-block;
+    vertical-align: top;
+    width: 150px;
+}
+
+.store-product-description {
+    display: inline-block;
+    vertical-align: top;
+    width: calc(100% - 170px);
+    text-align: left;
+    padding-left: 10px;
+    background-color: #D9D9D9;
+    box-shadow: inset 0px 0px 10px rgba(201, 199, 199, 0.9);
+}
+
+.store-product-image img {
+    width: 100%;
+    height: auto;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: end;
+    margin-top: 20px;
+    margin-left: 0px;
+    margin-right: 93px;
+}
+
+.pagination-button {
+    background-color: var(--dark_blue);
+    color: var(--white);
+    padding: 10px 11px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.pagination-button:hover {
+    background-color: var(--light_blue);
+}
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger-menu .material-icons {
+    font-size: 30px;
+    color: var(--antracite);
+}
+
+.close-sidebar-button {
+    display: none;
+}
+
+.selected-filters-card-side{
+    display: none;
+}
+
+/* Voor tablets (768px tot 1024px) */
+@media screen and (min-width: 630px) and (max-width: 1284px) {
+
+
+    .store-content-wrapper {
+        margin-right: 50px;
+        flex-direction: column;
+    }
+
+    .store-container {
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        margin-left: 0px;
+    }
+
+    .store-main-content {
+        margin-right: -35px;
+        width: 650px;
+    }
+
+    .store-sidebar {
+        width: 95%;
+        margin-top: 20px;
+        height: 800px;
+        margin-left: 30px;
+        margin-right: auto; /* Centrerend effect */
+    }
+
+    .store-product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        margin-left: 30px;
+    }
+
+    .selected-filters-card {
+        width: 270px;
+        height: fit-content;
+    }
+
+    .hamburger-menu{
+        display: block;
+        margin-left: 30px;
+        margin-top: 40px;
+    }
+    
+    .close-sidebar-button{
+        display: block;
+        background-color: transparent;
+        border: none;
+        color: var(--dark_blue);
+        font-size: 24px;
+        cursor: pointer;
+        margin-bottom: 10px;
+    }
+
+    .pagination {
+        justify-content: center;
+        margin-right: auto; /* Centrerend effect */
+        margin-left: auto; /* Centrerend effect */
+    }
+
+    .store-search-bar-card{
+        margin-left: 0px;
+    }
+
+    .store-search-bar {
+        width: 130px;
+        margin-left: 15px;
+    }
+
+    .store-search-input{
+        width: 90px;
+    }
+}
+
+/* Voor telefoons (max-width: 767px) */
+@media screen and (max-width: 630px) {
+    .selected-filters-card-side {
+        display: none;
+        background-color: white;
+        border-radius: 4px;
+        padding: 5px;
+        height: fit-content;
+        margin-top: 0px;
+        margin-bottom: 10px;
+        width: auto;
+        align-items: center;
+    }
+    
+    .hidden {
+        display: none; /* Deze klasse verbergt het element */
+    }
+
+    .selected-filter{
+        margin-bottom: 10px;
+        margin-top: 10px;
+        margin-left: auto;
+    }
+    .store-content-wrapper {
+        flex-direction: column;
+        margin-right: auto; /* Centrerend effect */
+        margin-left: auto;  /* Centrerend effect */
+        padding: 10px;
+        
+    }
+
+    .search-filters-container {
+        flex-direction: column;
+    }
+
+    .store-container {
+        flex-direction: column;
+        width: 100%;
+        margin-left: 0px;
+    }
+
+    .store-main-content {
+        width: 100%;
+    }
+
+    .store-product-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-left: auto; /* Centrerend effect */
+        margin-right: auto; /* Centrerend effect */
+        justify-items: center; /* Centreert producten binnen grid */
+    }
+
+    .store-sidebar {
+        width: 90%;
+        margin-top: 20px;
+        height: 800px;
+        margin-left: auto; /* Centrerend effect */
+        margin-right: auto; /* Centrerend effect */
+    }
+
+    .selected-filters-card {
+        display: none;
+    }
+
+    .pagination {
+        justify-content: center;
+        margin-right: auto; /* Centrerend effect */
+        margin-left: auto; /* Centrerend effect */
+    }
+
+    .close-sidebar-button {
+        display: block;
+        background-color: transparent;
+        border: none;
+        color: var(--dark_blue);
+        font-size: 24px;
+        cursor: pointer;
+        margin-bottom: 10px;
+    }
+
+    .hamburger-menu {
+        display: block;
+        margin-right: 240px;
+        margin-top: 20px;
+        margin-bottom: -50px;
+    }
+
+    .store-search-bar-card{
+        margin-left: 70px;
+    }
+
+    .store-search-bar {
+        width: 180px;
+    }
+
+    .store-search-input{
+        width: 140px;
+    }
+}
