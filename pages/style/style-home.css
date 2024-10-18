@@ -560,4 +560,12 @@ body {
         transition: background-color 0.3s ease;
     }
 
+    .home-carousel-button span.material-icons {
+        font-size: 60px;
+        color: var(--white);
+        text-shadow: 1px 1px 15px var(--antracite);
+        -webkit-text-stroke: 2px var(--antracite); /* Zwarte outline toevoegen */
+    }
+    
+
 }
