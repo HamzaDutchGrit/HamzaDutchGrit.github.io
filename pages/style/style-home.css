@@ -10,6 +10,7 @@
     --pink: #EB6363;
 }
 
+
 /* Sets the font family for the entire document to Arial and ensures the HTML element has full height. */
 html {
     font-family: Arial, sans-serif;
@@ -43,6 +44,7 @@ body {
 .pink_button:hover {
     background-color: #d15454;
 }
+
 
 /* Styles the carousel container with relative positioning, hidden overflow, and a maximum width. */
 .home-carousel-container {
@@ -156,6 +158,7 @@ body {
     align-items: center;
     justify-content: center;
     color: var(--white);
+    background-color: var(--dark_blue);
 }
 
 /* Styles the hero content to be positioned centrally with left alignment and padding. */

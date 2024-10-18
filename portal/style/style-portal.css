@@ -33,6 +33,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    opacity: 0;
 }
 
 /* Styles for the portal header */

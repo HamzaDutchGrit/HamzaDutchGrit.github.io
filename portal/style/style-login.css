@@ -61,6 +61,26 @@ main h2 {
   background-color: #d15454; /* Darker shade on hover */
 }
 
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.material-icons.spin {
+  animation: spin 1.5s linear infinite; /* Animeren van het sync icoon */
+  font-size: 200px;
+  color: var(--antracite);
+}
+
+@keyframes spin {
+  100% {
+      transform: rotate(-360deg); /* Verander naar 360 graden voor linksom draaien */
+  }
+  0% {
+      transform: rotate(0deg); /* Start bij 0 graden */
+  }
+}
 
 /* Styles for the login container */
 .login-container {
@@ -96,7 +116,29 @@ main h2 {
   display: block;
   margin: 0 auto;
 }
-  
+
+
+.error-msg i,
+.good-msg i {
+  vertical-align: middle;
+}
+
+.error-msg #text,
+.good-msg #text {
+    margin-top: 5px; /* Verplaats de tekst naar beneden met 5px */
+}
+
+.login-msg{
+  color: var(--yellow);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-size: 17px;
+  font-weight: bold;
+  margin-right: 20px;
+}
+
 /* Styles for a success message */
 .good-msg {
   color: var(--green);

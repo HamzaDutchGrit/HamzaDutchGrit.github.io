@@ -22,6 +22,54 @@ main, .popup-header, .popup-product, .popup-recommendations {
     margin-right: 15px;
 }
 
+input[type="number"] {
+    background-color: var(--light_gray);
+    border: none;
+    width: 60px;
+
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 4px;
+    text-align: center;
+    appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    opacity: 1;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+    width: 18px;
+}
+
+input[type="number"]::-webkit-outer-spin-button {
+    width: 18px;
+    
+}
+
+.quantity-container{
+    margin-left: 40px;
+    margin-top: -37px;
+    margin-bottom: 5px;
+}
+#update-quantity-button{
+    background-color: var(--light_blue);
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    color: var(--white);
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+.rec-products{
+    white-space: nowrap; /* Zorgt ervoor dat de tekst niet wrapt */
+    overflow: hidden; /* Verbergt de tekst die buiten de container valt */
+    text-overflow: ellipsis; /* Voegt '...' toe aan het einde als de tekst te lang is */
+    margin: 10px 0; /* Ruimte boven en onder de titel */
+    text-align: center; /* Center de titel tekst */
+}
 /* Popup container */
 .popup-container {
     position: fixed;
@@ -34,6 +82,7 @@ main, .popup-header, .popup-product, .popup-recommendations {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     transition: transform 0.3s ease, opacity 0.3s ease;
+    height: 570px;
 }
 
 /* X button for closing popup */
@@ -53,6 +102,8 @@ main, .popup-header, .popup-product, .popup-recommendations {
     margin-bottom: 10px;
     margin-top: 20px;
 }
+
+
 
 .recommendation-info p {
     color: var(--dark_blue);
@@ -87,7 +138,8 @@ main, .popup-header, .popup-product, .popup-recommendations {
 .popup-recommendations {
     display: flex;
     flex-direction: column;
-    margin-bottom: 20px;
+    margin-top: -20px;
+    margin-bottom: 0px;
 }
 
 .popup-recommendation {
@@ -128,7 +180,8 @@ main .pink_button {
     color: var(--white);
     transition: background-color 0.3s ease;
     height: 40px; 
-    min-width: 150px; 
+    min-width: 50px; 
+    margin-bottom: 20px;
 }
 
 .pink_button span{
@@ -145,6 +198,7 @@ main .pink_button {
     padding: 10px 20px;
     border-radius: 10px;
     cursor: pointer;
+    
 }
 
 .dark-blue-button {
@@ -165,7 +219,7 @@ main .pink_button {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 90%;
     background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(5px);
     z-index: 998;

@@ -72,7 +72,6 @@ body {
 
 /* Input fields and textareas */
 .contact-form input,
-.contact-form textarea,
 .contact-newsletter input {
     margin-bottom: 10px;
     padding: 10px;
@@ -81,6 +80,19 @@ body {
     box-shadow: inset 0px 0px 10px rgba(233, 229, 229, 0.9);
     width: 100%;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Textarea specific styles */
+.contact-form textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: 0px solid var(--dark_blue);
+    box-shadow: inset 0px 0px 10px rgba(233, 229, 229, 0.9);
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: auto; /* Allow scrolling when needed */
+    resize: vertical; /* Only allow vertical resizing */
 }
 
 /* Button container */

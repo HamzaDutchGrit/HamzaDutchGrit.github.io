@@ -6,6 +6,7 @@
     --red: #EB6363;
     --blue: #42bedd;
     --light_border: #d1d1d1;
+    --pink: #EB6363;
 }
 
 /* Base styles for the body */
@@ -19,6 +20,7 @@ body {
 /* Product wrapper layout */
 .product-wrapper {
     display: flex;
+    flex-wrap: wrap;
     align-items: flex-start;
     justify-content: center;
     gap: 20px;
@@ -74,8 +76,9 @@ body {
 
 /* Styling for the product image */
 .product-image img {
-    height: 400px;
-    width: 400px;
+    height: auto;
+    width: 100%;
+    max-width: 400px;
     border-radius: 10px;
 }
 
@@ -132,7 +135,7 @@ body {
 /* Labels in the product form and language section */
 .product-form label,
 .product-language label {
-    width: 100px;
+    width: 80px; /* Reduce label width */
     text-align: left;
     font-weight: bold;
     color: var(--dark_gray);
@@ -165,17 +168,19 @@ body {
 
 /* Add to cart button */
 .add-to-cart {
-    width: 100%;
-    padding: 15px;
+    width: auto;
+    padding: 10px 20px;
     background-color: var(--pink);
     color: var(--white);
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: bold;
     border: none;
     cursor: pointer;
     border-radius: 5px;
     margin-bottom: 30px;
     transition: background-color 0.3s;
+    text-align: center;
+    white-space: nowrap;
 }
 
 /* Hover effect for add to cart button */
@@ -188,10 +193,6 @@ body {
 @media (max-width: 1160px) {
     .product-wrapper {
         flex-direction: column;
-        margin-right: 10px;
-    }
-    .product-details {
-        margin-right: 20px;
     }
 }
 
@@ -202,21 +203,50 @@ body {
     }
 }
 
-/* Responsive design for phone-sized screens */
+/* Responsive design for smaller screens (mobile) */
 @media (max-width: 475px) {
-    .product-wrapper {
+    .product-container {
+        display: flex;
         flex-direction: column;
+        align-items: center;
     }
 
-    /* Resize product image for smaller screens */
+    .product-form label,
+    .product-language label {
+        width: 80px; /* Adjust label width to be less wide on mobile */
+        text-align: left;
+    }
+
+    .product-form select,
+    .product-language select {
+        width: calc(80% - 80px); /* Adjust select width to fit the remaining space */
+    }
+
+    .add-to-cart {
+        width: 90%;
+        font-size: 0.9em;
+        padding: 10px 15px;
+        margin: 15px 0;
+    }
+
+    .frequently-bought {
+        order: 2;
+        margin-top: 20px;
+        text-align: left;
+    }
+
     .product-image img {
-        width: 95%;
+        width: 80%;
+        height: auto;
     }
 
-    /* Resize thumbnails for smaller screens */
     .product-thumbnails img {
-        width: 80px;
-        height: 80px;
-        transition: none;
+        margin: 5px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .product-options {
+        margin-bottom: 20px;
     }
 }

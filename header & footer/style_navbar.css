@@ -78,6 +78,7 @@ body {
     transition: background-color 0.3s ease;
     margin-right: 5px;
     font-weight: bold;
+    border-radius: 5px;
 }
 
 /* strying for the hover effect */
@@ -146,6 +147,7 @@ body {
     margin-left: 1px;
     transition: color 0.3s ease;
 }
+
 
 /* Media query for smaller screens (mobile) */
 @media screen and (max-width: 1200px) {
@@ -218,10 +220,7 @@ body {
     /* When expanded, show the navbar links and set them in a vertical column */
     .navbar.expanded a {
         display: block;
-        width: 100%;
         text-align: left;
-        background-color: var(--light_blue);
-        /* Optional: ensure background is same as navbar */
         padding: 10px 20px;
         font-weight: bold;
     }
@@ -266,5 +265,48 @@ body {
         margin-top: 10px;
         
         justify-content: flex-start;
+    }
+    
+}
+
+
+.dropdown {
+    display: none; /* Standaard verberg de dropdown */
+    position: absolute;
+    background-color: white; /* Achtergrondkleur */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    min-width: 100px; /* Pas de breedte aan naar wens */
+    border-radius: 5px; /* Afgeronde hoeken */
+    opacity: 0; /* Begin met onzichtbaar */
+    display: none; /* Of 'none', afhankelijk van de status */
+}
+
+.dropdown.show {
+    display: block; /* Toegepast als de dropdown zichtbaar is */
+    opacity: 1; /* Maak het zichtbaar */
+    border-radius: 5px; /* Afgeronde hoeken */
+}
+
+/* Styling voor de dropdown links */
+.dropdown a {
+    display: block;
+    padding: 8px 16px;
+    color: var(--antracite);
+    text-decoration: none;
+    margin-right: 0px;
+    background-color: var(--white);
+    border-radius: 5px; /* Afgeronde hoeken */
+}
+
+.dropdown a:hover {
+    color: var(--white);
+}
+
+/* Media query voor kleinere schermen (mobiel) */
+@media screen and (max-width: 1200px) {
+    .dropdown {
+        display: none; /* Zorg ervoor dat de dropdown verborgen is */
+        opacity: 0; /* Zorg ervoor dat de dropdown niet zichtbaar is */
     }
 }

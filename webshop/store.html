@@ -10,103 +10,110 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons&family=Material+Symbols+Outlined" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="style/style-store.css">
+
     <title>Store</title>
 </head>
 
 <body>
     <header>
-        <!-- Navigation Bar -->
         <nav class="navbar">
             <div class="navbar-logo">
-                <img src="../media/depotsoftware.webp" alt="Depot Software" onclick="window.location.href='../pages/home.html';">
+                <img src="../media/depotsoftware.webp" alt="Depot Software"
+                    onclick="window.location.href='../pages/home.html';">
             </div>
 
             <!-- Menu Icon for mobile -->
             <div class="nav-bar-menu-icon">
                 <span class="material-icons">menu</span>
             </div>
-
-            <!-- Navbar Links -->
             <div class="navbar-links">
-                <a href="../pages/home.html" class="shine">Home</a>
-                <a href="../webshop/store.html" class="pink_button shine">Store</a>
-                <a href="../pages/implementations.html" class="shine">Implementation</a>
-                <a href="../pages/about us 1.html" class="shine">About Us</a>
-                <a href="../pages/contact.html" class="shine">Contact</a>
+                <a href="../pages/home.html" class="shine" onclick="sendAnalytics('Home')">Home</a>
+                <a href="../webshop/store.html" class="pink_button icon-button shine" onclick="sendAnalytics('Store')">Store</a>
+                <a href="../pages/implementations.html" class="shine" onclick="sendAnalytics('Implementation')">Implementation</a>
+                <a href="../pages/about us 1.html" class="shine" onclick="sendAnalytics('AboutUs')">About Us</a>
+                <a href="../pages/contact.html" class="shine" onclick="sendAnalytics('Contact')">Contact</a>
             </div>
-
-            <!-- Search Bar -->
             <div class="nav-bar-search-container">
-                <input type="text" placeholder="Search">
-                <span class="material-icons nav-bar-search-icon">search</span>
+                <input type="text" id="search-input" placeholder="Search" onkeydown="if(event.key === 'Enter'){ redirectToSearchPage(); }">
+                <span class="material-icons nav-bar-search-icon" onclick="redirectToSearchPage()">search</span>
             </div>
-
-            <!-- User & Cart Icons -->
             <div class="nav-bar-icons">
-                <a href="../portal/login.html" class="icon-button shine">
-                    <span class="material-symbols-outlined">person</span>
-                </a>
+                <div class="user-icon-container">
+                    <a href="#" id="user-icon" class=" shine" onclick="toggleDropdown()">
+                        <span class="material-symbols-outlined" id="user-icon-symbol">how_to_reg</span>
+                        <!-- Changed here -->
+                    </a>
+                    <div class="dropdown" id="user-dropdown"> <!-- Start hidden -->
+                        <a href="#" id="portal-link" class="shine">Portal</a>
+                        <a href="#" onclick="logout()" class="shine">Logout</a>
+                    </div>
+                </div>
                 <a href="../webshop/shopping cart.html" class="icon-button shine">
-                    <span class="material-icons ">shopping_cart</span>
+                    <span class="material-icons">shopping_cart</span>
+                    <span id="cart-count" class="cart-count" style="display: none;">0</span>
                 </a>
             </div>
+            <script src="../header & footer/script-loginIcon.js" defer></script>
             <script src="../header & footer/script_navbar.js" defer></script>
-            <!-- Use the 'defer' so that the JS loads after the HTML loads -->
+            <link rel="stylesheet" href="../header & footer/style shopping cart icon.css">
+            <script src="../header & footer/shopping cart icoon.js"></script>
+            <script src="../header & footer/search-bar.js"></script>
         </nav>
     </header>
 
     <main>
+        <div id="popup-container"></div>
         <div class="store-content-wrapper">
             <div class="store-container">
                 <!-- Sidebar -->
                 <aside class="store-sidebar">
-                    <!-- Filter Toggle Button -->
-                    <button class="close-sidebar-button">✖</button>
+                    <!-- Close sidebar btn Google ICON! -->
+                    <button class="close-sidebar-button"><span class="material-icons-outlined">close</span></button>
                     <button class="filter-toggle-btn">Filters</button>
                 
                     <div class="filter-options-container">
                         <div class="filter-category">
-                            <div class="selected-filters-card-side" id="selected-filters-2">
+                            <div class="selected-filters-card-side" id="selected-filters-2"  style="display: none">
                         </div>
                             <button class="filter-header">Foundation</button>
                             <div class="filter-options">
-                                <div class="filter-option-card">Basic</div>
-                                <div class="filter-option-card">Add. Options</div>
+                                <div class="filter-option-card">Foundation - Basic</div>
+                                <div class="filter-option-card">Foundation - Add. options</div>
                             </div>
                         </div>
             
                         <div class="filter-category">
                             <button class="filter-header">Depot Services</button>
                             <div class="filter-options">
-                                <div class="filter-option-card">Basic</div>
-                                <div class="filter-option-card">Optimized</div>
-                                <div class="filter-option-card">Add. Options</div>
+                                <div class="filter-option-card">Depot Services - Basic</div>
+                                <div class="filter-option-card">Depot Services - Optimized</div>
+                                <div class="filter-option-card">Depot Services - Add. options</div>
                             </div>
                         </div>
             
                         <div class="filter-category">
                             <button class="filter-header">Loaded Services</button>
                             <div class="filter-options">
-                                <div class="filter-option-card">Basic</div>
-                                <div class="filter-option-card">Optimized</div>
-                                <div class="filter-option-card">Add. Options</div>
+                                <div class="filter-option-card">Loaded Services - Basic</div>
+                                <div class="filter-option-card">Loaded Services - Optimized</div>
+                                <div class="filter-option-card">Loaded Services - Add. options</div>
                             </div>
                         </div>
             
                         <div class="filter-category">
                             <button class="filter-header">Cleaning Services</button>
                             <div class="filter-options">
-                                <div class="filter-option-card">Basic</div>
-                                <div class="filter-option-card">Optimized</div>
-                                <div class="filter-option-card">Add. Options</div>
+                                <div class="filter-option-card">Cleaning Services - Basic</div>
+                                <div class="filter-option-card">Cleaning Services - Optimized</div>
+                                <div class="filter-option-card">Cleaning Services - Add. options</div>
                             </div>
                         </div>
             
                         <div class="filter-category">
                             <button class="filter-header">M&R Services</button>
                             <div class="filter-options">
-                                <div class="filter-option-card">Basic</div>
-                                <div class="filter-option-card">Optimized</div>
+                                <div class="filter-option-card">M&R Services - Basic</div>
+                                <div class="filter-option-card">M&R Services - Optimized</div>
                             </div>
                         </div>
                     </div>
@@ -121,7 +128,6 @@
                             <span class="material-icons">menu</span>
                         </div>
                         <div id="selected-filters" class="selected-filters-card"></div>
-                        
                         <div class="store-search-bar-card">
                             <div class="store-search-bar">
                                 <span class="material-icons search-icon">search</span>
@@ -129,119 +135,17 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="store-product-grid">
-                        <!-- Product Card 1 -->
-                        <div class="store-product-card">
-                            <h3 class="store-product-title">Product 1</h3>
-                            <div class="store-product-image">
-                                <img src="https://via.placeholder.com/150" alt="Product Image">
-                            </div>
-                            <div class="store-product-department">
-                                <p> Foundation Department</p>
-                            </div>
-                            <div class="store-product-footer">
-                                <p class="store-product-price">€5</p>
-                                <button class="pink_button_shop" >
-                                    <p class="cart" style="margin-left: 15px;">Add To Cart</p>
-                                    <span class="material-icons-outlined">add_shopping_cart</span>
-                                </button>
-                            </div>
-                        </div>
-        
-                        <!-- Product Card 2 -->
-                        <div class="store-product-card">
-                            <h3 class="store-product-title">Product 2</h3>
-                            <div class="store-product-image">
-                                <img src="https://via.placeholder.com/150" alt="Product Image">
-                            </div>
-                            <div class="store-product-department">
-                                <p> Foundation Department</p>
-                            </div>
-                            <div class="store-product-footer">
-                                <p class="store-product-price">€5</p>
-                                <button class="pink_button_shop" onclick="addToCart()">
-                                    <p class="cart" style="margin-left: 15px;">Add To Cart</p>
-                                    <span class="material-icons-outlined">add_shopping_cart</span>
-                                </button>
-                            </div>
-                        </div>
-                        <!-- Product Card 3 -->
-                        <div class="store-product-card">
-                            <h3 class="store-product-title">Product 3</h3>
-                            <div class="store-product-image">
-                                <img src="https://via.placeholder.com/150" alt="Product Image">
-                            </div>
-                            <div class="store-product-department">
-                                <p> Foundation Department</p>
-                            </div>
-                            <div class="store-product-footer">
-                                <p class="store-product-price">€5</p>
-                                <button class="pink_button_shop" onclick="addToCart()">
-                                    <p class="cart" style="margin-left: 15px;">Add To Cart</p>
-                                    <span class="material-icons-outlined">add_shopping_cart</span>
-                                </button>
-                            </div>
-                        </div>
-                        <!-- Product Card 4 -->
-                        <div class="store-product-card">
-                            <h3 class="store-product-title">Product 4</h3>
-                            <div class="store-product-image">
-                                <img src="https://via.placeholder.com/150" alt="Product Image">
-                            </div>
-                            <div class="store-product-department">
-                                <p> Foundation Department</p>
-                            </div>
-                            <div class="store-product-footer">
-                                <p class="store-product-price">€5</p>
-                                <button class="pink_button_shop" onclick="addToCart()">
-                                    <p class="cart" style="margin-left: 15px;">Add To Cart</p>
-                                    <span class="material-icons-outlined">add_shopping_cart</span>
-                                </button>
-                            </div>
-                        </div>
-        
-                        <!-- Product Card 5 -->
-                        <div class="store-product-card">
-                            <h3 class="store-product-title">Product 5</h3>
-                            <div class="store-product-image">
-                                <img src="https://via.placeholder.com/150" alt="Product Image">
-                            </div>
-                            <div class="store-product-department">
-                                <p> Foundation Department</p>
-                            </div>
-                            <div class="store-product-footer">
-                                <p class="store-product-price">€5</p>
-                                <button class="pink_button_shop" onclick="addToCart()">
-                                    <p class="cart" style="margin-left: 15px;">Add To Cart</p>
-                                    <span class="material-icons-outlined">add_shopping_cart</span>
-                                </button>
-                            </div>
-                        </div>
-                        <!-- Product Card 6 -->
-                        <div class="store-product-card">
-                            <h3 class="store-product-title">Product 6</h3>
-                            <div class="store-product-image">
-                                <img src="https://via.placeholder.com/150" alt="Product Image">
-                            </div>
-                            <div class="store-product-department">
-                                <p> Foundation Department</p>
-                            </div>
-                            <div class="store-product-footer">
-                                <p class="store-product-price">€5</p>
-                                <button class="pink_button_shop" onclick="addToCart()">
-                                    <p class="cart" style="margin-left: 15px;">Add To Cart</p>
-                                    <span class="material-icons-outlined">add_shopping_cart</span>
-                                </button>
-                            </div>
-                        </div>
+                    <div id="suggestion-text" style="display: none; margin-bottom: 10px;"></div>
+                    <div class="store-product-grid" id="product-grid">
+                        <!-- Dynamisch gegenereerde producten -->
                     </div>
-                    <div class="pagination">
-                        <button class="pagination-button" onclick="previousPage()" id="prevButton">Previous</button>
-                        <button class="pagination-button" onclick="goToPage(1)">1</button>
-                        <button class="pagination-button" onclick="goToPage(2)">2</button>
-                        <button class="pagination-button" onclick="goToPage(3)">3</button>
-                        <button class="pagination-button" onclick="nextPage()" id="nextButton">Next</button>
+                    <div id="not-found-container" style="display: none;">
+                        <p>Haven't found what your looking for?</p>
+                        <a href="../pages/contact.html"><button class="contact-button" style="border: none;"> Contact Us</button></a>
+
+                    </div>
+                    <div class="pagination" id="pagination">
+                        <!-- Dynamische paginering -->
                     </div>
                 </section>
             </div>
@@ -329,7 +233,10 @@
             </div>            
         </div>
     </footer>
+    <script src="script/script store popup.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0"></script>
     <script src="script/script-store.js" defer></script>
+    <script src="script/script store popup.js"></script>
 </body>
 
 </html>

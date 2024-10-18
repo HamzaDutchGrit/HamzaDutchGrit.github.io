@@ -27,6 +27,10 @@ body {
     padding: 0; /* Remove default padding */
 }
 
+main{
+    opacity: 0;
+}
+
 /* Button Styles */
 .pink_button {
     background-color: var(--pink); /* Background color for buttons */

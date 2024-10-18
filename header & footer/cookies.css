@@ -10,15 +10,11 @@
     --pink: #EB6363;
 }
 
-* {
+.cookie-wrapper {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
-}
-
-body {
-    min-height: 100vh;
 }
 
 /* Cookie consent banner */
@@ -32,6 +28,7 @@ body {
     border-radius: 8px;
     padding: 15px 25px 22px;
     transition: left 1.5s ease;
+    z-index: 3000;
 }
 
 .cookie-wrapper.show {
@@ -39,18 +36,18 @@ body {
     bottom: 0px;
 }
 
-.cookie-wrapper header {
+.cookie-wrapper .cookiesheader {
     display: flex;
     align-items: center;
     column-gap: 15px;
 }
 
-header i {
+.cookiesheader i {
     color: var(--light_blue);
     font-size: 32px;
 }
 
-header h2 {
+.cookiesheader h2 {
     color: var(--black);
     font-weight: 500;
 }

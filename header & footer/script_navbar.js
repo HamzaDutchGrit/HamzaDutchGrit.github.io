@@ -1,13 +1,26 @@
-// Menu Toggle for Mobile
-document.querySelector('.nav-bar-menu-icon').addEventListener('click', function() { // checks if the menu button is pressed
+document.querySelector('.nav-bar-menu-icon').addEventListener('click', function() {
     const navbar = document.querySelector('.navbar');
-    navbar.classList.toggle('expanded');
-
-    // Toggle Menu Icon
+    const userIconContainer = document.querySelector('.user-icon-container');
+    const dropdown = document.querySelector('.dropdown');
     const menuIcon = document.querySelector('.nav-bar-menu-icon span');
+
+    // Toggle de navbar
+    navbar.classList.toggle('expanded');
+    menuIcon.textContent = navbar.classList.contains('expanded') ? 'close' : 'menu';
+
+    // Toegepaste dropdown logica
     if (navbar.classList.contains('expanded')) {
-        menuIcon.textContent = 'close'; // Change to 'X'
+        if (window.innerWidth > 1200) {
+            dropdown.style.display = 'block'; // Maak de dropdown zichtbaar bij grotere schermen
+            dropdown.style.opacity = '1';
+        } else {
+            dropdown.style.display = 'none'; // Verberg de dropdown bij kleinere schermen
+        }
+        userIconContainer.style.display = 'block'; // Maak de user-icon-container zichtbaar
     } else {
-        menuIcon.textContent = 'menu'; // Change back to 'menu'
+        dropdown.style.opacity = '0'; // Zet opacity naar 0 bij het sluiten
+        setTimeout(() => {
+            dropdown.style.display = 'none'; // Verberg de dropdown na de overgang
+        }, 300);
     }
 });

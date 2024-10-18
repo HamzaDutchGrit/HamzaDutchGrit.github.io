@@ -73,3 +73,13 @@ const executeCodes = () => {
 
 // Voer de functie uit wanneer de pagina volledig geladen is
 window.addEventListener("load", executeCodes);
+
+document.addEventListener("DOMContentLoaded", () => {
+    const infoprivacy = document.getElementById("infoprivacy");
+    const popupOverlay = document.getElementById("popupOverlay"); // Zorg ervoor dat je het juiste element selecteert
+    const popupbtn = document.getElementsByClassName("popup-options")
+
+    infoprivacy.addEventListener("click", () => {
+        popupOverlay.style.display = "flex";
+    });
+});

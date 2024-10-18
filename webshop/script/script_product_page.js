@@ -1,40 +1,39 @@
-// Selecteer alle taaloptieknoppen op de pagina
-const languageButtons = document.querySelectorAll('.language-options button');
+async function loadProduct() {
+    const params = new URLSearchParams(window.location.search);
+    const productCode = params.get('code');
 
-// Selecteer alle boekoptieknoppen op de pagina
-const bookButtons = document.querySelectorAll('.book-form-options button');
+    if (!productCode) {
+        console.error("Geen productcode in de URL gevonden.");
+        return;
+    }
 
-// Selecteer de winkelwagenknop
-const cartButton = document.querySelector('.cart-button');
+    try {
+        const response = await fetch('../webshop/products.json');
+        const data = await response.json();
+        const products = Object.values(data.discipline_group).flat();
 
-// Variabelen om de geselecteerde taal en het geselecteerde boek op te slaan
-let selectedLanguage = null;
-let selectedBook = null;
+        console.log("Gelaadde producten:", products);
 
-// Functie om de status van de winkelwagenknop bij te werken
-// Schakelt de knop in als er zowel een taal als een boek is geselecteerd, anders schakelt het de knop uit
-function updateCartButton() {
-    if (selectedLanguage && selectedBook) {
-        cartButton.disabled = false; // Schakel de winkelwagenknop in
-    } else {
-        cartButton.disabled = true;  // Schakel de winkelwagenknop uit
+        const product = products.find(p => p.code === productCode);
+
+        if (product) {
+            document.getElementById('product-title').innerText = product.product;
+            document.getElementById('product-description').innerText = product.long_description;
+
+            const productImage = document.querySelector('.product-image img');
+            productImage.src = product.image;
+
+            // Update de URL met de nieuwe productcode zonder de pagina opnieuw te laden
+            const newUrl = `${window.location.pathname}?code=${product.code}`;
+            window.history.pushState({ path: newUrl }, '', newUrl);
+
+            console.log("Gevonden product:", product);
+        } else {
+            console.error("Product niet gevonden voor code: " + productCode);
+        }
+    } catch (error) {
+        console.error("Fout bij het laden van producten:", error);
     }
 }
 
-// Voeg event listeners toe aan elke taaloptieknop
-// Wanneer een knop wordt aangeklikt, sla de geselecteerde taal op en werk de winkelwagenknopstatus bij
-languageButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        selectedLanguage = button.getAttribute('data-lang');  // Haal de taalgegevens van de knop op
-        updateCartButton();  // Werk de status van de winkelwagenknop bij
-    });
-});
-
-// Voeg event listeners toe aan elke boekoptieknop
-// Wanneer een knop wordt aangeklikt, sla het geselecteerde boek op en werk de winkelwagenknopstatus bij
-bookButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        selectedBook = button.getAttribute('data-book');  // Haal de boekgegevens van de knop op
-        updateCartButton();  // Werk de status van de winkelwagenknop bij
-    });
-});
+window.onload = loadProduct;
