@@ -123,4 +123,16 @@
     .flowchart_container{
         display: none;
     }
+    
+    .implementations_text {
+        color: var(--dark_blue);
+        font-size: 1.5em; /* Grootte voor de hoofdtekst */
+        margin-bottom: 10px;
+    }
+
+    .implementations_subtext {
+        color: var(--light_blue);
+        font-size: 1rem; /* Middelgrote tekst */
+        margin-bottom: 10px;
+    }
 }
