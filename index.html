@@ -60,11 +60,46 @@
         </nav>
     </header>
 
-    <main>
+<!-- Voeg dit script toe om te vertalen via Google Translate API -->
 
-    <!-- Jouw code -->
-        
-    </main>    
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  
+  <!-- De main sectie met tekst -->
+  <main id="main-content">
+    
+    <p>Welcome to our website! Here you will find various services.</p>
+    <p>Click on the icons below to learn more.</p>
+  
+    <!-- Material Icons die niet vertaald moeten worden -->
+    <span class="material-icons">home</span>
+    <span class="material-icons">search</span>
+  
+    <!-- Material Symbols Outlined die ook niet vertaald moeten worden -->
+    <span class="material-symbols-outlined">home</span>
+    <span class="material-symbols-outlined">search</span>
+  </main>
+  
+  <script>
+    // Functie om de vertaling te laten werken, maar iconen niet te vertalen
+    function preventIconTranslation() {
+      const icons = document.querySelectorAll('.material-icons, .material-symbols-outlined');
+      icons.forEach(icon => {
+        // Voorkomt dat deze iconen vertaald worden
+        icon.setAttribute('translate', 'no');
+      });
+    }
+  
+    // Wacht totdat de pagina volledig geladen is en roep de vertaalfunctie aan
+    window.onload = function() {
+      // Eerst vertaal de pagina
+      googleTranslateElementInit();
+      
+      // Zorg ervoor dat de iconen niet vertaald worden
+      preventIconTranslation();
+    };
+  </script>
+  
+
         <!-- Cookie consent banner -->
         <link rel="stylesheet" href="../header & footer/cookies.css">
         <script src="../header & footer/cookies.js" defer></script>
@@ -155,12 +190,8 @@
                 </div>
     
                 <div class="language-flags-container">
-                    <div class="language-flags">
-                        <img href="#" src="../media/germany.webp" alt="DE">
-                        <img href="#" src="../media/netherlands.webp" alt="NL">
-                        <img href="#" src="../media/spain.webp" alt="ES">
-                        <img href="#" src="../media/english.webp" alt="ENG">
-                    </div>
+                    <div id="google_translate_element"></div>
+                    <script src="../header & footer/translations.js"></script>
                 </div>
             </div>
             <!-- Logo's of our partners -->

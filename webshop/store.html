@@ -11,13 +11,14 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="style/style-store.css">
 
+
     <title>Store</title>
 </head>
 
 <body>
     <header>
         <nav class="navbar">
-            <div style="cursor: pointer;" class="navbar-logo">
+            <div class="navbar-logo">
                 <img src="../media/depotsoftware.webp" alt="Depot Software"
                     onclick="window.location.href='../pages/home.html';">
             </div>
@@ -66,10 +67,10 @@
         <div class="store-content-wrapper">
             <div class="store-container">
                 <!-- Sidebar -->
-                <aside class="store-sidebar">
+                <aside class="store-sidebar" >
                     <!-- Close sidebar btn Google ICON! -->
                     <button class="close-sidebar-button"><span class="material-icons-outlined">close</span></button>
-                    <button class="filter-toggle-btn">Filters</button>
+                    <button class="filter-toggle-btn" style=" background-color: var(--dark_blue);">Filters</button>
                 
                     <div class="filter-options-container">
                         <div class="filter-category">
@@ -152,11 +153,94 @@
         </div>
     </main>    
 
+
+    <div id="popup-overlay" class="popup-overlay" style="display:none; height: 1000px;" onclick="hideStorePopup()"></div> <!-- Donkere overlay -->
+
+    <div id="popup" class="popup-container" style="display:none; height: fit-content;">
+        <!-- Popup Header -->
+        <div class="popup-header">
+            <span class="material-icons success-icon">check_circle</span>
+            <p>Success! Your product has been added.</p>
+            <span class="material-icons popup-close"  onclick="hideStorePopup()">close</span> <!-- Sluitknop -->
+        </div>
+
+        <!-- Product Details -->
+        <div class="popup-product">
+            <img src="https://via.placeholder.com/150" alt="Product Image">
+            <div class="product-info">
+                <h3 id="product-name">Product Name</h3>
+                <p id="product-price">$Price</p>
+            </div>
+        </div>
+
+
+
+        <!-- 'You may also like' Section -->
+        <div class="popup-recommendations">
+            <div class="popup-header">
+                <p>You may also like.</p>
+            </div>
+            <!-- First recommended product -->
+            <div class="popup-recommendation">
+                <img src="https://via.placeholder.com/150" alt="Recommendation Image 1">
+                <div class="recommendation-info">
+                    <h3 class="rec-products">Product 1</h3>
+                    <p>$Price1</p>
+                </div>
+                
+                <div class="recommendation-footer">
+                    <button class="pink_button">
+                        Add to Cart
+                        <span class="material-icons">add_shopping_cart</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Second recommended product -->
+            <div class="popup-recommendation">
+                <img src="https://via.placeholder.com/150" alt="Recommendation Image 2">
+                <div class="recommendation-info">
+                    <h3 class="rec-products">Product 2</h3>
+                    <p>$Price2</p>
+                </div>
+                <div class="recommendation-footer">
+                    <button class="pink_button">
+                        Add to Cart
+                        <span class="material-icons">add_shopping_cart</span>
+                    </button>                        
+                </div>
+            </div>
+
+            <!-- Third recommended product -->
+            <div class="popup-recommendation">
+                <img src="https://via.placeholder.com/150" alt="Recommendation Image 3">
+                <div class="recommendation-info">
+                    <h3 class="rec-products">Product 3</h3>
+                    <p>$Price3</p>
+                </div>
+                <div class="recommendation-footer">
+                    <button class="pink_button">
+                        Add to Cart
+                        <span class="material-icons">add_shopping_cart</span>
+                    </button>                        
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Buttons -->
+        <div class="popup-footer">
+            <a href="store.html" class="store-product-link"><button class="dark-blue-button" id="dark-button">Continue Shopping</button></a>
+            <a href="shopping cart.html" class="shopping-cart-link"> <button class="light-blue-button">View shopping cart</button></a>
+        </div>
+    </div>
+
+
     <footer class="collom">
         <hr style="margin-top: -1px;">
         <!-- Area for the logo and the links around the site -->
         <div class="footer_logo">
-            <img src="../media/depotsoftware.webp" alt="Depot Software" onclick="window.location.href='../pages/home.html';">
+            <img src="../media/depotsoftware.webp" alt="Depot Software"
+                onclick="window.location.href='../pages/home.html';">
         </div>
         <div class="footer-container">
             <div class="left-side">
@@ -164,11 +248,13 @@
                     <h3>Contact</h3>
                     <p>Email: <a href="mailto:info@depotsoftware.com">info@depotsoftware.com</a></p>
                     <p>Telefoon: <a href="tel:31889998999">+31 88 999 8999</a></p>
-                    <p>Adres: <a href="https://www.google.com/maps?rlz=1C1ONGR_nlNL987NL987&sxsrf=ALiCzsYZG5MF2WryvnxhslGB4Gt3lF2r0w:1666708591893&q=De+Zelling+8+3342+GS+Hendrik-Ido-Ambacht+The+Netherlands&biw=1680&bih=931&dpr=1&um=1&ie=UTF-8&sa=X&ved=2ahUKEwjx2d6tzfv6AhXZhv0HHf-UDDgQ_AUoAXoECAIQAw">De Zelling 8<br>3342GS Hendrik-Ido-Ambacht<br>The Netherlands</a></p>
-
+                    <p>Adres: <a
+                            href="https://www.google.com/maps?rlz=1C1ONGR_nlNL987NL987&sxsrf=ALiCzsYZG5MF2WryvnxhslGB4Gt3lF2r0w:1666708591893&q=De+Zelling+8+3342+GS+Hendrik-Ido-Ambacht+The+Netherlands&biw=1680&bih=931&dpr=1&um=1&ie=UTF-8&sa=X&ved=2ahUKEwjx2d6tzfv6AhXZhv0HHf-UDDgQ_AUoAXoECAIQAw">De
+                            Zelling 8<br>3342GS Hendrik-Ido-Ambacht<br>The Netherlands</a></p>
+    
                 </div>
             </div>
-
+    
             <div class="container-start-cus">
                 <div class="start-using">
                     <h3>Start Using Depot Software</h3>
@@ -176,7 +262,7 @@
                     <p><a href="../webshop/store.html">Solution's store</a></p>
                     <p><a href="../pages/implementations.html">Implementations</a></p>
                 </div>
-
+    
                 <div class="customers">
                     <h3>Customers</h3>
                     <p><a href="../portal/login.html">Login portal</a></p>
@@ -190,17 +276,15 @@
             </div>
             <!-- Search bar -->
             <div class="footer-search-container">
-                <div class="footer-bar-search-container">
+                <div class="footer-bar-search-container" onclick="window.location.href='../pages/search-results.html'">
                     <input type="text" placeholder="Search">
                     <span class="material-icons nav-bar-search-icon">search</span>
                 </div>
+    
                 <div class="language-flags-container">
-                    <div class="language-flags">
-                        <img href="#" src="../media/germany.webp" alt="DE">
-                        <img href="#" src="../media/netherlands.webp" alt="NL">
-                        <img href="#" src="../media/spain.webp" alt="ES">
-                        <img href="#" src="../media/english.webp" alt="ENG">
-                    </div>
+                    <div id="google_translate_element"></div>
+                    <script src="../header & footer/translations.js"></script>
+                    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
                 </div>
             </div>
             <!-- Logo's of our partners -->
@@ -211,32 +295,38 @@
                 <img class="microsoft_logo" src="../media/microsoft.webp" alt="Microsoft Partner logo">
             </div>
         </div>
-
+    
         <hr>
         <!-- Bottom layer of the footer with additional info -->
         <div class="footer-bottom">
-            <button href="#" class="privacy-btn">Privacy Settings</button>
-            <p class="terms_bottom">&copy; 2024 - <a href="terms & conditions.html">Terms & Conditions</a> | <a href="privacy policy.html">Privacy Policy</a> | <a href="sitemap.html">Sitemap</a></p>
+            <button class="privacy-btn" id="infoprivacy">Privacy Settings</button>
+            <p class="terms_bottom">&copy; 2024 - <a href="terms & conditions.html">Terms & Conditions</a> | <a
+                    href="privacy policy.html">Privacy Policy</a> | <a href="sitemap.html">Sitemap</a></p>
             <div class="social-icons">
                 <a href="https://www.linkedin.com/company/depotsoftware#" target="_blank" rel="noopener noreferrer">
                     <img src="../media/linkedin.webp" alt="LinkedIn">
                 </a>
-                <a href="https://www.youtube.com/playlist?list=PLumDEh0xMtUTWHhcQ6U19IQeum00ztJYI" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.youtube.com/playlist?list=PLumDEh0xMtUTWHhcQ6U19IQeum00ztJYI" target="_blank"
+                    rel="noopener noreferrer">
                     <img src="../media/youtube.webp" alt="YouTube">
                 </a>
-                <a href="https://www.instagram.com/lucrasoftict?igsh=cGJxcXBka3hhM2h3" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.instagram.com/lucrasoftict?igsh=cGJxcXBka3hhM2h3" target="_blank"
+                    rel="noopener noreferrer">
                     <img src="../media/instagram.webp" alt="Instagram">
                 </a>
                 <a href="https://www.depotsoftware.com/news-customer-cases/rss/" target="_blank" rel="noopener noreferrer">
                     <img src="../media/rss.webp" alt="RSS">
                 </a>
-            </div>            
+            </div>
         </div>
     </footer>
-    <script src="script/script store popup.js"></script>
+        <button id="scrollToTopBtn">
+            <link rel="stylesheet" href="../header & footer/style_scroll.css">
+            <script src="../header & footer/script_scroll.js"></script>
+            <span class="material-symbols-outlined scroll-icon">keyboard_double_arrow_up</span>
+        </button>
     <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0"></script>
     <script src="script/script-store.js" defer></script>
-    <script src="script/script store popup.js"></script>
+    
 </body>
-
 </html>

@@ -16,6 +16,8 @@
     <!-- Linking stylesheet for the product page -->
     <link rel="stylesheet" href="../webshop/style/product style.css">
 
+    
+
     <!-- Page title -->
     <title>Product - Depot Software</title>
 </head>
@@ -24,7 +26,7 @@
     <!-- Header section -->
     <header>
         <nav class="navbar">
-            <div style="cursor: pointer;" class="navbar-logo">
+            <div class="navbar-logo">
                 <img src="../media/depotsoftware.webp" alt="Depot Software"
                     onclick="window.location.href='../pages/home.html';">
             </div>
@@ -33,10 +35,9 @@
             <div class="nav-bar-menu-icon">
                 <span class="material-icons">menu</span>
             </div>
-            <script src="../header & footer/script-analytics.js"></script>
             <div class="navbar-links">
                 <a href="../pages/home.html" class="shine" onclick="sendAnalytics('Home')">Home</a>
-                <a href="../webshop/store.html" class="pink_button icon-button shine" onclick="sendAnalytics('Store')">Store</a>
+                <a href="../webshop/store.html" class="pink_button icon-button shine" onclick="sendAnalytics('Store')" style="height: fit-content; margin-top: 10px; margin-bottom: 0px;">Store</a>
                 <a href="../pages/implementations.html" class="shine" onclick="sendAnalytics('Implementation')">Implementation</a>
                 <a href="../pages/about us 1.html" class="shine" onclick="sendAnalytics('AboutUs')">About Us</a>
                 <a href="../pages/contact.html" class="shine" onclick="sendAnalytics('Contact')">Contact</a>
@@ -47,7 +48,7 @@
             </div>
             <div class="nav-bar-icons">
                 <div class="user-icon-container">
-                    <a href="#" id="user-icon" class="shine" onclick="toggleDropdown()">
+                    <a href="#" id="user-icon" class=" shine" onclick="toggleDropdown()">
                         <span class="material-symbols-outlined" id="user-icon-symbol">how_to_reg</span>
                         <!-- Changed here -->
                     </a>
@@ -71,20 +72,28 @@
 
     <!-- Main content section -->
     <main>
-        <div class="product-wrapper">
+        <div class="product-wrapper"> 
+            <!-- Button to go back to the store -->
             <div class="back-button-container">
                 <button class="back-button" onclick="window.history.back();">← Back</button>
             </div>
-
+    
+            <!-- Container for product details and images -->
             <div class="product-container">
+                <!-- Product image section -->
                 <div class="product-image">
-                    <img src="" alt="Product Image"> <!-- Het src wordt via JavaScript ingesteld -->
+                    <img id="product-image" src="https://via.placeholder.com/600x800" alt="Product Image">
                 </div>
-            
+    
+                <!-- Product details section -->
                 <div class="product-details">
-                    <h1 id="product-title"></h1> <!-- Dynamische titel -->
-                    <p id="product-description"></p> <!-- Dynamische beschrijving -->
-            
+                    <h1 id="product-title" class="store-product-title">Product Title</h1>
+
+                    <p id="product-description" class="product-description">
+                        Loading description...
+                    </p>
+    
+                    <!-- Product options for form and language selection -->
                     <div class="product-options">
                         <div class="product-form">
                             <label for="form">Form:</label>
@@ -93,10 +102,10 @@
                                 <option value="animation">Animation</option>
                             </select>
                         </div>
-            
+    
                         <div class="product-language">
                             <label for="language">Language:</label>
-                            <select id="language">
+                            <select id="Language">
                                 <option value="D">Dutch</option>
                                 <option value="E">English</option>
                                 <option value="S">Spanish</option>
@@ -104,24 +113,106 @@
                             </select>
                         </div>
                     </div>
-            
-                    <button class="add-to-cart">Add to Cart</button>
-            
-                    <!-- Moved Frequently Bought Together here -->
+    
+                    <div>
+                        <p id="product-price" class="product-price">price: $Price</p>
+                    </div>
+    
+                    <!-- Button to add the product to the cart -->
+                    <button class="add-to-cart" onclick="addToCart('${product.title}', '${product.code}', '${product.price}', '${product.image}', '${product.short_description }'); cartIcon(event)">Add To Cart</button>
+                    
+                    <!-- Frequently bought together section -->
                     <div class="frequently-bought">
-                        <h3>Frequently Bought Together</h3>
+                        <h3>You may also like</h3>
                         <div class="product-thumbnails">
-                            <img src="https://via.placeholder.com/80x80" alt="Thumbnail 1">
-                            <img src="https://via.placeholder.com/80x80" alt="Thumbnail 2">
-                            <img src="https://via.placeholder.com/80x80" alt="Thumbnail 3">
                         </div>
                     </div>
                 </div>
             </div>
-            
+        </div>
     </main>
 
+    <div id="popup-overlay" class="popup-overlay" style="display:none; height: 1000px;" onclick="hideStorePopup()"></div> <!-- Donkere overlay -->
 
+    <div id="popup" class="popup-container" style="display:none; height: fit-content;">
+        <!-- Popup Header -->
+        <div class="popup-header">
+            <span class="material-icons success-icon">check_circle</span>
+            <p>Success! Your product has been added.</p>
+            <span class="material-icons popup-close"  onclick="hideStorePopup()">close</span> <!-- Sluitknop -->
+        </div>
+
+        <!-- Product Details -->
+        <div class="popup-product">
+            <img src="https://via.placeholder.com/150" alt="Product Image">
+            <div class="product-info">
+                <h3 id="product-name">Product Name</h3>
+                <p id="product-price">$Price</p>
+            </div>
+        </div>
+
+
+
+        <!-- 'You may also like' Section -->
+        <div class="popup-recommendations">
+            <div class="popup-header">
+                <p>You may also like</p>
+            </div>
+            <!-- First recommended product -->
+            <div class="popup-recommendation">
+                <img src="https://via.placeholder.com/150" alt="Recommendation Image 1">
+                <div class="recommendation-info">
+                    <h3 class="rec-products">Product 1</h3>
+                    <p>$Price1</p>
+                </div>
+                
+                <div class="recommendation-footer">
+                    <button class="pink_button">
+                        Add to Cart
+                        <span class="material-icons">add_shopping_cart</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Second recommended product -->
+            <div class="popup-recommendation">
+                <img src="https://via.placeholder.com/150" alt="Recommendation Image 2">
+                <div class="recommendation-info">
+                    <h3 class="rec-products">Product 2</h3>
+                    <p>$Price2</p>
+                </div>
+                <div class="recommendation-footer">
+                    <button class="pink_button">
+                        Add to Cart
+                        <span class="material-icons">add_shopping_cart</span>
+                    </button>                        
+                </div>
+            </div>
+
+            <!-- Third recommended product -->
+            <div class="popup-recommendation">
+                <img src="https://via.placeholder.com/150" alt="Recommendation Image 3">
+                <div class="recommendation-info">
+                    <h3 class="rec-products">Product 3</h3>
+                    <p>$Price3</p>
+                </div>
+                <div class="recommendation-footer">
+                    <button class="pink_button">
+                        Add to Cart
+                        <span class="material-icons">add_shopping_cart</span>
+                    </button>                        
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Buttons -->
+        <div class="popup-footer">
+            <a href="store.html" class="store-product-link"><button class="dark-blue-button" id="dark-button">Continue Shopping</button></a>
+            <a href="shopping cart.html" class="shopping-cart-link"> <button class="light-blue-button">View shopping cart</button></a>
+        </div>
+    </div>
+    
+    
     <!-- Cookie consent banner -->
     <link rel="stylesheet" href="../header & footer/cookies.css">
     <script src="../header & footer/cookies.js" defer></script>
@@ -166,7 +257,6 @@
         </div>
     </div>
 
-    <!-- Footer section -->
     <footer class="collom">
         <hr style="margin-top: -1px;">
         <!-- Area for the logo and the links around the site -->
@@ -214,12 +304,9 @@
                 </div>
     
                 <div class="language-flags-container">
-                    <div class="language-flags">
-                        <img href="#" src="../media/germany.webp" alt="DE">
-                        <img href="#" src="../media/netherlands.webp" alt="NL">
-                        <img href="#" src="../media/spain.webp" alt="ES">
-                        <img href="#" src="../media/english.webp" alt="ENG">
-                    </div>
+                    <div id="google_translate_element"></div>
+                    <script src="../header & footer/translations.js"></script>
+                    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
                 </div>
             </div>
             <!-- Logo's of our partners -->

@@ -10,6 +10,10 @@ body {
     min-height: 100%;
 }
 
+.material-icons, .material-symbols-outlined {
+    font-family: 'Material Icons', 'Material Symbols Outlined', sans-serif;
+}
+
 /* Stylig for the active button */
 .pink_button {
     background-color: var(--pink);

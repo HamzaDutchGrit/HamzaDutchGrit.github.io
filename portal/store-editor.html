@@ -8,12 +8,9 @@
     <link rel="icon" href="../media/favicon.ico">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Icons&family=Material+Symbols+Outlined" />
-    <link rel="stylesheet" href="style/style-index.css">
-    <title>Search Results</title>
-    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
-    <!-- of als je het zelf host -->
-    <!-- <script src="../header & footer/fuse.min.js"></script> -->
-    <link rel="stylesheet" href="style/search.css">
+    <link rel="stylesheet" href="style/style-store-editor.css">
+    <script src="/portal/script/script-store-editor.js"></script>
+    <title>admin</title>
 </head>
 
 <body>
@@ -42,7 +39,7 @@
             </div>
             <div class="nav-bar-icons">
                 <div class="user-icon-container">
-                    <a href="#" id="user-icon" class="icon-button shine" onclick="toggleDropdown()">
+                    <a href="#" id="user-icon" class="pink_button icon-button shine" onclick="toggleDropdown()">
                         <span class="material-symbols-outlined" id="user-icon-symbol">how_to_reg</span>
                         <!-- Changed here -->
                     </a>
@@ -63,14 +60,79 @@
             <script src="../header & footer/search-bar.js"></script>
         </nav>
     </header>
-
+    <script src="/portal/script/auth-check.js"></script>
     <main>
-        <div class="search-results-container">
-            <input type="text" id="search-results-input" placeholder="Search again..." onkeypress="checkEnter(event)">
-            <button onclick="searchText()" class="shine">Search</button>
-            <div id="results"></div>
+        <!-- Dropdown Menu voor Disciplinegroepen -->
+        <div id="discipline-dropdown-container">
+            <select id="discipline-dropdown" onchange="handleDisciplineSelection()">
+                <!-- Opties worden door JavaScript toegevoegd -->
+            </select>
+        </div>
+    
+        <!-- Modal voor het toevoegen van een nieuwe Disciplinegroep -->
+        <div id="group-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeGroupModal()">&times;</span>
+                <h2>Add New Discipline Group</h2>
+                <input type="text" id="new-discipline-name" placeholder="Enter group name">
+                <button class="style-btn" onclick="createNewGroup()">Create Group</button>
+            </div>
+        </div>
+    
+        <!-- Container voor Productbeheer -->
+        <div id="product-container" style="display: none;">
+            <h3 id="selected-group-title">Group: </h3>
+            <div id="product-list"></div>
+        </div>
+        <div id="product-container-buttons" style="display: none;">
+            <button class="style-btn" onclick="openProductModal()">+ Add Item</button>
+            <button class="style-btn" onclick="saveJsonToFile()">Save JSON Data</button>
+        </div>
+
+        
+        <!-- Modal voor het toevoegen/bewerken van een product -->
+        <div id="product-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeProductModal()">&times;</span>
+                <h2 id="product-modal-title">Add/Edit Item</h2>
+    
+                <!-- Edit Product Form -->
+                <div class="form-group">
+                    <label>Code:</label>
+                    <input type="text" id="product-code" placeholder="Product code">
+                </div>
+                <div class="form-group">
+                    <label>Name:</label>
+                    <input type="text" id="product-name" placeholder="Product name">
+                </div>
+                <div class="form-group">
+                    <label>Price:</label>
+                    <input type="number" id="product-price" placeholder="Product price" min="0">
+                </div>
+                <div class="form-group">
+                    <label>Short Description:</label>
+                    <textarea id="product-short-description" placeholder="Short description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Long Description:</label>
+                    <textarea id="product-long-description" placeholder="Long description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Image URL:</label>
+                    <input type="text" id="product-image" placeholder="Image URL">
+                </div>
+                <div class="form-group">
+                    <label>Quantity:</label>
+                    <input type="number" id="product-quantity" placeholder="Quantity" min="1">
+                </div>
+                <button style="margin-left: 0px"class="style-btn" onclick="saveProduct()">Save Item</button>
+            </div>
         </div>
     </main>
+    
+    
+    
+    
 
     <!-- Cookie consent banner -->
     <link rel="stylesheet" href="../header & footer/cookies.css">
@@ -206,9 +268,6 @@
         <script src="../header & footer/script_scroll.js"></script>
         <span class="material-symbols-outlined scroll-icon">keyboard_double_arrow_up</span>
     </button>
-
-    <!-- Voeg search-results.js toe -->
-    <script src="../header & footer/search-results.js"></script>
 </body>
 
 </html>

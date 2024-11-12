@@ -7,50 +7,53 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // Controleer of het token een vervaldatum (exp) heeft
             if (payload.exp) {
-                // Functie om de resterende tijd te berekenen en in de console te loggen
                 const updateRemainingTime = () => {
-                    const currentTime = Math.floor(Date.now() / 1000); // Huidige tijd in seconden
-                    const remainingTime = payload.exp - currentTime; // Resterende tijd in seconden
-                    // console.log(`Resterende tijd voor token: ${remainingTime} seconden`);
+                    const currentTime = Math.floor(Date.now() / 1000);
+                    const remainingTime = payload.exp - currentTime;
 
-                    // Controleer of het token is verlopen
                     if (remainingTime < 0) {
-                        // Token is verlopen, gebruiker doorverwijzen naar inlogscherm
                         console.log("Token is verlopen. Doorverwijzen naar inlogscherm...");
-                        clearInterval(timer); // Stop de timer
-                        window.location.href = "../portal/login.html";
+                        clearInterval(timer);
                         sessionStorage.removeItem("token");
+                        window.location.href = "../portal/login.html";
                     }
                 };
 
-                // Start de timer die elke seconde de resterende tijd bijwerkt
                 const timer = setInterval(updateRemainingTime, 1000);
-                updateRemainingTime(); // Roep de functie direct aan om de eerste waarde te tonen
+                updateRemainingTime();
 
                 const isAdmin = payload.IsAdmin === "True";
 
-                // Toegang voor admin
-                if (window.location.pathname.includes("admin.html")) {
-                    if (isAdmin) {
-                        document.querySelector("main").style.opacity = 1; // Admin toegang
-                    } else {
-                        window.location.href = "../portal/portal.html"; // Doorverwijzing voor niet-admin
-                    }
-                } 
-                // Toegang voor normale accounts
-                else if (window.location.pathname.includes("orders.html")) {
+                // Check voor store-editor.html pagina
+                if (window.location.pathname.includes("store-editor.html")) {
                     if (!isAdmin) {
-                        document.querySelector("main").style.opacity = 1; // Normale account toegang
+                        window.location.href = "../portal/portal.html"; // Redirect als geen admin
                     } else {
-                        window.location.href = "../portal/admin.html"; // Doorverwijzing voor admin
+                        document.querySelector("main").style.opacity = 1; // Toegang voor admin
                     }
                 }
-                // Toegang voor de portal pagina
+                // Check voor admin pagina
+                else if (window.location.pathname.includes("admin.html")) {
+                    if (isAdmin) {
+                        document.querySelector("main").style.opacity = 1; // Toegang voor admin
+                    } else {
+                        window.location.href = "../portal/portal.html"; // Redirect voor niet-admin
+                    }
+                }
+                // Check voor orders pagina
+                else if (window.location.pathname.includes("orders.html")) {
+                    if (!isAdmin) {
+                        document.querySelector("main").style.opacity = 1; // Toegang voor normale accounts
+                    } else {
+                        window.location.href = "../portal/admin.html"; // Redirect voor admin
+                    }
+                }
+                // Check voor portal pagina
                 else if (window.location.pathname.includes("portal.html")) {
                     if (!isAdmin) {
-                        document.querySelector("main").style.opacity = 1; // Geen admin toegang
+                        document.querySelector("main").style.opacity = 1; // Toegang voor niet-admin
                     } else {
-                        window.location.href = "../portal/admin.html"; // Doorverwijzing voor admin
+                        window.location.href = "../portal/admin.html"; // Redirect voor admin
                     }
                 }
             } else {
