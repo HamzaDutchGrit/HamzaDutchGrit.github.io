@@ -439,6 +439,18 @@
     background-color: var(--light_blue); /* Voorbeeldkleur, pas aan indien nodig */
 }
 
+@media (prefers-color-scheme: dark) {
+    .ffilter-header {
+      color: var(--antracite);
+    }
+  }
+  
+  @media (prefers-color-scheme: light) {
+    .filter-header {
+      color: var(--antracite);
+    }
+  }
+  
 
 
 /* Voor tablets (768px tot 1024px) */
