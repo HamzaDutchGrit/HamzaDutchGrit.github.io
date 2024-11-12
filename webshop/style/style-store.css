@@ -1,6 +1,19 @@
 /* Zorg ervoor dat je alle imports hebt, zoals in je originele bestand */
 @import url('../../header & footer/color_pallet.css');
 
+@media (prefers-color-scheme: dark) {
+    .ffilter-header {
+      color: var(--antracite);
+    }
+  }
+  
+  @media (prefers-color-scheme: light) {
+    .filter-header {
+      color: var(--antracite);
+    }
+  }
+  
+
 .store-product-link {
     text-decoration: none; /* Verwijder de onderlijn van de hyperlink */
     color: inherit; /* Zorg ervoor dat de tekstkleur gelijk is aan de kleur van het omringende tekst */
@@ -438,19 +451,6 @@
 .contact-button:hover {
     background-color: var(--light_blue); /* Voorbeeldkleur, pas aan indien nodig */
 }
-
-@media (prefers-color-scheme: dark) {
-    .ffilter-header {
-      color: var(--antracite);
-    }
-  }
-  
-  @media (prefers-color-scheme: light) {
-    .filter-header {
-      color: var(--antracite);
-    }
-  }
-  
 
 
 /* Voor tablets (768px tot 1024px) */
