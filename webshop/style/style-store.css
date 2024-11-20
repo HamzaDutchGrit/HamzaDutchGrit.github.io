@@ -1,18 +1,18 @@
 /* Zorg ervoor dat je alle imports hebt, zoals in je originele bestand */
 @import url('../../header & footer/color_pallet.css');
 
+
 @media (prefers-color-scheme: dark) {
-    .ffilter-header {
-      color: var(--antracite);
-    }
-  }
-  
-  @media (prefers-color-scheme: light) {
     .filter-header {
-      color: var(--antracite);
+        color: var(--antracite);
     }
-  }
-  
+}
+
+@media (prefers-color-scheme: light) {
+    .filter-header {
+        color: var(--antracite);
+    }
+}
 
 .store-product-link {
     text-decoration: none; /* Verwijder de onderlijn van de hyperlink */
@@ -49,7 +49,6 @@
 }
 
 .pink_button_shop {
-    background-color: var(--pink);
     color: var(--white);
     border: none;
     margin-right: 40px;
@@ -62,6 +61,7 @@
     cursor: pointer;
     margin-top: 5px;
 }
+
 
 .pink_button_shop .material-icons-outlined {
     margin-left: 8px;
@@ -90,6 +90,7 @@
     padding: 5px 10px; /* Ruimte rond de tekst en icoon */
     border-radius: 4px; /* Ronde hoeken */
     margin: 5px; /* Afstand tussen filterelementen */
+    cursor: default;
 }
 
 
@@ -123,7 +124,7 @@
     background: var(--white);
     justify-content: flex-start;
     border-radius: 4px;
-    padding: 10px 20px;
+    padding: 10px 14px;
     display: flex;
     margin-bottom: -30px;
 }
@@ -284,13 +285,14 @@
 }
 
 
-
 .store-product-price {
-    margin-top: 5px;
+    margin-top: 5px; /* Verander niet, maar ondersteun consistent gedrag */
     margin-bottom: 0px;
     margin-left: 45px;
     font-size: 20px;
+    padding-top: 1px; /* Voeg kleine padding toe om collapsing margins te voorkomen */
 }
+
 
 .store-product-image {
     display: inline-block;
@@ -324,6 +326,7 @@
     margin-left: 285px;
     margin-right: 0apx;
     height: 45px;
+    height: 100%;
     
 }
 
@@ -344,6 +347,12 @@
 .pagination-button.active-page {
     background-color: var(--light_blue); /* Actieve pagina kleur */
     color: white; /* Tekstkleur van de actieve pagina */
+}
+
+/* Voeg dit toe om ervoor te zorgen dat de knoppen niet krimpen of uitrekken */
+.pagination-button {
+    flex-shrink: 0;
+    flex-grow: 0;
 }
 
 .pagination-button.ellipsis {
@@ -424,33 +433,38 @@
     font-size: 20px;
 }
 
+/* Container voor "not found" bericht */
 #not-found-container {
-    font-size: 28px; /* Gebruik vw voor responsieve font-grootte */
+    font-size: 25px; /* Gebruik vw voor responsieve font-grootte */
     text-align: center;
     color: var(--antracite);
     font-weight: bold;
-    display: flex;
-    padding-top: 10px;
-    margin-left: 200px;
-    flex-direction: column; /* Zorgt ervoor dat tekst en knop onder elkaar staan */
     align-items: center; /* Centreert horizontaal */
     justify-content: center; /* Centreert verticaal */
+    margin: 2vh 0; /* Verander naar viewport hoogte voor marges */
+    margin-bottom: 400px;
+    margin-top: 70px;
+    margin-left: 300px;
 }
 
+/* Contact knop */
 .contact-button {
-    margin-top: 20px;
-    padding: 15px 70px;
-    background-color: var(--pink); /* Voorbeeldkleur, pas aan indien nodig */
+    margin: 1vh auto; /* Centreren met auto margin, en vh voor responsiviteit */
+    font-size: 22px; /* Gebruik vw voor responsieve font-grootte */
+    padding: 10px 50px;
+    background-color: var(--pink); /* Verander naar de gewenste kleur */
     color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-    font-size: 24px; /* Gebruik vw voor responsieve font-grootte */
+    border: none;
+    cursor: pointer;
+    border-radius: 5px; /* Rond de hoeken af */
+    transition: background-color 0.3s; /* Voegt een overgang toe voor de hover-effect */
+    
 }
 
 .contact-button:hover {
     background-color: var(--light_blue); /* Voorbeeldkleur, pas aan indien nodig */
 }
+
 
 
 /* Voor tablets (768px tot 1024px) */
@@ -468,8 +482,8 @@
 }
 
 /* Container voor "not found" bericht */
-.not-found-card {
-    font-size: 28px; /* Gebruik vw voor responsieve font-grootte */
+#not-found-container {
+    font-size: 18px; /* Gebruik vw voor responsieve font-grootte */
     text-align: center;
     color: var(--antracite);
     font-weight: bold;
@@ -478,13 +492,14 @@
     align-items: center; /* Centreert horizontaal */
     justify-content: center; /* Centreert verticaal */
     margin: 2vh 0; /* Verander naar viewport hoogte voor marges */
+    margin-bottom: 400px;
 }
 
 /* Contact knop */
 .contact-button {
     margin: 1vh auto; /* Centreren met auto margin, en vh voor responsiviteit */
-    font-size: 24px; /* Gebruik vw voor responsieve font-grootte */
-    padding: 10px 50px; /* Gebruik vh en vw voor padding */
+    font-size: 20px; /* Gebruik vw voor responsieve font-grootte */
+    padding: 10px 50px;
     background-color: var(--pink); /* Verander naar de gewenste kleur */
     color: white;
     border: none;
@@ -492,8 +507,8 @@
     border-radius: 5px; /* Rond de hoeken af */
     transition: background-color 0.3s; /* Voegt een overgang toe voor de hover-effect */
     
-    
 }
+
 
 /* Hover-effect voor de contact knop */
 .contact-button:hover {
@@ -577,78 +592,90 @@
 /* Voor telefoons (max-width: 767px) */
 @media screen and (max-width: 630px) {
 /* Suggestie tekst */
-#suggestion-text {
-    display: flex; /* Zet het element op flexbox */
-    justify-content: center; /* Centreert de inhoud horizontaal */
-    align-items: center; /* Centreert de inhoud verticaal */
-    margin: 0 auto; /* Centreert het element zelf binnen de parent */
-    color: var(--antracite);
-    
-    margin-right: 110px;
-    text-align: center; /* Centreert de tekst binnen het element */
-}
+    #suggestion-text {
+        display: flex; /* Zet het element op flexbox */
+        justify-content: center; /* Centreert de inhoud horizontaal */
+        align-items: center; /* Centreert de inhoud verticaal */
+        margin: 0 auto; /* Centreert het element zelf binnen de parent */
+        color: var(--antracite);
+        
+        margin-right: 110px;
+        text-align: center; /* Centreert de tekst binnen het element */
+    }
 
 
-/* Container voor "not found" bericht */
-#not-found-container {
-    font-size: 18px; /* Gebruik vw voor responsieve font-grootte */
-    text-align: center;
-    color: var(--antracite);
-    font-weight: bold;
-    display: flex;
-    flex-direction: column; /* Zorgt ervoor dat tekst en knop onder elkaar staan */
-    align-items: center; /* Centreert horizontaal */
-    justify-content: center; /* Centreert verticaal */
-    margin: 2vh 0; /* Verander naar viewport hoogte voor marges */
-    margin-bottom: 400px;
-}
+    /* Container voor "not found" bericht */
+    #not-found-container {
+        font-size: 18px; /* Gebruik vw voor responsieve font-grootte */
+        text-align: center;
+        color: var(--antracite);
+        font-weight: bold;
+        display: flex;
+        flex-direction: column; /* Zorgt ervoor dat tekst en knop onder elkaar staan */
+        align-items: center; /* Centreert horizontaal */
+        justify-content: center; /* Centreert verticaal */
+        margin: 2vh 0; /* Verander naar viewport hoogte voor marges */
+        margin-bottom: 400px;
+    }
 
-/* Contact knop */
-.contact-button {
-    margin: 1vh auto; /* Centreren met auto margin, en vh voor responsiviteit */
-    font-size: 20px; /* Gebruik vw voor responsieve font-grootte */
-    padding: 10px 50px;
-    background-color: var(--pink); /* Verander naar de gewenste kleur */
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px; /* Rond de hoeken af */
-    transition: background-color 0.3s; /* Voegt een overgang toe voor de hover-effect */
-    
-}
+    /* Contact knop */
+    .contact-button {
+        margin: 1vh auto; /* Centreren met auto margin, en vh voor responsiviteit */
+        font-size: 20px; /* Gebruik vw voor responsieve font-grootte */
+        padding: 10px 50px;
+        background-color: var(--pink); /* Verander naar de gewenste kleur */
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px; /* Rond de hoeken af */
+        transition: background-color 0.3s; /* Voegt een overgang toe voor de hover-effect */
+        
+    }
 
-/* Hover-effect voor de contact knop */
-.contact-button:hover {
-    background-color: var(--light_blue); /* Voeg een hover-effect toe als je wilt */
-}
-
-
-.empty-product-card{
-    display: none;
-}
+    /* Hover-effect voor de contact knop */
+    .contact-button:hover {
+        background-color: var(--light_blue); /* Voeg een hover-effect toe als je wilt */
+    }
 
 
+    .empty-product-card{
+        display: none;
+    }
+
+    .selected-filters-card-side.visible {
+        display: flex;
+    }
 
 
     .selected-filters-card-side {
-        display: block;
+        display: flex;
+        flex-direction: column;  /* Zorgt ervoor dat de filters verticaal gestapeld worden */
         background-color: white;
         border-radius: 4px;
         padding: 5px;
-        height: fit-content;
+        height: max-content;
         width: auto;
-        align-items: center;
+        align-items: flex-start;  /* Zorgt ervoor dat de filters aan de linkerkant uitgelijnd zijn */
         margin-bottom: 15px;
+        overflow-y: auto; /* Voeg scroll toe als de filters te veel worden */
+        max-height: 300px;  /* Optioneel: stel een maximale hoogte in voor de container */
     }
     
+    .selected-filter {
+        margin-bottom: 10px; /* Ruimte tussen de filters */
+        margin-top: 10px;    /* Ruimte tussen de filters */
+        display: flex;
+        justify-content: space-between; /* Zorgt ervoor dat het sluiten van de filter aan de rechterkant uitgelijnd is */
+        width: 98%; /* Zorgt ervoor dat de filters de volledige breedte van de container gebruiken */
+        padding: 5px;
+        background-color: var(--pink);  /* Optioneel: voeg een achtergrondkleur toe voor meer visuele duidelijkheid */
+        border-radius: 4px;
+        box-sizing: border-box; /* Zorgt ervoor dat de padding de breedte niet beïnvloedt */
+    }
+    
+
     .hidden {
         display: none; /* Deze klasse verbergt het element */
-    }
-
-    .selected-filter{
-        margin-bottom: 10px;
-        margin-top: 10px;
-        margin-left: auto;
     }
     .store-content-wrapper {
         flex-direction: column;
@@ -680,6 +707,7 @@
     }
 
     .store-sidebar {
+        display: none;
         width: 90%;  /* Neemt 100% van de viewport breedte */
         height: 100vh;
         margin-top: 20px;
@@ -784,20 +812,11 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .quantity-container{
-    margin-left: 40px;
-    margin-top: -37px;
+    margin-left: 60px;
+    margin-top: -40px;
     margin-bottom: 5px;
 }
-#update-quantity-button{
-    background-color: var(--light_blue);
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-    color: var(--white);
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
+
 .rec-products{
     white-space: nowrap; /* Zorgt ervoor dat de tekst niet wrapt */
     overflow: hidden; /* Verbergt de tekst die buiten de container valt */

@@ -105,16 +105,12 @@ function displayFrequentlyBoughtTogether(recommendedProducts) {
 
 
 
-
-
 function truncatefreq(title, maxLength = 15) {
     return title.length > maxLength ? title.slice(0, maxLength) + '...' : title;
 }
 
-
-
 // Voeg een event listener toe aan de "Add to Cart" knop
-document.querySelector('.add-to-cart').addEventListener('click', function() {
+document.querySelector('.add-to-cart').addEventListener('click', function () {
     const productTitle = document.querySelector('#product-title').textContent;
     const productImage = document.querySelector('#product-image').src;
     const shortDescription = document.querySelector('#product-description').textContent;
@@ -122,82 +118,61 @@ document.querySelector('.add-to-cart').addEventListener('click', function() {
     const quantityInput = document.querySelector('#quantity-input'); // Zorg ervoor dat je een input hebt met deze ID
     const quantity = quantityInput ? parseInt(quantityInput.value, 10) : 1; // Standaard naar 1 als er geen input is
 
-    const productPrice = '€' +product.price; // Gebruik de prijs uit het globale product object
+    const productPrice = product.price; // Gebruik de prijs uit het globale product object
 
     addToCart(productTitle, productCode, productPrice, productImage, shortDescription, quantity);
 });
 
 function addToCart(productTitle, productCode, productPrice, productImage, short_description = 'Geen beschrijving beschikbaar.', quantity = 1, fromPopup = false) {
-    // Controleer of de productinformatie geldig is
     if (!productTitle || productTitle.includes('${') || !productCode || productCode.includes('${') || !productPrice || !productImage) {
         return; // Stop de functie als informatie ontbreekt of onjuist is
     }
 
     console.log("Adding to cart:", { title: productTitle, code: productCode, price: productPrice, description: short_description, quantity });
 
-    // Haal de huidige cart op uit localStorage of maak een nieuwe aan
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-    // Controleer of het product al in de cart zit
     let existingProduct = cart.find(item => item.code === productCode);
 
     if (existingProduct) {
         existingProduct.quantity += quantity; // Verhoog de hoeveelheid als het product al bestaat
     } else {
-        // Voeg een nieuw product toe aan de winkelwagen
         let product = {
             title: productTitle,
             code: productCode,
             price: productPrice,
             image: productImage,
             description: short_description,
-            quantity: 1 // Gebruik de ingevoerde hoeveelheid
+            quantity: quantity
         };
         cart.push(product);
     }
 
-    // Sla de bijgewerkte cart op in localStorage
     localStorage.setItem('cart', JSON.stringify(cart));
-
-    // Update het aantal items in de winkelwagen
     updateCartCount();
 
-    // Toon de popup alleen als het niet vanuit een bestaande popup wordt toegevoegd
     if (!fromPopup) {
         loadPopup(productTitle, productPrice, productImage, productCode, short_description);
     } else {
         console.log('Geen popup omdat het product via een bestaande popup is toegevoegd.');
     }
 
-
-        // Update button styles
-        const popupbutton = document.getElementById(`add-to-cart-${productCode}`);
-        if (popupbutton) {
-            popupbutton.style.backgroundColor = '#2f7193'; // Verander naar donkerblauw
-            popupbutton.style.color = 'white'; // Witte tekst voor contrast
-            popupbutton.style.fontSize = '14px'; // Verwijder de rand
-            popupbutton.disabled = true; // Zet de knop op disabled
-            popupbutton.innerHTML = 'Added to Cart'; // Verander de knoptekst
-        }
+    const popupbutton = document.getElementById(`add-to-cart-${productCode}`);
+    if (popupbutton) {
+        popupbutton.style.backgroundColor = '#2f7193'; // Verander naar donkerblauw
+        popupbutton.style.color = 'white';
+        popupbutton.style.fontSize = '14px';
+        popupbutton.disabled = true;
+        popupbutton.innerHTML = 'Added to Cart';
+    }
 }
-
-
-
-
-
 
 async function loadPopup(productName, productPrice, productImage, productCode, short_description) {
-    console.log("Loading popup for:", productCode); // Debugging
+    console.log("Loading popup for:", productCode);
 
-    // Verkrijg de aanbevolen producten
     const recommendedProducts = await fetchRecommendedProducts(productCode);
-    
-        // Nu de popup geladen is, kunnen we de inhoud aanpassen
-        showPopup(productName, productPrice, productImage, short_description, recommendedProducts);
-
+    showPopup(productName, productPrice, productImage, short_description, recommendedProducts);
 }
 
-// Functie om aanbevolen producten op te halen op basis van productcode
 async function fetchRecommendedProducts(productCode) {
     const departmentCode = productCode.slice(0, 3);
     try {
@@ -208,16 +183,15 @@ async function fetchRecommendedProducts(productCode) {
             allProducts = allProducts.concat(data.discipline_group[group]);
         }
 
-        const recommendedProducts = allProducts
+        return allProducts
             .filter(product => product.code.startsWith(departmentCode) && product.code !== productCode)
-            .slice(0, 3);
-
-        return recommendedProducts.map(product => ({
-            code: product.code,
-            product: product.product,
-            price: product.price || 'Price not available',
-            image: product.image || "https://via.placeholder.com/150"
-        }));
+            .slice(0, 3)
+            .map(product => ({
+                code: product.code,
+                product: product.product,
+                price: product.price || 'Price not available',
+                image: product.image || "https://via.placeholder.com/150"
+            }));
     } catch (error) {
         console.error("Error loading products.json:", error);
         return [];
@@ -225,7 +199,7 @@ async function fetchRecommendedProducts(productCode) {
 }
 
 async function showPopup(productName, productPrice, productImage, short_description, recommendedProducts) {
-    console.log("Showing popup for product:", productName); // Debugging
+    console.log("Showing popup for product:", productName);
 
     const popup = document.getElementById('popup');
     const overlay = document.getElementById('popup-overlay');
@@ -233,34 +207,40 @@ async function showPopup(productName, productPrice, productImage, short_descript
     // Update product information in the popup
     document.querySelector('.popup-product img').src = productImage || 'https://via.placeholder.com/150';
     document.querySelector('.popup-product .product-info h3').textContent = productName;
-    document.querySelector('.popup-product .product-info p').textContent = productPrice;
 
-    // Clear any existing quantity input
+    // Stel de initiële prijs in
+    const priceElement = document.getElementById('popup-product-price'); // Zorg dat deze ID aanwezig is in de popup
+    priceElement.textContent = `€${parseFloat(productPrice).toFixed(2)}`;
+
+    // Verwijder bestaande hoeveelheid invoer (indien aanwezig)
     const existingQuantityContainer = document.querySelector('.quantity-container');
     if (existingQuantityContainer) {
-        existingQuantityContainer.remove(); // Remove the previous quantity input if it exists
+        existingQuantityContainer.remove();
     }
 
-    // Voeg de nieuwe quantity input toe onder de productinformatie
+    // Voeg nieuwe hoeveelheid invoer toe
     const quantityContainer = document.createElement('div');
     quantityContainer.classList.add('quantity-container');
     quantityContainer.innerHTML = `
-        <label for="popup-quantity">Quantity:</label>
+        <label for="popup-quantity">Aantal:</label>
         <input type="number" id="popup-quantity" value="1" min="1" style="width: 50px; margin-left: 5px;">
     `;
     document.querySelector('.popup-product .product-info').appendChild(quantityContainer);
 
-    // Voeg een event listener toe aan het quantity input-veld om live de hoeveelheid bij te werken
+    // Event listener om de prijs live te berekenen in de popup
     const quantityInput = document.getElementById('popup-quantity');
     quantityInput.addEventListener('input', () => {
-        updateQuantityInCart(productName, productPrice, productImage, short_description, parseInt(quantityInput.value));
+        const quantity = parseInt(quantityInput.value, 10) || 1; // Haal de hoeveelheid op, standaard naar 1
+        const totalPrice = (parseFloat(productPrice) * quantity).toFixed(2);
+        priceElement.textContent = `€${totalPrice}`; // Update alleen in de popup
+
+        updateCartPriceInPopup(productName, totalPrice, quantity);
     });
 
     // Voeg aanbevolen producten toe aan de popup
     const recommendedProductsContainer = document.querySelector('.popup-recommendations');
-    recommendedProductsContainer.innerHTML = ''; // Clear the container
+    recommendedProductsContainer.innerHTML = ''; // Clear de container
 
-    // Add header
     const headerElement = document.createElement('div');
     headerElement.classList.add('popup-header');
     headerElement.innerHTML = '<p>You may also like</p>';
@@ -272,13 +252,13 @@ async function showPopup(productName, productPrice, productImage, short_descript
         productElement.innerHTML = `
             <img src="${product.image}" alt="${product.product}" class="recommendation-image">
             <div class="recommendation-info">
-                <h3>${truncateTitle(product.product)}</h3>
-                <p>€${product.price}</p>
+                <h3>${truncatefreq(product.product)}</h3>
+                <p>€${parseFloat(product.price).toFixed(2)}</p>
             </div>
             <div class="recommendation-footer">
                 <p style="display: none;">${product.short_description || 'Geen beschrijving beschikbaar.'}</p>
-                <button class="pink_button" id="add-to-cart-${product.code}" onclick="addToCart('${product.product}', '${product.code}', '${product.price}', '${product.image}', ${product.quantity}, '${product.short_description || ''}', true, true)">
-                    <span class="material-icons">add_shopping_cart</span>
+                <button class="pink_button" id="add-to-cart-${product.code}" onclick="addToCart('${product.product}', '${product.code}', '${product.price}', '${product.image}', '${product.short_description || ''}', 1, true)">
+                    <span class="material-icons notranslate">add_shopping_cart</span>
                 </button>
             </div>`;
         recommendedProductsContainer.appendChild(productElement);
@@ -289,52 +269,43 @@ async function showPopup(productName, productPrice, productImage, short_descript
     overlay.style.display = 'block';
 }
 
-// Functie om de popup te verbergen
+
+
+function updateCartPriceInPopup(productName, totalPrice, quantity) {
+    // Haal de huidige winkelwagen op uit localStorage
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Zoek het bestaande product in de winkelwagen
+    let existingProduct = cart.find(item => item.title === productName);
+
+    if (existingProduct) {
+        // Werk de hoeveelheid bij in de winkelwagen
+        existingProduct.quantity = quantity;
+        existingProduct.price = totalPrice;
+    }
+
+    // Sla de bijgewerkte winkelwagen op in localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+    
+    // Optioneel: update de winkelwagen teller (als je die ergens hebt)
+    updateCartCount();
+}
+
 function hideStorePopup() {
     document.getElementById('popup').style.display = 'none';
     document.getElementById('popup-overlay').style.display = 'none';
 }
 
-// Functie om titels af te korten
-function truncateTitle(title, maxLength = 15) {
-    return title.length > maxLength ? title.slice(0, maxLength) + '...' : title;
-}
-
-// Update winkelwagen aantal
 function updateCartCount() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
+    // Haal de winkelwageninhoud op uit localStorage
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Tel de hoeveelheden van alle producten op
+    let itemCount = cart.reduce((total, item) => total + item.quantity, 0);
+
+    // Update de teller in de HTML
     document.getElementById('cart-count').textContent = itemCount;
 }
 
+
 document.addEventListener('DOMContentLoaded', updateCartCount);
-
-function updateQuantityInCart(productName, productPrice, productImage, short_description, newQuantity) {
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-    // Zoek het bestaande product in de cart
-    let existingProduct = cart.find(item => item.title === productName);
-
-    if (existingProduct) {
-        // Werk de hoeveelheid bij
-        existingProduct.quantity = newQuantity;
-        console.log(`Quantity updated to: ${newQuantity}`);
-    } else {
-        // Als het product nog niet in de cart staat, voeg het toe met de nieuwe hoeveelheid
-        let product = {
-            title: productName,
-            code: productName, // of gebruik een unieke code
-            price: productPrice,
-            description: short_description,
-            quantity: newQuantity
-        };
-        cart.push(product);
-        console.log('New product added to cart with updated quantity');
-    }
-
-    // Update de cart in localStorage
-    localStorage.setItem('cart', JSON.stringify(cart));
-
-    // Optioneel: update de cart-teller in de UI
-    updateCartCount();
-}

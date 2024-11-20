@@ -26,7 +26,8 @@ document.addEventListener('DOMContentLoaded', function () {
     let totalPages = 1; // Totale aantal pagina's opslaan
     let selectedFilters = []; // Voor het bijhouden van geselecteerde filters
 
-    
+    loadFiltersFromLocalStorage();
+
     // Close Sidebar Button functionality
     document.querySelector('.close-sidebar-button').addEventListener('click', function () {
         document.querySelector('.store-sidebar').style.display = 'none';
@@ -50,7 +51,7 @@ fetch('products.json')
                     department: group.split(" - ")[0], 
                     type: group.split(" - ")[1], 
                     code: product.code,
-                    price: '€' + product.price,  // Hier gebruik je een vaste prijs, dit kun je aanpassen als nodig.
+                    price: product.price,  // Hier gebruik je een vaste prijs, dit kun je aanpassen als nodig.
                     image: product.image,
                     short_description: product.short_description || 'Geen beschrijving beschikbaar' // Voeg short_description toe
                 });
@@ -78,15 +79,21 @@ fetch('products.json')
             const notFoundContainer = document.getElementById('not-found-container');
         
             if (searchTerm === '') {
+                // Zoekbalk is leeg
                 searchResults = []; // Reset de zoekresultaten
                 suggestionText.style.display = 'none'; // Verberg suggestietekst
                 notFoundContainer.style.display = 'none'; // Verberg 'not found' tekst
-                loadPage(currentPage); // Laad de oorspronkelijke producten
+        
+                // Toon de originele productenlijst
+                productGrid.style.display = 'grid'; // Zorg dat het productgrid weer zichtbaar is
+                loadPage(currentPage); // Laad de huidige pagina opnieuw
+        
                 return; // Stop verdere uitvoering
             }
-            
+        
             performSearch(searchTerm, fuse); // Voer de zoekfunctie uit
         });
+        
         
 
         searchInput.addEventListener('keydown', (event) => {
@@ -121,10 +128,10 @@ fetch('products.json')
                 </div>
             </a>
             <div class="store-product-footer">
-                <p class="store-product-price">${product.price}</p>
+                <p class="store-product-price">€${product.price}</p>
                 <button class="pink_button_shop" style="background-color: var(--dark_blue);" onclick="addToCart('${product.title}', '${product.code}', '${product.price}', '${product.image}', '${product.short_description }'); cartIcon(event)">
                     <p class="cart" style="margin-left: 15px;">Add To Cart</p>
-                    <span class="material-icons-outlined">add_shopping_cart</span>
+                    <span class="material-icons-outlined notranslate">add_shopping_cart</span>
                 </button>
             </div>
         </div>
@@ -134,10 +141,13 @@ fetch('products.json')
 
 
     
+    // Functie om filters op te slaan in localStorage
+    function saveFiltersToLocalStorage() {
+        localStorage.setItem('selectedFilters', JSON.stringify(selectedFilters));
+    }
 
 
 
-    // Functie om geselecteerde filters uit localStorage te laden
     function loadFiltersFromLocalStorage() {
         const storedFilters = localStorage.getItem('selectedFilters');
         if (storedFilters) {
@@ -148,22 +158,28 @@ fetch('products.json')
     }
 
 
-        // Functie om filter toe te voegen of te verwijderen en beide containers bij te werken
-        function toggleFilter(filterText) {
-            const filterIndex = selectedFilters.indexOf(filterText);
-    
-            if (filterIndex > -1) {
-                // Verwijder filter als het al is geselecteerd
-                selectedFilters.splice(filterIndex, 1);
-            } else {
-                // Voeg filter toe als het nog niet is geselecteerd
-                selectedFilters.push(filterText);
-            }
-            
-            updateSelectedFilters();
-        }
 
-         // Synchroniseer filtercontainer met de sidebar-opties
+    // Functie om filter toe te voegen of te verwijderen en beide containers bij te werken
+    function toggleFilter(filterText) {
+        const filterIndex = selectedFilters.indexOf(filterText);
+    
+        if (filterIndex > -1) {
+            // Verwijder filter als het al is geselecteerd
+            selectedFilters.splice(filterIndex, 1);
+        } else {
+            // Voeg filter toe als het nog niet is geselecteerd
+            selectedFilters.push(filterText);
+        }
+        
+        updateSelectedFilters();
+        saveFiltersToLocalStorage(); // Sla de filters op in localStorage
+    }
+
+    window.addEventListener('load', () => {
+        loadFiltersFromLocalStorage(); // Herstel filters vanuit localStorage
+    });
+
+     // Synchroniseer filtercontainer met de sidebar-opties
     function syncSidebarWithSelectedFilters() {
         filterOptionCards.forEach(option => {
             const filterText = option.textContent.trim();
@@ -175,20 +191,11 @@ fetch('products.json')
         });
     }
 
-    // Update the function that removes a filter and reloads the page with updated filters
-    function removeFilter(filter) {
-        // Remove the filter from the selectedFilters array
-        selectedFilters = selectedFilters.filter(selected => selected !== filter);
-
-        // Update the UI with the selected filters
-        updateSelectedFilters();
-        
-        // Reload the page with the updated filters and the current page
-    }
 
 
 
-    // Functie om geselecteerde filters visueel te herstellen
+
+    // Functie om de geselecteerde filters visueel te herstellen
     function restoreFilterSelection() {
         filterOptionCards.forEach(option => {
             const filterText = option.textContent.trim();
@@ -199,41 +206,82 @@ fetch('products.json')
         });
     }
 
-// Pas de `updateSelectedFilters`-functie aan
-function updateSelectedFilters() {
-    selectedFiltersContainer.innerHTML = ''; // Maak de container leeg
-
-    selectedFilters.forEach(filter => {
-        const filterElement = document.createElement('div');
-        filterElement.className = 'selected-filter';
-        filterElement.textContent = filter;
-
-        // Voeg een close-icon toe om de filter te verwijderen
-        const closeIcon = document.createElement('span');
-        closeIcon.className = 'material-icons-outlined';
-        closeIcon.textContent = 'close';
-
-        closeIcon.addEventListener('click', () => {
-            toggleFilter(filter);  // Synchroniseer direct bij verwijdering
-            syncSidebarWithSelectedFilters(); // Update sidebar
-            loadPage(currentPage); // Laad de pagina opnieuw zonder het verwijderde filter
+    function updateSelectedFilters() {
+        selectedFiltersContainer.innerHTML = ''; // Maak de eerste container leeg
+    
+        selectedFilters.forEach(filter => {
+            const filterElement = document.createElement('div');
+            filterElement.className = 'selected-filter';
+            filterElement.textContent = filter;
+    
+            // Voeg een close-icon toe om de filter te verwijderen
+            const closeIcon = document.createElement('span');
+            closeIcon.className = 'material-icons-outlined notranslate';
+            closeIcon.textContent = 'close';
+    
+            closeIcon.addEventListener('click', () => {
+                toggleFilter(filter);  // Synchroniseer direct bij verwijdering
+                syncSidebarWithSelectedFilters(); // Update sidebar
+                loadPage(currentPage); // Laad de pagina opnieuw zonder het verwijderde filter
+            });
+    
+            filterElement.appendChild(closeIcon);
+            selectedFiltersContainer.appendChild(filterElement);
         });
-
-        filterElement.appendChild(closeIcon);
-        selectedFiltersContainer.appendChild(filterElement);
+    
+        // Voeg functionaliteit toe voor de tweede container
+        // Leeg de tweede container
+        selectedFiltersContainer2.innerHTML = '';
+    
+        // Voeg de geselecteerde filters toe aan de tweede container, alleen als het scherm kleiner is dan of gelijk aan 630px
+        if (window.innerWidth <= 630) {
+            selectedFilters.forEach(filter => {
+                const filterElement = document.createElement('div');
+                filterElement.className = 'selected-filter';
+                filterElement.textContent = filter;
+    
+                // Voeg een close-icon toe om de filter te verwijderen
+                const closeIcon = document.createElement('span');
+                closeIcon.className = 'material-icons-outlined notranslate';
+                closeIcon.textContent = 'close';
+    
+                closeIcon.addEventListener('click', () => {
+                    toggleFilter(filter);  // Synchroniseer direct bij verwijdering
+                    syncSidebarWithSelectedFilters(); // Update sidebar
+                    loadPage(currentPage); // Laad de pagina opnieuw zonder het verwijderde filter
+                });
+    
+                filterElement.appendChild(closeIcon);
+                selectedFiltersContainer2.appendChild(filterElement);
+            });
+        }
+    
+        // Zorg ervoor dat de tweede container alleen zichtbaar is als het scherm kleiner is dan of gelijk aan 630px
+        // en als er filters zijn toegevoegd aan selectedFiltersContainer2
+        const hasFiltersInSecondContainer = selectedFiltersContainer2.innerHTML.trim() !== '';
+        if (window.innerWidth <= 630 && hasFiltersInSecondContainer) {
+            selectedFiltersContainer2.style.display = 'block'; // Toon de tweede container
+        } else {
+            selectedFiltersContainer2.style.display = 'none'; // Verberg de tweede container
+        }
+    
+        syncSidebarWithSelectedFilters();
+    }
+    
+    // Event listeners voor klikken op sidebar-filters
+    filterOptionCards.forEach(option => {
+        option.addEventListener('click', function () {
+            const filterText = option.textContent.trim();
+            toggleFilter(filterText); // Voeg toe of verwijder uit `selectedFilters`
+            loadPage(currentPage); // Laad de pagina opnieuw bij elke wijziging
+        });
     });
 
-    syncSidebarWithSelectedFilters();
-}
-
-// Event listeners voor klikken op sidebar-filters
-filterOptionCards.forEach(option => {
-    option.addEventListener('click', function () {
-        const filterText = option.textContent.trim();
-        toggleFilter(filterText); // Voeg toe of verwijder uit `selectedFilters`
-        loadPage(currentPage); // Laad de pagina opnieuw bij elke wijziging
+    // Laad de opgeslagen filters bij het laden van de pagina
+    window.addEventListener('load', () => {
+        loadFiltersFromLocalStorage(); // Herstel filters vanuit localStorage
     });
-});
+
 
 // Aanroepen bij paginalaad
 loadPage(currentPage);
@@ -283,7 +331,7 @@ syncSidebarWithSelectedFilters(); // Zorg dat sidebar en container gelijk zijn b
         }
     
         const prevButton = document.createElement('button');
-        prevButton.innerHTML = '<span class="material-symbols-outlined" id="arrow-back">arrow_back_ios</span>'; 
+        prevButton.innerHTML = '<span class="material-symbols-outlined notranslate" id="arrow-back">arrow_back_ios</span>'; 
         prevButton.classList.add('pagination-button');
         prevButton.onclick = () => {
             if (currentPage > 1) {
@@ -328,7 +376,7 @@ syncSidebarWithSelectedFilters(); // Zorg dat sidebar en container gelijk zijn b
         }
     
         const nextButton = document.createElement('button');
-        nextButton.innerHTML = '<span class="material-symbols-outlined" id="arrow-forward">arrow_forward_ios</span>'; 
+        nextButton.innerHTML = '<span class="material-symbols-outlined notranslate" id="arrow-forward">arrow_forward_ios</span>'; 
         nextButton.classList.add('pagination-button');
         nextButton.onclick = () => {
             if (currentPage < totalPages) {
@@ -403,53 +451,55 @@ syncSidebarWithSelectedFilters(); // Zorg dat sidebar en container gelijk zijn b
         });
     }
 
+
+    function performSearch(searchTerm, fuse) {
+        loadingIndicator.style.display = 'block'; 
+        const trimmedSearchTerm = searchTerm.trim().toLowerCase();
+        const results = fuse.search(trimmedSearchTerm); 
+        searchResults = results.map(result => result.item);
     
-
-
-function performSearch(searchTerm, fuse) {
-    loadingIndicator.style.display = 'block'; 
-    const trimmedSearchTerm = searchTerm.trim().toLowerCase();
-    const results = fuse.search(trimmedSearchTerm); 
-    searchResults = results.map(result => result.item);
-
-    const suggestionText = document.getElementById('suggestion-text');
-    const notFoundContainer = document.getElementById('not-found-container');
-
-    // Verberg standaard de suggestionText en notFoundContainer
-    suggestionText.style.display = 'none';
-    notFoundContainer.style.display = 'none';
-
+        const suggestionText = document.getElementById('suggestion-text');
+        const notFoundContainer = document.getElementById('not-found-container');
     
-
-    // Check of er een perfecte match is op basis van product.code of title
-    const perfectMatchByCode = searchResults.find(product => product.code.toLowerCase() === trimmedSearchTerm);
-    const perfectMatchByTitle = searchResults.find(product => product.title.trim().toLowerCase() === trimmedSearchTerm);
-
-    if (perfectMatchByCode) {
-        // Als er een perfecte match is op product.code
-        searchResults = [perfectMatchByCode]; 
-        suggestionText.style.display = 'none'; 
-        notFoundContainer.style.display = 'none'; // Verberg 'not found' tekst
-    } else if (perfectMatchByTitle) {
-        // Als er een perfecte match is op product.title
-        searchResults = [perfectMatchByTitle];
-        suggestionText.style.display = 'none'; 
+        // Verberg standaard de suggestionText en notFoundContainer
+        suggestionText.style.display = 'none';
         notFoundContainer.style.display = 'none';
-    } else if (searchResults.length > 0) {
-        // Geen perfecte match, maar wel suggesties
-        suggestionText.innerHTML = "Do you mean:";
-        suggestionText.style.display = 'block'; // Toon suggestietekst met suggesties
-        notFoundContainer.style.display = 'none'; // Verberg 'not found' tekst
-    } else {
-        // Helemaal geen resultaten of suggesties
-        productGrid.style.display = 'none'; // Verberg product grid als er geen resultaten zijn
-        suggestionText.style.display = 'none'; // Verberg suggestietekst
-        notFoundContainer.style.display = 'block'; // Toon 'not found' tekst
-        paginationElement.style.display = 'none'; // Verberg paginatie
+    
+        // Check of er een perfecte match is op basis van product.code of title
+        const perfectMatchByCode = searchResults.find(product => product.code.toLowerCase() === trimmedSearchTerm);
+        const perfectMatchByTitle = searchResults.find(product => product.title.trim().toLowerCase() === trimmedSearchTerm);
+    
+        if (perfectMatchByCode) {
+            // Als er een perfecte match is op product.code
+            searchResults = [perfectMatchByCode]; 
+            suggestionText.style.display = 'none'; 
+            notFoundContainer.style.display = 'none'; // Verberg 'not found' tekst
+            
+        } else if (perfectMatchByTitle) {
+            // Als er een perfecte match is op product.title
+            searchResults = [perfectMatchByTitle];
+            suggestionText.style.display = 'none'; 
+            notFoundContainer.style.display = 'none';
+        } else if (searchResults.length > 0) {
+            // Geen perfecte match, maar wel suggesties
+            suggestionText.innerHTML = "Do you mean:";
+            suggestionText.style.display = 'block'; // Toon suggestietekst met suggesties
+            notFoundContainer.style.display = 'none'; // Verberg 'not found' tekst
+        } else {
+            // Helemaal geen resultaten of suggesties
+            productGrid.style.display = 'none'; // Verberg product grid als er geen resultaten zijn
+            suggestionText.style.display = 'none'; // Verberg suggestietekst
+            notFoundContainer.style.display = 'block'; // Toon 'not found' tekst
+            return; // Stop verdere uitvoering als er geen resultaten zijn
+        }
+    
+    
+        // Laad de eerste pagina van de zoekresultaten
+        currentPage = 1; // Start altijd met pagina 1
+        loadPage(currentPage);
+        loadingIndicator.style.display = 'none';  
     }
-
-    loadingIndicator.style.display = 'none';  
-}
+    
 
 
 function loadPage(page) {
@@ -528,33 +578,33 @@ function addToCart(productTitle, productCode, productPrice, productImage, short_
     console.log("Adding to cart:", { title: productTitle, code: productCode, price: productPrice, description: short_description, isRecommended, fromPopup });
 
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    console.log("Current cart:", cart); // Debug: Controleer de winkelwagen
 
-    // Controleer of het product al in de cart zit op basis van de unieke productcode
     let existingProduct = cart.find(item => item.code === productCode);
 
     if (existingProduct) {
-        // Als het product al in de winkelwagen zit, verhoog alleen de hoeveelheid van dat product
-        existingProduct.quantity = existingProduct.quantity + 1;
+        existingProduct.quantity += 1;
         console.log(`Product ${productTitle} is already in the cart. Quantity increased to: ${existingProduct.quantity}.`);
     } else {
-        // Voeg het nieuwe product toe aan de cart met de standaard hoeveelheid van 1
         let product = {
             title: productTitle,
-            code: productCode, // Unieke productcode
+            code: productCode,
             price: productPrice,
-            image: productImage, // Voeg de afbeelding toe aan het product object
+            image: productImage,
             description: short_description,
-            quantity: 1 // Start altijd met 1 voor een nieuw product
+            quantity: 1
         };
         cart.push(product);
         console.log(`New product ${productTitle} added to cart with quantity: 1.`);
     }
 
-    // Sla de bijgewerkte cart op in localStorage
+
+    // Sla de cart op in localStorage
     localStorage.setItem('cart', JSON.stringify(cart));
 
-    // Update de cart count
-    updateCartCount();
+    // Controleer de opgeslagen cart
+    console.log("Updated cart:", JSON.parse(localStorage.getItem('cart'))); // Debug: Controleer de opgeslagen winkelwagen
+    updateCartCount(); // Update de winkelwagenteller
 
     // Toon de popup alleen als het niet vanuit een bestaande popup wordt toegevoegd
     if (!fromPopup) {
@@ -595,7 +645,7 @@ function updateQuantityInCart(productName, productPrice, productImage, short_des
         let product = {
             title: productName,
             code: productName, // of gebruik een unieke code
-            price: '€' + productPrice,
+            price: productPrice,
             description: short_description,
             quantity: newQuantity
         };
@@ -626,47 +676,54 @@ async function loadPopup(productName, productPrice, productImage, productCode, s
 }
 
 async function showPopup(productName, productPrice, productImage, short_description, recommendedProducts) {
-    console.log("Showing popup for product:", productName); // Debugging
-
     const popup = document.getElementById('popup');
     const overlay = document.getElementById('popup-overlay');
 
-    // Update product information in the popup
+    // Zet de prijs om naar een getal en controleer voor NaN
+    const price = isNaN(parseFloat(productPrice)) ? 0 : parseFloat(productPrice);
+
+    // Update basis productinformatie in de popup
     document.querySelector('.popup-product img').src = productImage || 'https://via.placeholder.com/150';
     document.querySelector('.popup-product .product-info h3').textContent = productName;
-    document.querySelector('.popup-product .product-info p').textContent = productPrice;
+    document.getElementById('product-price').textContent = `€${price.toFixed(2)}`; // Toon de initiële prijs
 
-    // Clear any existing quantity input
+    // Verwijder bestaande quantity-container als die al bestaat
     const existingQuantityContainer = document.querySelector('.quantity-container');
     if (existingQuantityContainer) {
-        existingQuantityContainer.remove(); // Remove the previous quantity input if it exists
+        existingQuantityContainer.remove();
     }
 
-    // Voeg de nieuwe quantity input toe onder de productinformatie
+    // Voeg de hoeveelheid-invoer toe onder de productinformatie
     const quantityContainer = document.createElement('div');
     quantityContainer.classList.add('quantity-container');
     quantityContainer.innerHTML = `
-        <label for="popup-quantity">Quantity:</label>
+        <label for="popup-quantity">Aantal:</label>
         <input type="number" id="popup-quantity" value="1" min="1" style="width: 50px; margin-left: 5px;">
     `;
     document.querySelector('.popup-product .product-info').appendChild(quantityContainer);
 
-    // Voeg een event listener toe aan het quantity input-veld om live de hoeveelheid bij te werken
+    // Event listener om de prijs live bij te werken en de cart aan te passen
     const quantityInput = document.getElementById('popup-quantity');
     quantityInput.addEventListener('input', () => {
-        updateQuantityInCart(productName, productPrice, productImage, short_description, parseInt(quantityInput.value));
+        const quantity = parseInt(quantityInput.value) || 1; // Minimaal 1
+        const totalPrice = (price * quantity).toFixed(2); // Bereken de totale prijs
+        document.getElementById('product-price').textContent = `€${totalPrice}`; // Update de prijs in de popup
+
+        // Werk de hoeveelheid en prijs ook bij in de winkelwagen
+        updateCartPriceInPopup(productName, totalPrice, quantity);
     });
 
     // Voeg aanbevolen producten toe aan de popup
     const recommendedProductsContainer = document.querySelector('.popup-recommendations');
-    recommendedProductsContainer.innerHTML = ''; // Clear the container
+    recommendedProductsContainer.innerHTML = ''; // Clear de container
 
-    // Add header
+    // Voeg een kop toe
     const headerElement = document.createElement('div');
     headerElement.classList.add('popup-header');
     headerElement.innerHTML = '<p>You may also like.</p>';
     recommendedProductsContainer.appendChild(headerElement);
 
+    // Voeg elk aanbevolen product toe
     recommendedProducts.forEach(product => {
         const productElement = document.createElement('div');
         productElement.classList.add('popup-recommendation');
@@ -674,22 +731,43 @@ async function showPopup(productName, productPrice, productImage, short_descript
             <img src="${product.image}" alt="${product.product}" class="recommendation-image">
             <div class="recommendation-info">
                 <h3>${truncateTitle(product.product)}</h3>
-                <p>€${product.price}</p>
+                <p>€${parseFloat(product.price).toFixed(2)}</p> <!-- Converteer naar getal voor veiligheid -->
             </div>
             <div class="recommendation-footer">
                 <p style="display: none;">${product.short_description || 'Geen beschrijving beschikbaar.'}</p>
                 <button class="pink_button" id="add-to-cart-${product.code}" onclick="addToCart('${product.product}', '${product.code}', '${product.price}', '${product.image}', '${product.short_description || 'Geen beschrijving beschikbaar.'}', true, true)">
-                    <span class="material-icons">add_shopping_cart</span>
+                    <span class="material-icons notranslate">add_shopping_cart</span>
                 </button>
             </div>`;
         recommendedProductsContainer.appendChild(productElement);
     });
-    
 
     // Toon de popup en overlay
     popup.style.display = 'block';
     overlay.style.display = 'block';
 }
+
+
+function updateCartPriceInPopup(productName, totalPrice, quantity) {
+    // Haal de huidige winkelwagen op uit localStorage
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Zoek het bestaande product in de winkelwagen
+    let existingProduct = cart.find(item => item.title === productName);
+
+    if (existingProduct) {
+        // Werk de hoeveelheid bij in de winkelwagen
+        existingProduct.quantity = quantity;
+        existingProduct.price = totalPrice;
+    }
+
+    // Sla de bijgewerkte winkelwagen op in localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+    
+    // Optioneel: update de winkelwagen teller (als je die ergens hebt)
+    updateCartCount();
+}
+
 
 
 
@@ -728,21 +806,20 @@ async function fetchRecommendedProducts(productCode) {
 
 
 
+
 function updateCartCount() {
     // Haal de winkelwageninhoud op uit localStorage
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    // Haal het aantal producten op
-    let itemCount = cart.length;
+    // Tel de hoeveelheden van alle producten op
+    let itemCount = cart.reduce((total, item) => total + item.quantity, 0);
 
     // Update de teller in de HTML
     document.getElementById('cart-count').textContent = itemCount;
 }
-// Functie om het aantal uit localStorage te halen en bij te werken
-function getCartCount() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || []; // Haal cart op uit localStorage
-    return cart.length; // Geef het aantal items in de cart terug
-}
+
+
+document.addEventListener('DOMContentLoaded', updateCartCount);
 
 
 

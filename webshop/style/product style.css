@@ -254,20 +254,11 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .quantity-container{
-    margin-left: 40px;
-    margin-top: -37px;
+    margin-left: 60px;
+    margin-top: -39px;
     margin-bottom: 5px;
 }
-#update-quantity-button{
-    background-color: var(--light_blue);
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-    color: var(--white);
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
+
 .rec-products{
     white-space: nowrap; /* Zorgt ervoor dat de tekst niet wrapt */
     overflow: hidden; /* Verbergt de tekst die buiten de container valt */

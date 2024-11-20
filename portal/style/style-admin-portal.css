@@ -339,7 +339,7 @@ main {
 
 @media (max-width: 875px) {
     .material-symbols-outlined{
-        display: none;
+        display: block;
     }
     .header-box{
         padding: 5px;

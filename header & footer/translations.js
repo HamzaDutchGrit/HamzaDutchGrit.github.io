@@ -1,37 +1,8 @@
-// Voorkomt dat iconen vertaald worden en markeert ze als niet-betekenisvol voor vertaling
-function preventIconTranslation() {
-    // Zoek alle iconen op de pagina
-    const icons = document.querySelectorAll(
-        '.material-icons, ' + 
-        '.material-symbols-outlined, ' + 
-        '.material-symbols-rounded, ' + 
-        '.material-symbols-sharp, ' + 
-        '.material-symbols-two-tone, ' + 
-        '.fa, ' + // Als je Font Awesome gebruikt
-        '.icon-class' // Voeg hier je eigen icon-klassen toe, bijvoorbeeld voor andere icon bibliotheken
-    );
-
-    // Voeg translate="no" en aria-hidden="true" toe aan elk icoon
-    icons.forEach(icon => {
-        icon.setAttribute('translate', 'no');
-        icon.setAttribute('aria-hidden', 'true');
-    });
-}
-
-// Wacht totdat de pagina volledig geladen is en roep de vertaalfunctie aan
-window.onload = function() {
-    // Eerst de iconen uitsluiten van vertaling
-    preventIconTranslation();
-    
-    // Google Translate initialisatie na het laden
-    googleTranslateElementInit();
-};
-
 // Google Translate initialisatie
 function googleTranslateElementInit() {
     new google.translate.TranslateElement({
         pageLanguage: 'en',  // Zet de pagina taal op Engels
-        includedLanguages: 'nl,en,es,de,sv,ja,hr',  // Talen waarin je wilt vertalen
+        includedLanguages: 'af,sq,am,ar,hy,az,eu,bs,bg,ca,ceb,ny,zh-CN,zh-TW,co,hr,da,nl,en,eo,et,tl,fi,fr,gl,ka,de,el,gu,hu,is,id,ga,it,ja,jw,kn,kk,km,ko,hr,la,lv,lt,mk,ms,mt,mi,mr,mn,ne,no,fa,pl,pt,pt-BR,ro,ru,sr,sd,sk,sl,es,sw,ta,te,th,cs,tr,uk,ur,vi,cy,be,xh,zu',  // Talen waarin je wilt vertalen
         layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
         autoDisplay: false,
         multilanguagePage: true
@@ -47,5 +18,3 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
-
-
