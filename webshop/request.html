@@ -18,7 +18,7 @@
     <header>
         <!-- Navigation Bar -->
         <nav class="navbar">
-            <div style="cursor: pointer;" class="navbar-logo">
+            <div class="navbar-logo">
                 <img src="../media/depotsoftware.webp" alt="Depot Software"
                     onclick="window.location.href='../pages/home.html';">
             </div>
@@ -28,14 +28,14 @@
     <main>
         <div class="go-back-container">
             <button class="go-back-btn" onclick="window.history.back()">
-                <span class="material-icons notranslate">arrow_back</span> Go back
+                <span class="material-icons">arrow_back</span> Go back
             </button>
         </div>
 
         <div class="progress-bar">
             <div class="step active">
                 <div class="step-number">
-                    <span class="material-icons notranslate">check</span>
+                    <span class="material-icons">check</span>
                 </div>
                 <div class="step-label">Address</div>
             </div>
@@ -66,108 +66,7 @@
             </div>
         </div>
 
-        <div class="cart-section">
-            <div class="cart-items">
-                <!-- Example of a cart item -->
-                <div class="cart-item" data-id="1">
-                    <div class="item-info">
-                        <div class="item-icon-request material-icons notranslate">article</div>
-                        <div class="item-description">
-                            <h3>Product 1</h3>
-                            <p>Description for Product 1.</p>
-                        </div>
-                    </div>
-                    <div class="item-quantity-price">
-                        <span class="item-price">€5.00</span>
-                        <div class="quantity-control">
-                            <input type="number" value="1" min="1">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Repeat the cart-item structure for more products -->
-                <div class="cart-item" data-id="2">
-                    <div class="item-info">
-                        <div class="item-icon-request material-icons notranslate">article</div>
-                        <div class="item-description">
-                            <h3>Product 2</h3>
-                            <p>Description for Product 2.</p>
-                        </div>
-                    </div>
-                    <div class="item-quantity-price">
-                        <span class="item-price">€5.00</span>
-                        <div class="quantity-control">
-                            <input type="number" value="1" min="1">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cart-item" data-id="3">
-                    <div class="item-info">
-                        <div class="item-icon-request material-icons notranslate">article</div>
-                        <div class="item-description">
-                            <h3>Product 3</h3>
-                            <p>Description for Product 3.</p>
-                        </div>
-                    </div>
-                    <div class="item-quantity-price">
-                        <span class="item-price">€5.00</span>
-                        <div class="quantity-control">
-                            <input type="number" value="1" min="1">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cart-item" data-id="4">
-                    <div class="item-info">
-                        <div class="item-icon-request material-icons notranslate">article</div>
-                        <div class="item-description">
-                            <h3>Product 4</h3>
-                            <p>Description for Product 4.</p>
-                        </div>
-                    </div>
-                    <div class="item-quantity-price">
-                        <span class="item-price">€5.00</span>
-                        <div class="quantity-control">
-                            <input type="number" value="1" min="1">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cart-item" data-id="5">
-                    <div class="item-info">
-                        <div class="item-icon-request material-icons notranslate">article</div>
-                        <div class="item-description">
-                            <h3>Product 5</h3>
-                            <p>Description for Product 5.</p>
-                        </div>
-                    </div>
-                    <div class="item-quantity-price">
-                        <span class="item-price">€5.00</span>
-                        <div class="quantity-control">
-                            <input type="number" value="1" min="1">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cart-item" data-id="6">
-                    <div class="item-info">
-                        <div class="item-icon-request material-icons notranslate">article</div>
-                        <div class="item-description">
-                            <h3>Product 6</h3>
-                            <p>Description for Product 6.</p>
-                        </div>
-                    </div>
-                    <div class="item-quantity-price">
-                        <span class="item-price">€5.00</span>
-                        <div class="quantity-control">
-                            <input type="number" value="1" min="1">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
+        <div class="request-items"></div>
 
         <!-- Nieuwe sectie voor zinnen en knop, net boven de footer -->
         <div class="additional-info">
@@ -266,13 +165,16 @@
             <div class="footer-search-container">
                 <div class="footer-bar-search-container" onclick="window.location.href='../pages/search-results.html'">
                     <input type="text" placeholder="Search">
-                    <span class="material-icons nav-bar-search-icon notranslate">search</span>
+                    <span class="material-icons nav-bar-search-icon">search</span>
                 </div>
     
                 <div class="language-flags-container">
-                    <div id="google_translate_element"></div>
-                    <script src="../header & footer/translations.js"></script>
-                    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                    <div class="language-flags">
+                        <img href="#" src="../media/germany.webp" alt="DE">
+                        <img href="#" src="../media/netherlands.webp" alt="NL">
+                        <img href="#" src="../media/spain.webp" alt="ES">
+                        <img href="#" src="../media/english.webp" alt="ENG">
+                    </div>
                 </div>
             </div>
             <!-- Logo's of our partners -->

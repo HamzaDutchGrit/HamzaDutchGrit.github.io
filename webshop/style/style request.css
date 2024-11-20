@@ -147,16 +147,19 @@
 }
 
 .item-description {
-    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 /* Layout for quantity and price display */
 .item-quantity-price {
+    text-align: right;
     display: flex;
-    gap: 0px;
-    align-items: center;
-    margin-right: 0px;
+    flex-direction: column;
+    gap: 5px;
 }
+
 
 /* Styling for price and quantity values */
 .item-quantity-price span {
@@ -278,6 +281,80 @@
     border: 1px solid var(--light_gray);
     border-radius: 5px;
     box-sizing: border-box;
+}
+
+.item-info {
+    display: flex;
+    gap: 15px; /* Ruimte tussen afbeelding en beschrijving */
+}
+
+/* Standaard styling voor de request-item container */
+.request-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: 8px; /* Afgeronde hoeken */
+    background-color: #f9f9f9; /* Lichtgrijze achtergrond */
+}
+
+.request-items {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Ruimte tussen de items */
+    padding: 20px;
+}
+
+.item-image img {
+    width: 100px; /* Pas grootte van de afbeelding aan */
+    height: auto;
+    border-radius: 5px; /* Afgeronde hoeken voor afbeelding */
+}
+
+
+/* Afbeeldingsstijl */
+.item-image img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Titel groter weergeven */
+.item-description h3 {
+    font-size: 15px; /* Aanpassen naar wens */
+    font-weight: bold;
+}
+
+/* Beschrijving iets kleiner */
+.item-description p {
+    font-size: 10px; /* Aanpassen naar wens */
+    color: #555;
+}
+
+/* Code iets kleiner en subtieler */
+.item-description p:nth-child(3) {
+    font-size: 0.85em; /* Aanpassen naar wens */
+    color: #777;
+}
+
+/* Prijs styling */
+.item-price {
+    font-size: 15px; /* Aanpassen naar wens */
+    color: #333;
+}
+
+/* Totaalprijs groter en opvallender */
+.item-total-price {
+    font-size: 50px; /* Aanpassen naar wens */
+    font-weight: bold;
+    color: #000;
+}
+
+/* Aantal iets kleiner */
+.item-quantity {
+    font-size: 0.9em; /* Aanpassen naar wens */
+    color: #333;
 }
 
 
