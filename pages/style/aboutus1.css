@@ -278,7 +278,7 @@ main button:hover {
 /* Media Queries voor telefoons */
 @media (max-width: 575px) {
     .team-text {
-        max-width: 90%; /* Maak de tekst breder voor telefoons */
+        max-width: 95%; /* Maak de tekst breder voor telefoons */
     }
 
     .team-grid {
@@ -304,4 +304,42 @@ main button:hover {
         margin-bottom: 30px; /* Verminder de marge onder het icoon */
         transform: translate(25%, -20%); /* Reset transform */
     }
+}
+
+
+/* Media Queries voor telefoons */
+@media (max-width: 450px) {
+    
+
+    .team-grid {
+        margin: 0 auto; /* Centraal uitlijnen */
+        gap: 10px; /* Ruimte tussen de teamleden */
+        grid-template-columns: 1fr; /* Eén kolom, items komen onder elkaar */
+        max-width: 375px; /* Houdt de grid binnen een vaste breedte */
+    }
+
+    .team-container {
+        align-items: center; /* Centreer de items */
+        gap: 20px; /* Ruimte tussen de teamleden */
+    }
+
+    .team-member .avatar {
+        width: 100px; /* Maak de avatar kleiner */
+        height: 100px; /* Maak de avatar kleiner */
+    }
+
+    .team-member .mail-icon {
+        padding: 5px; /* Maak de padding kleiner */
+        font-size: 30px; /* Maak het mail icoon kleiner */
+        margin-bottom: 30px; /* Verminder de marge onder het icoon */
+        transform: translate(25%, -20%); /* Reset transform */
+    }
+    .team-text {
+        max-width: 100%; /* Maak de tekst breder voor telefoons */
+    }
+
+    .team-member p{
+        font-size: 16.5px;
+    }
+
 }
