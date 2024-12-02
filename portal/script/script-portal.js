@@ -1,6 +1,6 @@
 // Functie om de gebruikersnaam op te halen en vervolgens de orders
 function fetchUserName() {
-    const apiUrl = "https://localhost:7190/me"; // API-URL voor het ophalen van de gebruikersinformatie
+    const apiUrl = "https://login-api-psno.onrender.com/me"; // API-URL voor het ophalen van de gebruikersinformatie
     const token = sessionStorage.getItem("token"); // Haal het token op uit de session storage
 
     if (!token) {

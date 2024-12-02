@@ -2,7 +2,7 @@ function downloadExcel() {
     console.log("Download button clicked"); // Log in de console om te testen
 
     // Vervang dit door de juiste API-URL
-    const apiUrl = "https://localhost:7190/users"; 
+    const apiUrl = "https://login-api-psno.onrender.com/users"; 
 
     // Haal het Bearer-token op uit de session storage
     const token = sessionStorage.getItem("token"); 
@@ -58,7 +58,7 @@ function downloadExcel() {
 function downloadAnalyticsExcel() {
     console.log("Analytics button clicked"); // Log in de console om te testen
 
-    const apiUrl = "https://localhost:7190/analyticsdb"; // API-URL voor analytics
+    const apiUrl = "https://login-api-psno.onrender.com/analyticsdb"; // API-URL voor analytics
 
     const token = sessionStorage.getItem("token"); 
 
@@ -204,7 +204,7 @@ function downloadStore() {
 }
 
 function fetchUserName() {
-    const apiUrl = "https://localhost:7190/me"; // API-URL voor het ophalen van de gebruikersinformatie
+    const apiUrl = "https://login-api-psno.onrender.com/me"; // API-URL voor het ophalen van de gebruikersinformatie
     const token = sessionStorage.getItem("token"); // Haal het token op uit de session storage
 
     if (!token) {
