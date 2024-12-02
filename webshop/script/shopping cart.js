@@ -147,7 +147,6 @@ function updateQuantity(title, newQuantity) {
     }
 }
 
-// Functie om een item te verwijderen
 function removeItem(title) {
     let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
     cartItems = cartItems.filter(item => item.title !== title);
@@ -156,11 +155,10 @@ function removeItem(title) {
     displayCartItems();  // Vernieuw de winkelwagenweergave
 
     // Toon de pop-up met het bericht
-    showPopup(`${title} is deleted from your shopping cart.`);
-    // Bij het toevoegen of verwijderen van items:
-    updateSubtotal();
-
+    showPopup(`${title} is verwijderd uit je winkelwagen.`);
+    updateSubtotal(); // Werk de subtotal bij
 }
+
 
 // Functie om de pop-up weer te geven
 function showPopup(message) {
@@ -310,3 +308,19 @@ document.addEventListener("DOMContentLoaded", function () {
     displayCartItems();
     updateSubtotal(); // Zorg dat de subtotal wordt bijgewerkt bij het laden
 });
+
+function showPopup(message) {
+    const popupMessage = document.getElementById('popup-message');
+    if (!popupMessage) {
+        console.error("Popup element not found");
+        return;
+    }
+    popupMessage.textContent = message; // Stel de tekst van de pop-up in
+    popupMessage.style.display = 'block'; // Toon de pop-up
+
+    // Verberg de pop-up na 3 seconden
+    setTimeout(() => {
+        popupMessage.style.display = 'none';
+    }, 3000);
+}
+

@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../header & footer/style_header-footer.css">
     <link rel="icon" href="../media/favicon.ico">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Icons&family=Material+Symbols+Outlined" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons&family=Material+Symbols+Outlined" />
     <link rel="stylesheet" href="style/style contact information order.css">
     <title>Contact Information Order</title>
 </head>
@@ -16,9 +15,8 @@
     <header>
         <!-- Navigation Bar -->
         <nav class="navbar">
-            <div style="cursor: pointer;" class="navbar-logo">
-                <img src="../media/depotsoftware.webp" alt="Depot Software"
-                    onclick="window.location.href='../pages/home.html';">
+            <div class="navbar-logo">
+                <img src="../media/depotsoftware.webp" alt="Depot Software" onclick="window.location.href='../pages/home.html';">
             </div>
             <script src="../header & footer/script_navbar.js" defer></script>
         </nav>
@@ -27,9 +25,10 @@
     <main>
         <div class="go-back-container">
             <button class="go-back-btn" onclick="window.history.back()">
-                <span class="material-icons notranslate">arrow_back</span> Go back
+                <span class="material-icons">arrow_back</span> Go back
             </button>
         </div>
+
         <!-- Progress bar -->
         <div class="progress-bar">
             <div class="step active">
@@ -70,30 +69,14 @@
             <div class="subtotal-container">
                 <h3 class="subtotal">Subtotal</h3>
                 <div class="product-list">
-                    <div class="product-info">
-                        <span class="product-name">Product 1</span>
-                        <span class="product-price">€5.00</span>
-                    </div>
-                    <!-- Additional product info here -->
-                    <div class="product-info">
-                        <span class="product-name">Product 1</span>
-                        <span class="product-price">€5.00</span>
-                    </div>
-
-                    <div class="product-info">
-                        <span class="product-name">Product 1</span>
-                        <span class="product-price">€5.00</span>
-                    </div>
-
-                    <div class="product-info">
-                        <span class="product-name">Product 1</span>
-                        <span class="product-price">€5.00</span>
-                    </div>
+                    <!-- Producten worden hier dynamisch toegevoegd -->
                 </div>
                 <div class="total-divider"></div>
                 <div class="total-info">
                     <span>Total:</span>
-                    <span class="total-price">€5.00</span>
+                <div class="total-price">
+                    <span>€0.00</span> <!-- Dit wordt bijgewerkt met het totale bedrag -->
+                </div>
                 </div>
             </div>
         </div>
@@ -112,13 +95,12 @@
             <p>To improve our website and offer you a personalized experience, we use a variety of tools as defined in our
                 <a href="https://www.iubenda.com/privacy-policy/30671546">privacy policy</a>.</p>
         </div>
-    
         <div class="cookie-buttons">
             <button class="accept-button" id="acceptBtn">Accept</button>
             <button class="info-settings-button" id="infoBtn">Info & settings</button>
         </div>
     </div>
-    
+
     <!-- Popup for detailed cookie settings -->
     <div class="popup-overlay" id="popupOverlay">
         <div class="popup-box" id="popupBox">
@@ -147,8 +129,7 @@
         <hr style="margin-top: -1px;">
         <!-- Area for the logo and the links around the site -->
         <div class="footer_logo">
-            <img src="../media/depotsoftware.webp" alt="Depot Software"
-                onclick="window.location.href='../pages/home.html';">
+            <img src="../media/depotsoftware.webp" alt="Depot Software" onclick="window.location.href='../pages/home.html';">
         </div>
         <div class="footer-container">
             <div class="left-side">
@@ -156,13 +137,11 @@
                     <h3>Contact</h3>
                     <p>Email: <a href="mailto:info@depotsoftware.com">info@depotsoftware.com</a></p>
                     <p>Telefoon: <a href="tel:31889998999">+31 88 999 8999</a></p>
-                    <p>Adres: <a
-                            href="https://www.google.com/maps?rlz=1C1ONGR_nlNL987NL987&sxsrf=ALiCzsYZG5MF2WryvnxhslGB4Gt3lF2r0w:1666708591893&q=De+Zelling+8+3342+GS+Hendrik-Ido-Ambacht+The+Netherlands&biw=1680&bih=931&dpr=1&um=1&ie=UTF-8&sa=X&ved=2ahUKEwjx2d6tzfv6AhXZhv0HHf-UDDgQ_AUoAXoECAIQAw">De
-                            Zelling 8<br>3342GS Hendrik-Ido-Ambacht<br>The Netherlands</a></p>
-    
+                    <p>Adres: <a href="https://www.google.com/maps?rlz=1C1ONGR_nlNL987NL987&sxsrf=ALiCzsYZG5MF2WryvnxhslGB4Gt3lF2r0w:1666708591893&q=De+Zelling+8+3342+GS+Hendrik-Ido-Ambacht+The+Netherlands&biw=1680&bih=931&dpr=1&um=1&ie=UTF-8&sa=X&ved=2ahUKEwjx2d6tzfv6AhXZhv0HHf-UDDgQ_AUoAXoECAIQAw">De
+                        Zelling 8<br>3342GS Hendrik-Ido-Ambacht<br>The Netherlands</a></p>
                 </div>
             </div>
-    
+
             <div class="container-start-cus">
                 <div class="start-using">
                     <h3>Start Using Depot Software</h3>
@@ -170,7 +149,7 @@
                     <p><a href="../webshop/store.html">Solution's store</a></p>
                     <p><a href="../pages/implementations.html">Implementations</a></p>
                 </div>
-    
+
                 <div class="customers">
                     <h3>Customers</h3>
                     <p><a href="../portal/login.html">Login portal</a></p>
@@ -178,62 +157,39 @@
                     <p><a href="../pop-up/privacy settings.html">Privacy settings</a></p>
                 </div>
             </div>
+
             <!-- Image of our team -->
             <div class="img-about-us right-side">
-                <img src="../media/team.webp">
+                <img src="../media/team.webp" alt="Our Team">
             </div>
+
             <!-- Search bar -->
             <div class="footer-search-container">
                 <div class="footer-bar-search-container" onclick="window.location.href='../pages/search-results.html'">
                     <input type="text" placeholder="Search">
-                    <span class="material-icons nav-bar-search-icon notranslate">search</span>
+                    <span class="material-icons nav-bar-search-icon">search</span>
                 </div>
-    
+
                 <div class="language-flags-container">
-                    <div id="google_translate_element"></div>
-                    <script src="../header & footer/translations.js"></script>
-                    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                    <div class="language-flags">
+                        <img src="../media/germany.webp" alt="DE">
+                        <img src="../media/netherlands.webp" alt="NL">
+                        <img src="../media/spain.webp" alt="ES">
+                        <img src="../media/english.webp" alt="ENG">
+                    </div>
                 </div>
             </div>
+
             <!-- Logo's of our partners -->
             <div class="partner-logos">
-                <div class="logo-row">
-                    <img class="itco_logo" src="../media/itco-sgf.webp" alt="ITCO logo & SGF logo">
-                </div>
-                <img class="microsoft_logo" src="../media/microsoft.webp" alt="Microsoft Partner logo">
-            </div>
-        </div>
-    
-        <hr>
-        <!-- Bottom layer of the footer with additional info -->
-        <div class="footer-bottom">
-            <button class="privacy-btn" id="infoprivacy">Privacy Settings</button>
-            <p class="terms_bottom">&copy; 2024 - <a href="terms & conditions.html">Terms & Conditions</a> | <a
-                    href="privacy policy.html">Privacy Policy</a> | <a href="sitemap.html">Sitemap</a></p>
-            <div class="social-icons">
-                <a href="https://www.linkedin.com/company/depotsoftware#" target="_blank" rel="noopener noreferrer">
-                    <img src="../media/linkedin.webp" alt="LinkedIn">
-                </a>
-                <a href="https://www.youtube.com/playlist?list=PLumDEh0xMtUTWHhcQ6U19IQeum00ztJYI" target="_blank"
-                    rel="noopener noreferrer">
-                    <img src="../media/youtube.webp" alt="YouTube">
-                </a>
-                <a href="https://www.instagram.com/lucrasoftict?igsh=cGJxcXBka3hhM2h3" target="_blank"
-                    rel="noopener noreferrer">
-                    <img src="../media/instagram.webp" alt="Instagram">
-                </a>
-                <a href="https://www.depotsoftware.com/news-customer-cases/rss/" target="_blank" rel="noopener noreferrer">
-                    <img src="../media/rss.webp" alt="RSS">
-                </a>
+                <img src="../media/SGF.webp" alt="SGF">
+                <img src="../media/ITCO.webp" alt="ITCO">
+                <img src="../media/microsoft.webp" alt="Microsoft">
             </div>
         </div>
     </footer>
+
     <script src="script/script contact.js" defer></script>
-    <button id="scrollToTopBtn">
-        <link rel="stylesheet" href="../header & footer/style_scroll.css">
-        <script src="../header & footer/script_scroll.js"></script>
-        <span class="material-symbols-outlined scroll-icon notranslate">keyboard_double_arrow_up</span>
-    </button>
 </body>
 
 </html>

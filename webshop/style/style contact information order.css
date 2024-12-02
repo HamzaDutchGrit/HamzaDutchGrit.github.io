@@ -24,30 +24,27 @@ html {
 /* Centering Content */
 .container {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    justify-content: space-between; /* Zorgt ervoor dat de ruimte tussen de elementen gelijkmatig is */
+    align-items: flex-start; /* Zorgt ervoor dat de elementen aan de bovenkant zijn uitgelijnd */
     width: 100%;
     max-width: 1200px;
     padding: 20px;
-    gap: 20px;
+    gap: 20px; /* Ruimte tussen de elementen */
     margin: 0 auto;
-    flex-wrap: wrap;
-    /* Voeg deze regel toe */
+    flex-wrap: wrap; /* Zorgt ervoor dat de elementen op een nieuwe regel komen als er niet genoeg ruimte is */
 }
 
 /* Form Section */
 .form-container {
-    flex: 1 1 60%;
+    flex: 1 1 60%; /* Verander dit indien nodig om de breedte aan te passen */
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 20px;
     background-color: var(--white);
     border-radius: 10px;
-    max-width: 600px;
-    /* Max breedte van de form-container */
-    margin: 100px 20px;
-    /* Boven- en ondermarge, links en rechts automatisch */
+    max-width: 600px; /* Max breedte van de form-container */
+    margin: 100px 20px; /* Boven- en ondermarge, links en rechts automatisch */
 }
 
 .form-row {
@@ -101,7 +98,7 @@ html {
 }
 
 .submit-btn {
-    background-color: var(--pink);
+    background-color: var(--dark_blue);
     color: var(--white);
     border: none;
     font-size: 20px;
@@ -111,25 +108,18 @@ html {
 }
 
 .subtotal-container {
-    flex: 1 1 35%;
+    flex: 1 1 35%; /* Zorg ervoor dat dit percentage goed is ingesteld voor de breedte */
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    /* Subtle shadow */
-    background-color: var(--white);
-    /* White background */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    background-color: var(--white); /* White background */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    /* Space items evenly */
-    max-height: 500px;
-    /* Set maximum height */
-    overflow: hidden;
-    /* Hide overflow content */
+    justify-content: space-between; /* Space items evenly */
+    max-height: 500px; /* Set maximum height */
+    overflow: hidden; /* Hide overflow content */
     position: relative;
-    margin-top: 120px;
-    margin-bottom: 100px;
-    margin-right: 30px;
+    margin-top: 120px; /* Zorg ervoor dat dit overeenkomt met de bovenmarge van de form-container */
 }
 
 .subtotal {
@@ -146,6 +136,35 @@ html {
     margin-bottom: 10px;
 }
 
+/* Style voor individuele producten */
+.product-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Naam van het product */
+.product-name {
+    font-size: 18px;
+    color: #333;
+}
+
+/* Prijs van het product */
+.item-price {
+    color: var(--black); /* Verander de kleur naar wat je wilt */
+    font-weight: bold; /* Maak de prijs vetgedrukt */
+    font-size: 1em; /* Pas de grootte van de tekst aan */
+    float: right;
+}
+
+/* Stijl voor de total-info sectie */
+.total-info {
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
 /* Divider line for total */
 .total-divider {
     border: 0;
@@ -165,6 +184,10 @@ html {
     bottom: 0;
     /* Align at bottom of the container */
     margin-bottom: auto;
+}
+
+.total-price {
+    font-size: 18px;
 }
 
 /* Progress Bar */
@@ -261,20 +284,22 @@ html {
     overflow-y: auto;
     /* Make scrollable */
     margin-bottom: 20px;
-    padding-right: 10px;
+    font-size: 14px;
 }
 
 .product-info {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
+    display: flex; /* Gebruik flexbox voor horizontale uitlijning */
+    justify-content: space-between; /* Zorg ervoor dat er ruimte tussen elementen is */
+    width: 100%; /* Zorg ervoor dat de breedte van de container wordt benut */
+    align-items: center; /* Zorg ervoor dat alle items verticaal gecentreerd zijn */
+    margin-bottom: 10px; /* Optionele marge onder elk product voor extra ruimte */
 }
 
 .product-name {
     font-size: 16px;
     color: var(--black);
     /* Styling for product name */
-}
+}   
 
 .product-price {
     font-size: 16px;
@@ -282,12 +307,6 @@ html {
     color: var(--black);
     /* Styling for product price */
 }
-
-/* Total price section styling */
-.total-price {
-    margin-right: 10px;
-}
-
 /* Navbar styling */
 .navbar {
     display: flex;
@@ -324,7 +343,7 @@ html {
 .go-back-btn {
     display: flex;
     align-items: center;
-    background-color: var(--pink);
+    background-color: var(--dark_blue);
     /* Pink background for go back button */
     color: var(--white);
     /* White text */
@@ -377,7 +396,9 @@ html {
     text-align: ce;
 }
 
-
+.total-price {
+    flex: float;
+}
 /* Media Queries */
 @media (max-width: 1215px) {
     .subtotal-container {
@@ -389,14 +410,10 @@ html {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        max-height: 480px;
-        /* Verlaag de maximale hoogte met 20px */
+        max-height: 460px; /* Verlaagde hoogte met 20px */
         overflow: hidden;
         position: relative;
-        margin-top: -20px;
-        margin-bottom: 100px;
-        margin-right: 60px;
-        margin-left: 60px;
+        margin: -20px 60px 100px; /* Gecombineerde marges */
     }
 }
 
@@ -406,8 +423,8 @@ html {
         justify-content: center;
         align-items: flex-start;
         max-width: 1200px;
-        padding: 0px;
-        gap: 0px;
+        padding: 0;
+        gap: 0;
         margin: 0 auto;
         flex-wrap: wrap;
     }
@@ -415,28 +432,16 @@ html {
     .form-container {
         display: flex;
         flex-direction: column;
-        /* Plaats elementen onder elkaar */
         width: 100%;
-        /* Volledige breedte */
         max-width: 1200px;
-        /* Optionele maximale breedte voor grotere schermen */
         margin: 0 auto;
-        /* Centreert de container */
         padding: 20px;
-        /* Opvulling rondom de container */
         box-sizing: border-box;
-        /* Inclusief padding in de breedte */
     }
 
     .subtotal-container {
         padding: 20px;
-        /* Voeg padding toe voor ruimte aan de binnenkant */
-        margin-left: 10px;
-        /* Voeg een beetje ruimte aan de linkerkant toe */
-        margin-right: 10px;
-        /* Voeg een beetje ruimte aan de rechterkant toe */
-        margin: 20px 15px;
-        /* Boven- en ondermarge van 20px, links en rechts 15px */
+        margin: 20px 15px; /* Gecombineerde marges */
     }
 
     .form-row {
@@ -453,105 +458,68 @@ html {
 
     .form-row input:last-child,
     .form-row textarea {
-        margin-right: 0;
-        /* Geen marge aan de rechterkant voor het laatste element */
+        margin-right: 0; /* Geen marge aan de rechterkant voor het laatste element */
     }
 
     .subtotal {
-        font-size: 20px;
-        /* Aanpassen van de lettergrootte voor subtotaal */
+        font-size: 20px; /* Aanpassen van de lettergrootte voor subtotaal */
     }
 
     .total-info {
-        font-size: 16px;
-        /* Aanpassen van de lettergrootte voor totaal info */
+        font-size: 16px; /* Aanpassen van de lettergrootte voor totaal info */
     }
 
     .checkout-btn {
-        font-size: 18px;
-        /* Aanpassen van de lettergrootte voor de knop */
+        font-size: 18px; /* Aanpassen van de lettergrootte voor de knop */
     }
 
     .product-name,
     .product-price {
-        font-size: 14px;
-        /* Aanpassen van de lettergrootte voor product info */
+        font-size: 14px; /* Aanpassen van de lettergrootte voor product info */
     }
 
     .step-number {
-        width: 25px;
-        /* Kleinere stapnummers */
-        height: 25px;
-        /* Kleinere stapnummers */
-        font-size: 14px;
-        /* Aanpassen van de lettergrootte */
+        width: 25px; /* Kleinere stapnummers */
+        height: 25px; /* Kleinere stapnummers */
+        font-size: 14px; /* Aanpassen van de lettergrootte */
     }
 
     .step-label {
-        font-size: 12px;
-        /* Kleinere staplabel */
+        font-size: 12px; /* Kleinere staplabel */
     }
 
     .navbar-logo {
-        margin-left: 20px;
-        /* Aanpassen van de marge voor kleinere schermen */
-    }
-
-    .total-price {
-        padding-left: 250px;
-        margin-top: 15px;
+        margin-left: 20px; /* Aanpassen van de marge voor kleinere schermen */
     }
 
     .total-info span {
-        margin-top: 10px;
-        margin-bottom: -20px;
+        margin: 10px 0 -20px; /* Gecombineerde marges */
     }
 }
 
 @media (max-width: 480px) {
-
-    .total-price {
-        padding-left: 250px;
-        margin-top: 15px;
-        margin-left: 110px;
-    }
-
     .form-row {
-        flex-direction: column;
-        /* Stapel invoervelden verticaal */
+        flex-direction: column; /* Stapel invoervelden verticaal */
     }
 
     .form-row input,
     .form-row textarea {
-        margin-right: 0;
-        /* Verwijder rechter marge */
-        margin-bottom: 10px;
-        /* Voeg ondermarge toe voor ruimte */
+        margin: 0 0 10px; /* Verwijder rechter marge en voeg ondermarge toe */
         width: 100%;
     }
 
     .total-info {
-        flex-direction: column;
-        /* Stapel totaal info verticaal */
-        align-items: flex-start;
-        /* Align items naar het begin */
+        flex-direction: column; /* Stapel totaal info verticaal */
+        align-items: flex-start; /* Align items naar het begin */
     }
 
-    .checkout-btn {
-        padding: 10px;
-        /* Aanpassen van de opvulling voor kleinere schermen */
-    }
-
+    .checkout-btn,
     .go-back-btn {
-        width: 60%;
-        /* Set the width to a smaller percentage */
-        max-width: 120px;
-        /* Optional: limit maximum width */
-        padding: 8px;
-        /* Adjust padding for a smaller button */
-        font-size: 14px;
-        /* Optional: adjust font size for smaller screens */
-        margin-right: 100px;
+        padding: 10px; /* Aanpassen van de opvulling voor kleinere schermen */
+        width: 60%; /* Set the width to a smaller percentage */
+        max-width: 120px; /* Optioneel: limit maximum width */
+        font-size: 14px; /* Optioneel: adjust font size for smaller screens */
+        margin-right: 100px; /* Voor de go-back-btn */
     }
 
     .form-row textarea {
@@ -559,23 +527,14 @@ html {
     }
 
     .total-price {
-        margin-bottom: 50px;
+        margin-bottom: 0; /* Verwijder ondermarge */
+        padding-left: 80%; 
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 360px) {
     .total-price {
-        padding-left: 250px;
-        margin-top: 15px;
-        margin-left: auto;
+        margin-left: 0%; /* Breid de negatieve marge uit om een goede uitlijning te bereiken */
     }
 }
 
-@media (max-width: 344px) {
-    .total-price {
-        padding-left: 250px;
-        margin-top: 15px;
-        margin-left: auto;
-        margin-left: -20px;
-    }
-}

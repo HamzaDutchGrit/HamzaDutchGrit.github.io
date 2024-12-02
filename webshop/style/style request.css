@@ -293,16 +293,21 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
-    border-radius: 8px; /* Afgeronde hoeken */
-    background-color: #f9f9f9; /* Lichtgrijze achtergrond */
+    padding: 20px; /* Padding binnenin het item */
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    margin: 0 auto; /* Centreer horizontaal */
+    max-width: 800px; /* Maximale breedte voor grote schermen */
+    width: 90%; /* Flexibele breedte voor kleinere schermen */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-
+/* Voor een mooie layout met flex */
 .request-items {
     display: flex;
     flex-direction: column;
-    gap: 30px; /* Ruimte tussen de items */
-    padding: 20px;
+    gap: 20px; /* Ruimte tussen items */
+    align-items: center;
+    padding: 20px; /* Extra ruimte rondom de container */
 }
 
 .item-image img {
@@ -355,6 +360,7 @@
 .item-quantity {
     font-size: 0.9em; /* Aanpassen naar wens */
     color: #333;
+    margin-right: 12px;
 }
 
 
@@ -364,12 +370,27 @@
     .cart-section {
         flex: 1 1 50%; /* Pas de breedte van de cart aan */
     }
+
+    .request-item {
+        max-width: 700px; /* Iets smaller */
+        padding: 15px; /* Kleinere padding */
+    }
 }
 
 @media (max-width: 900px) {
+
+    .item-description {
+        margin-bottom: 15px; /* Ruimte onder de tekst */
+    }
+
     .container {
         flex-direction: column; /* Verander naar kolom voor kleinere schermen */
         align-items: center; /* Centreer alle elementen */
+    }
+
+    .request-items {
+        flex-direction: column; /* Stapel items onder elkaar */
+        gap: 20px; /* Verminder de ruimte tussen items */
     }
 
     .cart-section {
@@ -381,6 +402,13 @@
         flex-direction: column; /* Zorg ervoor dat de inhoud kolomgewijs is */
         align-items: center; /* Centreer de inhoud */
         gap: 20px; /* Verklein de ruimte tussen elementen */
+    }
+
+    .request-item {
+        max-width: 600px; /* Nog smaller */
+        flex-direction: column; /* Items onder elkaar */
+        align-items: center;
+        text-align: center; /* Tekst centreren */
     }
 }
 
@@ -404,7 +432,7 @@
     }
 
     .item-description h3 {
-        font-size: 16px; /* Kleinere lettergrootte voor item naam */
+        font-size: 14px; /* Kleinere tekstgrootte */
     }
 
     .item-description p {
@@ -413,5 +441,14 @@
 
     .data-customer {
         flex-direction: column; /* Velden onder elkaar op kleinere schermen */
+    }
+
+    .request-item {
+        max-width: 100%; /* Volledige breedte op kleine schermen */
+        padding: 10px; /* Minder padding */
+    }
+
+    .item-price {
+        font-size: 14px; /* Kleinere prijs-tekst */
     }
 }

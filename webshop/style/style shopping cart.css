@@ -268,6 +268,8 @@ h1 {
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
+    display: flex;
+    justify-content: center;
     /* Zorg dat de knop gecentreerd blijft */
 }
 
@@ -749,21 +751,20 @@ h1 {
 }
 
 .popup-message {
+    display: none; /* Begin onzichtbaar */
     position: fixed;
-    bottom: 160px;
+    bottom: 10px; /* Plaats onderaan het scherm */
     left: 50%;
     transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.8);
-    /* Rood met lagere opaciteit */
-    color: white;
+    background-color: #f8d7da; /* Rode achtergrondkleur voor een waarschuwing */
+    color: #721c24; /* Donkerrode tekst */
     padding: 10px 20px;
+    border: 1px solid #f5c6cb; /* Rand passend bij de achtergrondkleur */
     border-radius: 5px;
-    font-size: 16px;
-    z-index: 1000;
-    display: none;
-    display: flex;
-    align-items: center;
-    /* Zorgt ervoor dat het vinkje en de tekst verticaal gecentreerd zijn */
+    font-size: 14px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Zorg dat het boven andere elementen staat */
+    animation: fadeInOut 3s forwards; /* Animatie voor in- en uitfaden */
 }
 
 .popup-message .material-symbols-outlined {
