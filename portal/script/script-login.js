@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function () {
         try {
             showMessage(goodMsg, 'Logging in...');
 
-            const response = await fetch('http://login-api-psno.onrender.com/login', {
+            const response = await fetch('https://login-api-psno.onrender.com/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
