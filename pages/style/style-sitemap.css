@@ -1,12 +1,13 @@
 :root {
-    --white: #ffffff;
-    --black: #000000;
-    --green: #7ded89;
-    --antracite: #60625f;
-    --light_gray: #edebea;
-    --light_blue: #42bedd;
-    --dark_blue: #2f7193;
-    --pink: #EB6363;
+    /* Define the color variables for the website */
+    --white: #ffffff; /* White color */
+    --black: #000000; /* Black color */
+    --green: #7ded89; /* Green color */
+    --antracite: #60625f; /* Color for subheaders and paragraphs */
+    --light_gray: #edebea; /* Light gray background color */
+    --light_blue: #42bedd; /* Primary brand color (light blue) */
+    --dark_blue: #2f7193; /* Secondary brand color (dark blue) */
+    --pink: #EB6363; /* Contrast color (pink) */
 }
 
 /* General body styling */
@@ -17,27 +18,28 @@ body {
     padding: 0;
 }
 
-
-
-main p a{
+/* Styling for links inside paragraphs */
+main p a {
     font-size: 30px;
     color: var(--light_blue);
     font-weight: bold;
     text-decoration: none;
 }
 
-main h3{
+/* Styling for h3 elements in the main content */
+main h3 {
     font-size: 45px;
     color: var(--dark_blue);
     font-weight: bold;
     text-decoration: none;
 }
 
-main{
+/* Main content section padding */
+main {
     padding: 50px;
-    
 }
 
+/* Styling for h1 elements in the main content */
 main h1 {
     font-size: 40px;
     color: var(--dark_blue);
@@ -46,8 +48,8 @@ main h1 {
     text-decoration: none;
 }
 
-
-.bg{
+/* Background styling for .bg class */
+.bg {
     background-color: var(--light_gray);
     padding-left: 50px;
     padding-right: 50px;
@@ -56,27 +58,31 @@ main h1 {
     padding-bottom: 40px;
 }
 
+/* Media query for smaller screens (880px or less) */
 @media (max-width: 880px) {
 
-    main p a{
+    /* Adjust link size and styling for smaller screens */
+    main p a {
         font-size: 20px;
         color: var(--light_blue);
         font-weight: bold;
         text-decoration: none;
     }
-    
-    main h3{
+
+    /* Adjust h3 size and styling for smaller screens */
+    main h3 {
         font-size: 30px;
         color: var(--dark_blue);
         font-weight: bold;
         text-decoration: none;
     }
-    
-    main{
+
+    /* Main content padding adjustment for smaller screens */
+    main {
         padding: 50px;
-        
     }
-    
+
+    /* Adjust h1 size, margin, and text alignment for smaller screens */
     main h1 {
         font-size: 30px;
         color: var(--dark_blue);
@@ -85,11 +91,10 @@ main h1 {
         margin-bottom: 40px;
     }
 
-    .bg{
+    /* Adjust .bg layout and text alignment for smaller screens */
+    .bg {
         flex: auto;
         flex-direction: column;
         text-align: center;
     }
-
-    
 }

@@ -1,24 +1,21 @@
 :root {
-    --white: #ffffff;
-    --black: #000000;
-    --green: #7ded89;
-    --sub_antracite: #60625f;
-    --par_antracite: #60625f;
-    --light_gray: #edebea;
-    --light_blue: #42bedd;
-    --dark_blue: #2f7193;
-    --pink: #EB6363;
+    /* Define the color variables for the website */
+    --white: #ffffff; /* White color */
+    --black: #000000; /* Black color */
+    --green: #7ded89; /* Green color */
+    --antracite: #60625f; /* Color for subheaders and paragraphs */
+    --light_gray: #edebea; /* Light gray background color */
+    --light_blue: #42bedd; /* Primary brand color (light blue) */
+    --dark_blue: #2f7193; /* Secondary brand color (dark blue) */
+    --pink: #EB6363; /* Contrast color (pink) */
 }
 
+/* Cookie consent banner styles */
 .cookie-wrapper {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
-}
-
-/* Cookie consent banner */
-.cookie-wrapper {
     position: fixed;
     bottom: 0px;
     left: -375px;
@@ -52,12 +49,13 @@
     font-weight: 500;
 }
 
+/* Cookie data styles */
 .cookie-wrapper .cookie-data {
     margin-top: 16px;
 }
 
 .cookie-wrapper .cookie-data p {
-    color: var(--sub_antracite);
+    color: var(--antracite);
     font-size: 16px;
 }
 
@@ -71,6 +69,7 @@
     text-decoration: underline;
 }
 
+/* Cookie buttons styling */
 .cookie-wrapper .cookie-buttons {
     margin-top: 16px;
     width: 100%;
@@ -94,7 +93,7 @@
 }
 
 .cookie-buttons .info-settings-button {
-    background-color: var(--sub_antracite);
+    background-color: var(--antracite);
 }
 
 .cookie-buttons .accept-button:hover {
@@ -122,13 +121,13 @@
 }
 
 .popup-box {
-    background-color: #f2f2f2; /* Grijze achtergrond */
-    padding: 30px; /* Meer padding voor ruimtelijkheid */
+    background-color: #f2f2f2; /* Light gray background */
+    padding: 30px;
     border-radius: 8px;
-    max-width: 600px; /* Groter popup venster */
+    max-width: 600px;
     width: 100%;
     position: relative;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Lichte schaduw voor diepte */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 .popup-box h3 {
@@ -141,19 +140,19 @@
     margin-bottom: 20px;
     font-size: 16px;
     color: #666;
-    line-height: 1.6; /* Verbeterde tekstafstand */
+    line-height: 1.6; /* Improved line height */
 }
 
 .popup-options {
     display: flex;
     flex-direction: column;
-    gap: 30px; /* Grotere ruimte tussen de opties */
+    gap: 30px;
 }
 
 .option {
     display: flex;
     align-items: flex-start;
-    gap: 20px; /* Ruimte tussen de knop en de tekst */
+    gap: 20px;
 }
 
 .popup-btn {
@@ -162,8 +161,8 @@
     border: none;
     padding: 15px 20px;
     cursor: pointer;
-    border-radius: 8px; /* Rondere knoppen */
-    min-width: 220px; /* Consistente breedte voor de knoppen */
+    border-radius: 8px;
+    min-width: 220px;
     font-size: 14px;
     font-weight: bold;
     text-align: center;
@@ -194,62 +193,60 @@
     text-decoration: underline;
 }
 
-@media (max-width: 600px){
+/* Media queries for responsive design */
+@media (max-width: 600px) {
     .popup-box {
-        padding: 10px; /* Nog minder padding */
-        max-width: 90%; /* Popup breedte is 90% van het scherm */
+        padding: 10px;
+        max-width: 90%;
     }
 }
 
-/* Basisstijl voor smartphones (kleiner dan 480px) */
 @media (max-width: 480px) {
-    /* Popup box styling voor smartphones */
     .popup-box {
-        padding: 10px; /* Nog minder padding */
-        max-width: 90%; /* Popup breedte is 90% van het scherm */
+        padding: 10px;
+        max-width: 90%;
     }
 
     .popup-box h3 {
-        font-size: 16px; /* Kleinere koptekst */
-        margin-bottom: 5px; /* Minder ruimte onder de koptekst */
+        font-size: 16px;
+        margin-bottom: 5px;
     }
 
     .popup-box p {
-        font-size: 12px; /* Kleinere tekstgrootte */
-        line-height: 1.3; /* Minder regelafstand */
-        margin-bottom: 10px; /* Minder ruimte onder de tekst */
+        font-size: 12px;
+        line-height: 1.3;
+        margin-bottom: 10px;
     }
 
     .popup-options {
-        gap: 10px; /* Nog minder ruimte tussen opties */
+        gap: 10px;
     }
 
     .popup-btn {
-        min-width: 100%; /* Knoppen gebruiken 100% van de breedte */
-        padding: 8px 5px; /* Minder padding voor knoppen */
-        font-size: 12px; /* Kleinere tekst in knoppen */
+        min-width: 100%;
+        padding: 8px 5px;
+        font-size: 12px;
     }
 
     .option {
-        flex-direction: column; /* Stapel knoppen en tekst verticaal */
-        gap: 5px; /* Verminder ruimte tussen knop en tekst */
+        flex-direction: column;
+        gap: 5px;
     }
 
     .option p {
-        text-align: center; /* Centreer de tekst voor betere leesbaarheid */
+        text-align: center;
     }
 
-    /* Knoppen in de cookie-banner aanpassen */
+    /* Adjust cookie banner buttons for small screens */
     .cookie-buttons .accept-button,
     .cookie-buttons .info-settings-button {
-        width: 95%; /* Knoppen gebruiken 95% van de breedte */
-        margin: 0 auto; /* Centreer de knoppen */
-        padding: 8px; /* Verminder padding */
-        font-size: 14px; /* Kleinere tekst */
+        width: 95%;
+        margin: 0 auto;
+        padding: 8px;
+        font-size: 14px;
     }
 
-    /* Kleinere tekst in de cookie-banner */
     .cookie-wrapper .cookie-data p {
-        font-size: 12px; /* Kleinere tekst in de cookie-banner */
+        font-size: 12px;
     }
 }

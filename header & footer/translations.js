@@ -1,20 +1,26 @@
-// Google Translate initialisatie
+// Google Translate initialization
 function googleTranslateElementInit() {
+    // Initialize the Google Translate widget with specified options
     new google.translate.TranslateElement({
-        pageLanguage: 'en',  // Zet de pagina taal op Engels
-        includedLanguages: 'af,sq,am,ar,hy,az,eu,bs,bg,ca,ceb,ny,zh-CN,zh-TW,co,hr,da,nl,en,eo,et,tl,fi,fr,gl,ka,de,el,gu,hu,is,id,ga,it,ja,jw,kn,kk,km,ko,hr,la,lv,lt,mk,ms,mt,mi,mr,mn,ne,no,fa,pl,pt,pt-BR,ro,ru,sr,sd,sk,sl,es,sw,ta,te,th,cs,tr,uk,ur,vi,cy,be,xh,zu',  // Talen waarin je wilt vertalen
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-        autoDisplay: false,
-        multilanguagePage: true
-    }, 'google_translate_element');
+        pageLanguage: 'en',  // Set the page language to English
+        includedLanguages: 'bg,cs,da,de,el,en,es,et,fi,fr,hr,hu,it,lv,lt,mt,nl,no,pl,pt,ro,sk,sl,sv,tr,uk,ru,zh-CN,zh-TW,ja,ko,hi,ar,he,id,ms,th,vi,fa',  // List of languages to include in the translate dropdown
+        autoDisplay: false,  // Prevent automatic language selection display
+        multilanguagePage: true  // Enable multilanguage page behavior
+    }, 'google_translate_element'); // Attach the translate element to the div with the id 'google_translate_element'
+
+    // Hide the translate banner once the translation button is loaded
+    var translateFrame = document.querySelector('.goog-te-banner-frame');
+    if (translateFrame) {
+        translateFrame.style.display = 'none'; // Directly hide the banner after loading
+    }
 }
 
-// Voorkomt dat de pagina omhoog springt bij het selecteren van een taal
+// Prevent the page from scrolling up when selecting a language
 document.addEventListener("DOMContentLoaded", function() {
     const translateElement = document.getElementById("google_translate_element");
     if (translateElement) {
         translateElement.addEventListener("click", function(event) {
-            event.preventDefault();
+            event.preventDefault();  // Prevent default action of the click event to avoid page scroll
         });
     }
 });

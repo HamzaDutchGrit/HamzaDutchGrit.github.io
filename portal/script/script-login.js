@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (checkout) {
                 // Redirect to contact page if checkout is true
                 sessionStorage.setItem('checkout', 'false'); // Set checkout flag to false
-                window.location.href = 'webshop/contact%20information%20order.html'; // Redirect to the correct page
+                window.location.href = '../webshop/contact%20information%20order.html'; // Redirect to the correct page
                 return; // Stop further execution
             }
 
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function () {
         try {
             showMessage(goodMsg, 'Logging in...');
 
-            const response = await fetch('https://login-api-psno.onrender.com/login', {
+            const response = await fetch(`${API_URL.accounts}login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const checkout = sessionStorage.getItem('checkout') === "true";
                 if (checkout) {
                     sessionStorage.setItem('checkout', 'false'); // Zet checkout naar false
-                    window.location.href = '/webshop/contact%20information%20order.html'; // Gebruik een absoluut pad
+                    window.location.href = '../webshop/contact information order.html'; // Gebruik een absoluut pad
                     return; // Stop de verdere uitvoering
                 }
                 

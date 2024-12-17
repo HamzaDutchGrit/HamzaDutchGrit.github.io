@@ -1,29 +1,22 @@
 :root {
-    --white: #ffffff;
-    /* white */
-    --black: #000000;
-    /* black */
-    --green: #7ded89;
-    /* green */
-    --antracite: #60625f;
-    /* Subheaders & Paragraph */
-    --light_gray: #edebea;
-    /* Background color */
-    --light_blue: #42bedd;
-    /* Primary brand color */
-    --dark_blue: #2f7193;
-    /* Secondary brand color */
-    --pink: #EB6363;
-    /* Contrast color */
+    --white: #ffffff; /* Primary white color */
+    --black: #000000; /* Primary black color */
+    --green: #7ded89; /* Green for success or highlights */
+    --antracite: #60625f; /* Used for subheaders and paragraphs */
+    --light_gray: #edebea; /* Background color for sections */
+    --light_blue: #42bedd; /* Primary brand color */
+    --dark_blue: #2f7193; /* Secondary brand color */
+    --pink: #EB6363; /* Contrast color for buttons and highlights */
 }
 
+/* Button style using pink contrast color */
 .pink_button {
     background-color: var(--pink);
     border: none;
     border-radius: 7px;
 }
 
-/* Here is the classes for the button shine's*/
+/* Shine button effect */
 .shine {
     z-index: 1;
     position: relative;
@@ -36,6 +29,7 @@
     cursor: pointer;
 }
 
+/* Shine animation */
 .shine::after {
     content: '';
     z-index: -1;
@@ -48,6 +42,7 @@
     transform: translate3d(-1500%, 0, 0) rotate(35deg);
 }
 
+/* Shine effect on hover */
 .shine:hover::after {
     transition: transform 1.3s ease-in-out;
     transform: translate3d(2500%, 0, 0) rotate(35deg);

@@ -1,47 +1,49 @@
 :root {
-    --white: #ffffff;
-    --black: #000000;
-    --green: #7ded89;
-    --red: #ff002f;
-    --antracite: #60625f;
-    --light_gray: #edebea;
-    --light_blue: #42bedd;
-    --dark_blue: #2f7193;
-    --pink: #EB6363;
+    --white: #ffffff; /* White color */
+    --black: #000000; /* Black color */
+    --green: #7ded89; /* Light green color */
+    --red: #ff002f; /* Bright red color */
+    --antracite: #60625f; /* Dark grayish color */
+    --light_gray: #edebea; /* Light gray color */
+    --light_blue: #42bedd; /* Light blue color */
+    --dark_blue: #2f7193; /* Dark blue color */
+    --pink: #EB6363; /* Pink color */
 }
 
+/* Styles for the scroll to top button */
 #scrollToTopBtn {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 70px;
-    height: 50px;
-    background-color: var(--dark_blue);
-    border: 2px solid var(--light_blue); /* Voeg een border van 2 pixels toe in de witte kleur */
+    bottom: 20px; 
+    right: 20px; 
+    width: 70px; 
+    height: 50px; 
+    background-color: var(--dark_blue); 
+    border: 2px solid var(--light_blue); 
     border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    color: var(--white); 
     cursor: pointer;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s, visibility 0.3s, background-color 0.3s, border-color 0.3s;
-    z-index: 1000;
-    
+    transition: opacity 0.3s, visibility 0.3s, background-color 0.3s, border-color 0.3s; 
+    z-index: 1000
 }
 
+/* Styles for the hover effect on the scroll to top button */
 #scrollToTopBtn:hover {
-    background-color: var(--light_blue); /* Iets donkerdere tint van dark_blue */
-    border-color: var(--dark_blue) /* Houd de border wit bij hover */
+    background-color: var(--light_blue);
+    border-color: var(--dark_blue);
 }
 
-
-.scroll-icon{
-    font-size: 30px;
+/* Style for the scroll icon inside the button */
+.scroll-icon {
+    font-size: 30px; 
 }
 
+/* Makes the button visible when it has the 'show' class */
 #scrollToTopBtn.show {
-    opacity: 1;
+    opacity: 1; 
     visibility: visible;
 }

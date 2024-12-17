@@ -167,8 +167,8 @@
       {
           "code": "LOS.102.ADD",
           "product": "Tower Silo Storage",
-          "long_description": "Registration and administration of transloading silo storage activities.",
-          "short_description": "Calculate storage for vertical silos, incl. storage amount percentage pricing, additional amounts (stirring, etc.)",
+          "long_description": "Calculate storage for vertical silos, incl. storage amount percentage pricing, additional amounts (stirring, etc.)",
+          "short_description":"Registration and administration of transloading silo storage activities.",
           "image": "/media/products/Tower Silo Storage.webp",
           "price": 5,
           "quantity": 1

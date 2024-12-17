@@ -10,6 +10,9 @@
         href="https://fonts.googleapis.com/css2?family=Material+Icons&family=Material+Symbols+Outlined" />
     <link rel="stylesheet" href="style/style-admin-portal.css">
     <script src="/portal/script/script-admin.js"></script>
+    <script src="../../header & footer/api_links.js"></script>
+    <script src="../header & footer/api_links.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
     <title>admin</title>
 </head>
 
@@ -64,33 +67,33 @@
         <script src="/portal/script/auth-check.js"></script>
         
         <!-- Header Section -->
-        <section class="portal-header">
+        <div class="portal-header">
             <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
             <img src="../media/admin-bg.webp" alt="Portal Background" class="portal-header-image">
             <div class="portal-header-overlay"></div>
             <div class="portal-header-content">
-                <h1 id="welcome-message">Welcome</h1>
+                <h1 class="welcome-message" id="welcome-message">Welcome</h1>
             </div>
-            <div class="header-buttons header-box">
-                <div class="header-box" style="margin-bottom: 0px;">
-                    <span class="material-symbols-outlined notranslate">manage_accounts</span>
-                    <a href="#" class="pink_button shine" onclick="downloadExcel()">Accounts DB</a>
-                </div>                
-                <div class="header-buttons header-box" style="margin-bottom: 0px;">
-                    <span class="material-symbols-outlined notranslate">database</span>
-                    <a href="#" class="pink_button shine" onclick="downloadStore()">Store DB</a>
-                </div> 
-                <div class="header-buttons header-box" style="margin-bottom: 0px;">
-                    <span class="material-symbols-outlined notranslate">query_stats</span>
-                    <a href="#" class="pink_button shine" onclick="downloadAnalyticsExcel()">Analytics DB</a>
-                </div>
-                <div class="header-buttons header-box" style="margin-bottom: 0px;">
-                    <span class="material-symbols-outlined notranslate">shopping_cart_checkout</span>
-                    <a href="../portal/store-editor.html" class="pink_button shine">Store Editor</a>
-                </div>
-                
-            </div>           
-        </section>
+        </div>
+        <div class="box">
+            <div class="header-buttons header-box" style="margin-bottom: 0px;">
+                <span class="material-symbols-outlined notranslate">manage_accounts</span>
+                <a href="#" class="pink_button shine" onclick="downloadExcel()">Accounts DB</a>
+            </div>               
+            <div class="header-buttons header-box" style="margin-bottom: 0px;">
+                <span class="material-symbols-outlined notranslate">database</span>
+                <a href="#" class="pink_button shine" onclick="downloadStore()">Store DB</a>
+            </div> 
+            <div class="header-buttons header-box" style="margin-bottom: 0px;">
+                <span class="material-symbols-outlined notranslate">query_stats</span>
+                <a href="#" class="pink_button shine" onclick="downloadAnalyticsExcel()">Analytics DB</a>
+            </div>
+            <div class="header-buttons header-box" style="margin-bottom: 0px;">
+                <span class="material-symbols-outlined notranslate">shopping_cart_checkout</span>
+                <a href="../portal/store-editor.html" class="pink_button shine">Store Editor</a>
+            </div>
+            
+        </div>           
     </main>
 
     <!-- Cookie consent banner -->
@@ -184,7 +187,7 @@
                 </div>
     
                 <div class="language-flags-container">
-                    <div id="google_translate_element"></div>
+                    <div style="text-align: left;" id="google_translate_element"></div>
                     <script src="../header & footer/translations.js"></script>
                     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
                 </div>
@@ -202,8 +205,8 @@
         <!-- Bottom layer of the footer with additional info -->
         <div class="footer-bottom">
             <button class="privacy-btn" id="infoprivacy">Privacy Settings</button>
-            <p class="terms_bottom">&copy; 2024 - <a href="terms & conditions.html">Terms & Conditions</a> | <a
-                    href="privacy policy.html">Privacy Policy</a> | <a href="sitemap.html">Sitemap</a></p>
+            <p class="terms_bottom">&copy; 2024 - <a href="../pages/terms & conditions.html">Terms & Conditions</a> | <a
+                    href="https://www.iubenda.com/privacy-policy/30671546">Privacy Policy</a> | <a href="../pages/sitemap.html">Sitemap</a></p>
             <div class="social-icons">
                 <a href="https://www.linkedin.com/company/depotsoftware#" target="_blank" rel="noopener noreferrer">
                     <img src="../media/linkedin.webp" alt="LinkedIn">

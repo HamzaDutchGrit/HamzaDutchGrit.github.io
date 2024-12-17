@@ -275,24 +275,24 @@ body {
 
 
 .dropdown {
-    display: none; /* Standaard verberg de dropdown */
+    display: none; /* Hide the dropdown by default */
     position: absolute;
-    background-color: white; /* Achtergrondkleur */
+    background-color: white; /* Background color */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     z-index: 100;
-    min-width: 100px; /* Pas de breedte aan naar wens */
-    border-radius: 5px; /* Afgeronde hoeken */
-    opacity: 0; /* Begin met onzichtbaar */
-    display: none; /* Of 'none', afhankelijk van de status */
+    min-width: 100px; /* Adjust the width as needed */
+    border-radius: 5px; /* Rounded corners */
+    opacity: 0; /* Start invisible */
+    display: none; /* Or 'none', depending on the status */
 }
 
 .dropdown.show {
-    display: block; /* Toegepast als de dropdown zichtbaar is */
-    opacity: 1; /* Maak het zichtbaar */
-    border-radius: 5px; /* Afgeronde hoeken */
+    display: block; /* Applied when the dropdown is visible */
+    opacity: 1; /* Make it visible */
+    border-radius: 5px; /* Rounded corners */
 }
 
-/* Styling voor de dropdown links */
+/* Styling for the dropdown links */
 .dropdown a {
     display: block;
     padding: 8px 16px;
@@ -300,17 +300,17 @@ body {
     text-decoration: none;
     margin-right: 0px;
     background-color: var(--white);
-    border-radius: 5px; /* Afgeronde hoeken */
+    border-radius: 5px; /* Rounded corners */
 }
 
 .dropdown a:hover {
     color: var(--white);
 }
 
-/* Media query voor kleinere schermen (mobiel) */
+/* Media query for smaller screens (mobile) */
 @media screen and (max-width: 1200px) {
     .dropdown {
-        display: none; /* Zorg ervoor dat de dropdown verborgen is */
-        opacity: 0; /* Zorg ervoor dat de dropdown niet zichtbaar is */
+        display: none; /* Ensure the dropdown is hidden */
+        opacity: 0; /* Ensure the dropdown is not visible */
     }
 }

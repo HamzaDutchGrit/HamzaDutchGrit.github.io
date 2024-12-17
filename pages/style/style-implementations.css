@@ -1,138 +1,156 @@
 :root {
-    --white: #ffffff;
-    --black: #000000;
-    --green: #7ded89;
-    --red: #ff002f;
-    --antracite: #60625f;
-    --light_gray: #edebea;
-    --light_blue: #42bedd;
-    --dark_blue: #2f7193;
+    /* Define the color variables for the website */
+    --white: #ffffff; /* White color */
+    --black: #000000; /* Black color */
+    --green: #7ded89; /* Green color */
+    --antracite: #60625f; /* Color for subheaders and paragraphs */
+    --light_gray: #edebea; /* Light gray background color */
+    --light_blue: #42bedd; /* Primary brand color (light blue) */
+    --dark_blue: #2f7193; /* Secondary brand color (dark blue) */
+    --pink: #EB6363; /* Contrast color (pink) */
 }
 
-
+/* Styling for main text */
 .implementations_text {
     color: var(--dark_blue);
-    font-size: 3em; /* Grootte voor de hoofdtekst */
+    font-size: 3em; /* Size for main text */
     margin-bottom: 10px;
 }
 
+/* Styling for subtext */
 .implementations_subtext {
     color: var(--light_blue);
-    font-size: 2.2rem; /* Middelgrote tekst */
+    font-size: 2.2rem; /* Medium text */
     margin-bottom: 10px;
 }
 
+/* Styling for description text */
 .implementations_description {
     color: var(--antracite);
-    font-size: 1.5rem; /* Kleinere tekst */
+    font-size: 1.5rem; /* Smaller text */
     margin-bottom: 20px;
 }
 
+/* Styling for the implementation container */
 .implementations_container {
     display: flex;
-    justify-content: space-between; /* Zorgt ervoor dat de elementen aan de uiteinden staan */
-    align-items: flex-start; /* Zorgt ervoor dat de elementen bovenaan zijn uitgelijnd */
-    padding: 70px; /* Voeg padding toe voor ruimte */
+    justify-content: space-between; /* Ensures elements are at opposite ends */
+    align-items: flex-start; /* Aligns elements to the top */
+    padding: 70px; /* Adds padding for space */
 }
 
+/* Styling for text container */
 .implementations_text_container {
     margin-left: 90px;
-    flex: 1; /* Zorgt ervoor dat deze container ruimte gebruikt */
-    max-width: 60%; /* Beperk de breedte voor betere leesbaarheid */
+    flex: 1; /* Makes this container take up space */
+    max-width: 60%; /* Limits width for better readability */
 }
 
+/* Styling for image container */
 .implementations_image_container {
     margin-right: 90px;
-    flex: 1; /* Zorgt ervoor dat deze container ook ruimte gebruikt */
+    flex: 1; /* Makes this container take up space */
     display: flex;
-    flex-direction: column; /* Zorgt ervoor dat de afbeelding en knop onder elkaar staan */
-    align-items: flex-end; /* Zorgt ervoor dat de afbeelding en knop rechts zijn uitgelijnd */
+    flex-direction: column; /* Ensures image and button are stacked vertically */
+    align-items: flex-end; /* Aligns image and button to the right */
 }
 
+/* Styling for images */
 .implementations-image {
-    width: 100%; /* Zorgt ervoor dat de afbeelding responsief is */
-    max-width: 350px; /* Beperk de maximale breedte van de afbeelding */
-    height: auto; /* Houdt de verhouding van de afbeelding */
-    margin-bottom: 60px; /* Voeg ruimte toe onder de afbeelding */
+    width: 100%; /* Makes the image responsive */
+    max-width: 350px; /* Limits the image's maximum width */
+    height: auto; /* Keeps the image's aspect ratio */
+    margin-bottom: 60px; /* Adds space below the image */
 }
 
+/* Styling for the pink button */
 .pink_button {
     font-weight: bold;
     font-size: 25px;
     margin-right: 60px;
     background-color: var(--pink);
-    color: white; /* Tekstkleur van de knop */
-    border: none; /* Geen rand */
-    border-radius: 5px; /* Hoekradius */
-    padding: 15px 30px; /* Padding voor de knop */
-    text-decoration: none; /* Geen onderstreping */
+    color: white; /* Text color for the button */
+    border: none; /* No border */
+    border-radius: 5px; /* Corner radius */
+    padding: 15px 30px; /* Padding for the button */
+    text-decoration: none; /* No underline */
     transition: background-color 0.3s ease;
 }
 
+/* Hover effect for the pink button */
 .pink_button:hover {
     background-color: #d15454;
 }
 
+/* Styling for flowchart container */
 .flowchart_container {
     display: flex;
-    justify-content: center; /* Zorgt ervoor dat de afbeelding horizontaal gecentreerd is */
-    margin-top: 40px; /* Voeg wat ruimte boven de afbeelding toe */
+    justify-content: center; /* Centers the image horizontally */
+    margin-top: 40px; /* Adds space above the image */
 }
 
+/* Styling for flowchart image */
 .flowchart-image {
     padding: 100px;
     margin-right: 50px;
     margin-left: 50px;
-    width: 100%; /* Zorgt ervoor dat de afbeelding 100% van de beschikbare breedte inneemt */
-    max-width: 1500px; /* Limiteert de maximale breedte van de afbeelding */
-    height: auto; /* Houdt de hoogte in verhouding */
-    object-fit: contain; /* Zorgt ervoor dat de afbeelding volledig zichtbaar blijft */
+    width: 100%; /* Ensures the image takes up 100% of the available width */
+    max-width: 1500px; /* Limits the image's maximum width */
+    height: auto; /* Keeps the height proportional */
+    object-fit: contain; /* Ensures the full image is visible */
 }
 
+/* Media query for screens with a max width of 1200px */
 @media (max-width: 1200px) {
-    /* Zorgt ervoor dat de implementatiecontainer in een kolom wordt geplaatst en tekst gecentreerd is */
+    /* Converts implementation container to a column layout and centers text */
     .implementations_container {
         flex-direction: column;
-        text-align: center; /* Zorgt ervoor dat de tekst in het midden wordt uitgelijnd */
-        align-items: center; /* Zorgt ervoor dat de containers horizontaal gecentreerd worden */
+        text-align: center; /* Centers text */
+        align-items: center; /* Centers containers horizontally */
     }
 
+    /* Adjusts text container for smaller screens */
     .implementations_text_container {
         margin-top: -30px;
         margin-left: 0px;
-        flex: 1; /* Zorgt ervoor dat deze container ruimte gebruikt */
-        max-width: 80%; /* Beperk de breedte voor betere leesbaarheid op kleine schermen */
-        margin-bottom: 20px; /* Voeg wat ruimte toe onder de tekstcontainer */
-    }
-    
-    
-    .implementations_image_container {
-        margin-right: 0px;
-        flex: 1; /* Zorgt ervoor dat deze container ook ruimte gebruikt */
-        display: flex;
-        flex-direction: column; /* Zorgt ervoor dat de afbeelding en knop onder elkaar staan */
-        align-items: center; /* Zorgt ervoor dat de afbeelding en knop gecentreerd zijn */
+        flex: 1; /* Ensures container takes up space */
+        max-width: 80%; /* Limits width for better readability on small screens */
+        margin-bottom: 20px; /* Adds space below the text container */
     }
 
-    .pink_button{
+    /* Adjusts image container for smaller screens */
+    .implementations_image_container {
+        margin-right: 0px;
+        flex: 1; /* Ensures container takes up space */
+        display: flex;
+        flex-direction: column; /* Stacks image and button vertically */
+        align-items: center; /* Centers image and button */
+    }
+
+    /* Adjusts the pink button layout for small screens */
+    .pink_button {
         margin-right: auto;
     }
 }
 
-@media (max-width: 800px){
-    .flowchart_container{
+/* Media query for screens with a max width of 800px */
+@media (max-width: 800px) {
+    /* Hides flowchart container on small screens */
+    .flowchart_container {
         display: none;
     }
     
+    /* Adjusts main text size for smaller screens */
     .implementations_text {
         color: var(--dark_blue);
-        font-size: 1.5em; /* Grootte voor de hoofdtekst */
+        font-size: 1.5em; /* Size for main text */
         margin-bottom: 10px;
     }
 
+    /* Adjusts subtext size for smaller screens */
     .implementations_subtext {
         color: var(--light_blue);
-        font-size: 1rem; /* Middelgrote tekst */
+        font-size: 1rem; /* Smaller subtext */
         margin-bottom: 10px;
     }
 }

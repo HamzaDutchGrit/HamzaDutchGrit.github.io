@@ -1,11 +1,14 @@
 /* Standard colors */
 :root {
     --white: #ffffff;
+    --black: #000000;
+    --green: #7ded89;
+    --red: #ff002f;
+    --antracite: #60625f;
     --light_gray: #edebea;
-    --dark_gray: #60625f;
-    --red: #EB6363;
-    --blue: #42bedd;
-    --light_border: #d1d1d1;
+    --light_blue: #42bedd;
+    --dark_blue: #2f7193;
+    --pink: #EB6363;
 }
 
 /* Base styles for the body */
@@ -14,7 +17,13 @@ body {
     background-color: var(--white);
     margin: 0;
     padding: 0;
+
 }
+
+.store-product-title{
+    margin: 0;
+}
+
 
 /* Product wrapper layout */
 .product-wrapper {
@@ -36,7 +45,7 @@ body {
 /* Styling for the back button */
 .back-button {
     padding: 10px 20px;
-    background-color: var(--pink);
+    background-color: var(--dark_blue);
     color: var(--white);
     font-size: 1em;
     border: none;
@@ -47,7 +56,7 @@ body {
 
 /* Hover effect for the back button */
 .back-button:hover {
-    background-color: #d75454; 
+    background-color: #0c445f; 
     color: var(--white);
 }
 
@@ -59,7 +68,7 @@ body {
     width: 100%;
     max-width: 1000px;
     padding: 50px;
-    border: 1px solid var(--light_border);
+    border: 1px solid var(--light_gray);
     border-radius: 10px;
     background-color: var(--white);
     box-sizing: border-box;
@@ -83,8 +92,7 @@ body {
 /* Frequently bought together section */
 /* Frequently bought together section */
 .frequently-bought {
-    margin-top: 20px;
-    border-top: 1px solid var(--light_border);
+    margin-top: 70px;
     padding-top: 20px;
     margin-left: -450px;
     display: flex;
@@ -108,7 +116,7 @@ body {
 .product-thumbnails img {
     width: 80px;
     height: 80px;
-    border: 1px solid var(--light_border);
+    border: 1px solid var(--light_gray);
     border-radius: 5px;
     cursor: pointer;
 }
@@ -151,7 +159,7 @@ body {
     width: 200px;
     padding: 5px 10px;
     font-size: 1em;
-    border: 1px solid var(--light_border);
+    border: 1px solid var(--light_gray);
     border-radius: 5px;
     background-color: var(--white);
     transition: border-color 0.3s ease;
@@ -195,24 +203,8 @@ body {
     font-weight: bold;
 }
 
-
-@media (max-width: 871px) {
-    .frequently-bought {
-        margin-left: 0; /* Zorg ervoor dat het niet buiten het scherm valt */
-        padding-top: 15px; /* Kleinere padding voor kleinere schermen */
-    }
-}
-
-:root {
-    --white: #ffffff;
-    --black: #000000;
-    --green: #7ded89;
-    --red: #ff002f;
-    --antracite: #60625f;
-    --light_gray: #edebea;
-    --light_blue: #42bedd;
-    --dark_blue: #2f7193;
-    --pink: #EB6363;
+#product-language{
+    font-weight: bold;
 }
 
 main, .popup-header, .popup-product, .popup-recommendations {
@@ -555,39 +547,266 @@ input[type="number"]::-webkit-outer-spin-button {
 
 
 
-/* Responsive design for screens smaller than 1160px */
+/* Responsive design voor schermen kleiner dan 1160px */
 @media (max-width: 1160px) {
     .product-wrapper {
-        flex-direction: column;
-        margin-right: 10px;
+        flex-direction: column; /* Alles onder elkaar */
+        max-width: 800px;
     }
+    
+    .product-image {
+        order: -1; /* Afbeelding komt bovenaan */
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    
+    .product-image img {
+        width: 100%;
+        height: auto;
+    }
+    
     .product-details {
         margin-right: 20px;
     }
-}
-
-/* Responsive design for tablet-sized screens */
-@media (max-width: 700px) {
-    .product-wrapper {
-        flex-direction: column;
+    .frequently-bought{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: -380px;
     }
 }
 
-/* Responsive design for phone-sized screens */
+@media (max-width: 825px) {
+    .product-wrapper {
+        display: flex;
+        flex-direction: column; /* Alles onder elkaar */
+        align-items: center; /* Centreer inhoud horizontaal */
+        justify-content: flex-start; /* Begin bij de bovenkant */
+        margin: 0 auto;
+        padding: 10px;
+        width: 100%;
+        max-width: 750px; /* Beperking voor tablets */
+        height: auto; /* Hoogte aanpassen aan inhoud */
+        box-sizing: border-box;
+    }
+    
+    .product-image {
+        width: 100%; /* Vul de volledige breedte */
+        text-align: center; /* Centreer de afbeelding */
+        margin-bottom: 15px; /* Ruimte onder de afbeelding */
+        order: -1; /* Zorg dat de afbeelding altijd bovenaan staat */
+    }
+    
+    .product-image img {
+        width: 100%; /* Past zich aan container aan */
+        max-width: 400px; /* Limiteer maximale breedte */
+        height: auto; /* Behoud aspect ratio */
+        display: block; /* Zorg dat het niet inline blijft */
+    }
+    
+    .product-title,
+    .product-description {
+        text-align: left; /* Tekst links uitlijnen */
+        margin-bottom: 10px;
+        width: 100%;
+        order: 0; /* Blijf onder de afbeelding */
+    }
+    
+    .product-options {
+        display: flex;
+        flex-direction: column; /* Laat opties onder elkaar zien */
+        width: 100%;
+        max-width: 400px; /* Limiteer breedte voor consistentie */
+        margin-bottom: 15px;
+        order: 1; /* Na titel en beschrijving */
+    }
+    
+    .product-options label,
+    .product-options select {
+        width: 100%; /* Volledige breedte */
+        margin-bottom: 10px;
+    }
+    
+    .add-to-cart-button {
+        width: 100%; /* Knop vult volledige breedte */
+        max-width: 400px; /* Limiteer breedte */
+        margin: 15px 0; /* Ruimte rondom knop */
+        text-align: center;
+        order: 2; /* Laatste element */
+    }
+    
+    .related-products {
+        margin-top: 20px; /* Extra ruimte boven gerelateerde producten */
+        text-align: left; /* Links uitlijnen */
+        order: 3; /* Na de knop */
+    }
+    
+    .related-products img {
+        width: 100px; /* Zorg voor consistente grootte van afbeeldingen */
+        height: auto;
+        margin: 5px;
+    }
+    
+    .back-button {
+        position: relative; /* Zorg dat de knop in de flow blijft */
+        margin-left: -360px; /* Geen negatieve marge zoals eerder */
+        margin-top: 15px;
+        margin-bottom: -5px;
+        order: -2; /* Plaats de knop bovenaan, nog voor de afbeelding */
+    }
+    .frequently-bought{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: -320px;
+    }
+}
+
+
 @media (max-width: 475px) {
     .product-wrapper {
+        display: flex;
         flex-direction: column;
+        align-items: flex-start; /* Links uitlijnen zoals in de 380px-versie */
+        justify-content: flex-start;
+        margin: 0 auto;
+        padding: 0 15px; /* Zorg voor padding aan beide zijden om de randen te vermijden */
+        width: 100%;
+        max-width: 400px;
+        height: auto; /* Hoogte aanpassen aan inhoud */
+        box-sizing: border-box;
+        overflow: visible; /* Scroll niet binnen de wrapper zelf */
+        margin-bottom: 20px;
     }
-
-    /* Resize product image for smaller screens */
+    
     .product-image img {
-        width: 95%;
+        width: 100%;
+        max-width: 300px; /* Behoud maximale grootte */
+        height: auto;
+        margin-bottom: 12px;
+    }
+    
+    .product-title, 
+    .product-description {
+        text-align: left; /* Tekst links uitlijnen */
+        margin-bottom: 12px;
+        width: 100%; /* Volledige breedte benutten */
+    }
+    
+    .product-options {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* Alles links uitlijnen */
+        width: 100%;
+        margin-bottom: 16px;
+    }
+    
+    .product-options label, 
+    .product-options select {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+    
+    .add-to-cart-button {
+        width: 100%;
+        margin: 16px 0;
+        text-align: center; /* Knop gecentreerd houden */
+    }
+    
+    .related-products {
+        width: 100%;
+        margin-top: 20px;
+        text-align: left; /* Links uitlijnen voor tekst */
+    }
+    
+    .related-products img {
+        width: 70px; /* Consistente grootte van afbeeldingen */
+        height: auto;
+        margin: 5px;
+    }
+    
+    .back-button {
+        position: relative; /* Zorg dat de knop in de flow blijft */
+        margin-left: 0; /* Geen negatieve marge zoals eerder */
+        margin-top: 15px;
+        margin-bottom: -5px;
     }
 
-    /* Resize thumbnails for smaller screens */
-    .product-thumbnails img {
-        width: 80px;
-        height: 80px;
-        transition: none;
+    .frequently-bought{
+        margin-top: 10px;
+        margin-left: 0px;
+    }
+}
+
+
+/* Responsive design voor kleinere telefoons (zoals Galaxy Z Fold 5, 344px breed) */
+@media (max-width: 380px) {
+    .product-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* Zorg dat alles links uitlijnt */
+        justify-content: flex-start;
+        margin: 0 auto;
+        padding: 0px; /* Ruimte rondom de inhoud */
+        width: 100%;
+        max-width: 330px;
+        height: auto; /* Hoogte aanpassen aan inhoud */
+        box-sizing: border-box;
+        overflow-y: auto;
+        margin-bottom: 20px;
+    }
+
+    .product-image img {
+        width: 100%;
+        max-width: 300px; /* Behoud maximale grootte */
+        height: auto;
+        margin-bottom: 12px;
+    }
+
+    .product-title, .product-description {
+        text-align: left; /* Tekst links uitlijnen */
+        margin-bottom: 12px;
+        width: 100%; /* Volledige breedte benutten */
+    }
+
+    .product-options {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* Alles links uitlijnen */
+        width: 100%;
+        margin-bottom: 16px;
+    }
+
+    .product-options label, .product-options select {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+
+    .add-to-cart-button {
+        width: 100%;
+        margin: 16px 0;
+        text-align: center; /* Knop gecentreerd houden */
+    }
+
+    .related-products {
+        width: 100%;
+        margin-top: 20px;
+        text-align: left; /* Links uitlijnen voor tekst */
+    }
+
+    .related-products img {
+        width: 70px; /* Consistente grootte van afbeeldingen */
+        height: auto;
+        margin: 5px;
+    }
+
+    .back-button{
+        align-items: flex-start;
+        margin-right: -100px;
+        margin-top: 15px;
+        margin-bottom: -5px;
+    }
+
+    .frequently-bought{
+        margin-top: 10px;
+        margin-left: -20px;
     }
 }

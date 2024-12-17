@@ -154,17 +154,17 @@
 
 /* Layout for quantity and price display */
 .item-quantity-price {
-    text-align: right;
     display: flex;
-    flex-direction: column;
-    gap: 5px;
+    flex-direction: row; /* Zorgt dat ze naast elkaar staan */
+    align-items: center; /* Verticaal centreren */
+    justify-content: flex-start; /* Links uitlijnen */
+    gap: 10px; /* Ruimte tussen de elementen */
 }
 
 
 /* Styling for price and quantity values */
 .item-quantity-price span {
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 14px;
     color: var(--black);
 }
 
@@ -316,7 +316,6 @@
     border-radius: 5px; /* Afgeronde hoeken voor afbeelding */
 }
 
-
 /* Afbeeldingsstijl */
 .item-image img {
     width: 60px;
@@ -343,12 +342,6 @@
     color: #777;
 }
 
-/* Prijs styling */
-.item-price {
-    font-size: 15px; /* Aanpassen naar wens */
-    color: #333;
-}
-
 /* Totaalprijs groter en opvallender */
 .item-total-price {
     font-size: 50px; /* Aanpassen naar wens */
@@ -356,99 +349,108 @@
     color: #000;
 }
 
-/* Aantal iets kleiner */
-.item-quantity {
-    font-size: 0.9em; /* Aanpassen naar wens */
-    color: #333;
-    margin-right: 12px;
+/* Zorg ervoor dat de prijs overal niet dikgedrukt is */
+.item-quantity-price, 
+.item-quantity-price * {
+    font-weight: normal !important; /* Overschrijft alles */
 }
-
 
 /* Media Queries */
 @media (max-width: 1200px) {
-
     .cart-section {
-        flex: 1 1 50%; /* Pas de breedte van de cart aan */
+        flex: 1 1 50%;
     }
 
     .request-item {
-        max-width: 700px; /* Iets smaller */
-        padding: 15px; /* Kleinere padding */
+        max-width: 700px;
+        padding: 15px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .item-image {
+        flex: 0 0 auto;
+        margin-right: 10px;
+    }
+
+    .item-description {
+        flex: 2;
+        margin: 0;
+        text-align: left;
+    }
+
+    .item-quantity-price {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        margin-left: 0;
+        font-size: 14px;
+        justify-content: flex-start;
     }
 }
 
 @media (max-width: 900px) {
+    .request-item {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .item-image {
+        flex: 0 0 auto;
+        margin-right: 8px;
+    }
 
     .item-description {
-        margin-bottom: 15px; /* Ruimte onder de tekst */
+        flex: 2;
+        text-align: left;
+        font-size: 16px;
+        margin: 0;
     }
 
-    .container {
-        flex-direction: column; /* Verander naar kolom voor kleinere schermen */
-        align-items: center; /* Centreer alle elementen */
-    }
-
-    .request-items {
-        flex-direction: column; /* Stapel items onder elkaar */
-        gap: 20px; /* Verminder de ruimte tussen items */
-    }
-
-    .cart-section {
-        width: 100%; /* Volledige breedte voor cart */
-        transform: translateX(0); /* Reset transformatie */
-    }
-
-    .content-container {
-        flex-direction: column; /* Zorg ervoor dat de inhoud kolomgewijs is */
-        align-items: center; /* Centreer de inhoud */
-        gap: 20px; /* Verklein de ruimte tussen elementen */
-    }
-
-    .request-item {
-        max-width: 600px; /* Nog smaller */
-        flex-direction: column; /* Items onder elkaar */
+    .item-quantity-price {
+        display: flex;
+        flex-direction: row;
         align-items: center;
-        text-align: center; /* Tekst centreren */
+        gap: 8px;
+        margin-left: 0;
+        font-size: 12px;
+        justify-content: flex-start;
     }
 }
 
 @media (max-width: 600px) {
-    .step-number {
-        width: 25px; /* Kleinere cirkel voor stap nummer */
-        height: 25px; /* Kleinere cirkel voor stap nummer */
-        font-size: 14px; /* Kleinere lettergrootte voor nummer */
-    }
-
-    .order-request-text h1 {
-        font-size: 22px; /* Kleinere lettergrootte voor titel */
-    }
-
-    .check-text h4 {
-        font-size: 18px; /* Kleinere lettergrootte voor tekst */
-    }
-
-    .item-icon {
-        font-size: 80px; /* Kleinere iconen voor items */
-    }
-
-    .item-description h3 {
-        font-size: 14px; /* Kleinere tekstgrootte */
-    }
-
-    .item-description p {
-        font-size: 12px; /* Kleinere lettergrootte voor beschrijving */
-    }
-
-    .data-customer {
-        flex-direction: column; /* Velden onder elkaar op kleinere schermen */
-    }
-
     .request-item {
-        max-width: 100%; /* Volledige breedte op kleine schermen */
-        padding: 10px; /* Minder padding */
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 10px;
     }
 
-    .item-price {
-        font-size: 14px; /* Kleinere prijs-tekst */
+    .item-image {
+        text-align: left;
+        margin-bottom: 5px;
+    }
+
+    .item-description {
+        text-align: left;
+        font-size: 14px;
+        margin: 0;
+    }
+
+    .item-quantity-price {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 5px;
+        margin-left: 0;
+        font-size: 10px;
+        justify-content: flex-start;
     }
 }

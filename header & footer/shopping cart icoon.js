@@ -1,38 +1,38 @@
-// Functie om het totale aantal producten (op basis van quantity) uit localStorage te halen en bij te werken
+// Function to get and update the total product count (based on quantity) from localStorage
 function getCartCount() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || []; // Haal cart op uit localStorage
+    const cart = JSON.parse(localStorage.getItem('cart')) || []; // Retrieve cart from localStorage
 
-    // Tel de quantities van alle items in de winkelwagen bij elkaar op
+    // Sum up the quantities of all items in the cart
     const totalQuantity = cart.reduce((total, item) => total + (item.quantity || 0), 0);
-    return totalQuantity; // Geef het totale aantal items terug
+    return totalQuantity; // Return the total number of items
 }
 
-// Update het aantal in het winkelwagen-icoon
+// Update the cart icon with the item count
 function updateCartCountDisplay() {
     const cartCount = document.getElementById('cart-count');
-    const count = getCartCount(); // Verkrijg het totale aantal producten in de cart
+    const count = getCartCount(); // Get the total product count in the cart
 
     if (count > 99) {
-        cartCount.textContent = '99+'; // Toon 99+ als het groter is dan 99
+        cartCount.textContent = '99+'; // Display 99+ if the count is greater than 99
     } else {
-        cartCount.textContent = count; // Toon het echte aantal
+        cartCount.textContent = count; // Display the actual count
     }
 
-    // Toon of verberg de cirkel op basis van de waarde van count
+    // Show or hide the circle based on the count value
     if (count > 0) {
-        cartCount.style.display = 'flex'; // Toon de cirkel
+        cartCount.style.display = 'flex'; // Show the circle if count is greater than 0
     } else {
-        cartCount.style.display = 'none'; // Verberg de cirkel als count 0 is
+        cartCount.style.display = 'none'; // Hide the circle if count is 0
     }
 }
 
-// Functie die wordt aangeroepen bij het klikken op de winkelwagenknop
+// Function triggered when the cart icon is clicked
 function cartIcon(event) {
-    event.preventDefault(); // Voorkom pagina navigatie
+    event.preventDefault(); // Prevent page navigation
 
-    // Update de weergave van het winkelwagen-icoon
+    // Update the display of the cart icon
     updateCartCountDisplay();
 }
 
-// Roep deze functie aan om het aantal in de winkelwagen-icoon te tonen wanneer de pagina laadt
+// Call this function to display the cart count when the page loads
 document.addEventListener('DOMContentLoaded', updateCartCountDisplay);

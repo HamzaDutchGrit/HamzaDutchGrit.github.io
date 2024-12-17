@@ -111,6 +111,7 @@ h1 {
     /* Subtle shadow for card effect */
     background-color: var(--white);
     /* White background for each item */
+    margin-bottom: 25px;
 }
 
 /* Layout for item details */
@@ -395,9 +396,10 @@ h1 {
 .recommendation-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    margin-top: 20px;
+    /* Dit zorgt ervoor dat de items naar een nieuwe rij gaan als er niet genoeg ruimte is */
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
 }
 
 /* Go back button section */
@@ -750,26 +752,37 @@ h1 {
     /* Maakt de prijs minder vet als dat gewenst is */
 }
 
-.popup-message {
-    display: none; /* Begin onzichtbaar */
+.popup {
     position: fixed;
-    bottom: 10px; /* Plaats onderaan het scherm */
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
-    background-color: #f8d7da; /* Rode achtergrondkleur voor een waarschuwing */
-    color: #721c24; /* Donkerrode tekst */
-    padding: 10px 20px;
-    border: 1px solid #f5c6cb; /* Rand passend bij de achtergrondkleur */
-    border-radius: 5px;
-    font-size: 14px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 1000; /* Zorg dat het boven andere elementen staat */
-    animation: fadeInOut 3s forwards; /* Animatie voor in- en uitfaden */
+    transform: translate(-50%, -50%);
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.popup-message .material-symbols-outlined {
-    margin-right: 10px;
-    /* Ruimte tussen het vinkje en de tekst */
+.popup.hidden {
+    display: none;
+}
+
+#popup-close {
+    margin-top: 10px;
+    padding: 5px 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#popup-close:hover {
+    background-color: #0056b3;
 }
 
 .empty-cart-message {
@@ -785,6 +798,7 @@ h1 {
     color: white;
     border: none;
     cursor: pointer;
+    border-radius: 20px;
 }
 
 #continue-shopping-btn:hover {
@@ -794,8 +808,88 @@ h1 {
 .cart-icon {
     font-size: 250px;
     color: #333;
-    display: block;  /* Zorg ervoor dat het winkelwagentje altijd zichtbaar is */
+    display: block;
+    /* Zorg ervoor dat het winkelwagentje altijd zichtbaar is */
 }
+
+.cart-item .item-description a,
+.cart-item .item-description a:visited {
+    text-decoration: none; /* Verwijder de onderstreping volledig */
+    color: inherit; /* Gebruik dezelfde kleur als normale tekst */
+    outline: none; /* Zorg ervoor dat er geen outline verschijnt */
+}
+
+.cart-item .item-description a:hover,
+.cart-item .item-description a:active {
+    text-decoration: underline; /* Optioneel: onderstreping bij hover of actieve klik */
+    color: #000000; /* Optioneel: andere kleur bij hover */
+}
+
+.cart-item .item-description a:visited {
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
+#toast-container {
+    position: fixed;
+    bottom: 50px; /* Plaats het 20px boven de onderkant van het scherm */
+    left: 50%; /* Plaats horizontaal in het midden */
+    transform: translateX(-50%); /* Centreer het element */
+    z-index: 1000; /* Zorg dat het boven andere elementen verschijnt */
+}
+
+.toast {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Ruimte tussen icoon en tekst */
+    padding: 10px;
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    margin-bottom: 10px; /* Voeg ruimte tussen de meldingen toe */
+}
+
+
+/* Fade-in en fade-out animaties */
+@keyframes fadein {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeout {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+.toast .material-symbols-outlined {
+    color: #4caf50; /* Groen, passend bij een checkmark */
+    font-size: 20px;
+}
+
+
+/* Media query voor schermen kleiner dan 400px */
+@media (max-width: 443px) {
+    .recommendation-container {
+        display: flex;
+        flex-wrap: wrap; /* Zorg ervoor dat de items bij kleinere schermen netjes naast elkaar blijven */
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .recommendation-item {
+        width: 120px; /* Zorg ervoor dat de items klein genoeg blijven om naast elkaar te passen */
+        margin-bottom: 10px; /* Voeg een beetje ruimte toe tussen de items */
+    }
+
+    .recommendation-item img {
+        height: 125px;
+        width: 115px;
+        object-fit: cover; /* Zorg ervoor dat de afbeelding niet vervormd raakt */
+    }
+}
+
 
 /* Mobile responsiveness for screens smaller than 768px */
 @media (max-width: 768px) {

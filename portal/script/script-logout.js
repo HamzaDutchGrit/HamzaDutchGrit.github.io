@@ -1,14 +1,16 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const logoutButton = document.getElementById('logout-button');
+    const logoutButton = document.getElementById('logout-button'); // Get the logout button element
 
-    if (logoutButton) {
+    if (logoutButton) { // Check if the logout button exists
         logoutButton.addEventListener('click', function () {
-            // Verwijder de userId uit sessionStorage
+            // Remove the userId from sessionStorage when the user clicks logout
             sessionStorage.removeItem('userId');
-            // Verwijder de token uit sessionStorage
+            
+            // Remove the token from sessionStorage to log the user out
             sessionStorage.removeItem('token');
-            // Redirect naar de login pagina
-            window.location.href = '../portal/login.html'; // Pas het pad aan indien nodig
+            
+            // Redirect the user to the login page after logging out
+            window.location.href = '../portal/login.html'; // Adjust the path if necessary
         });
     }
 });

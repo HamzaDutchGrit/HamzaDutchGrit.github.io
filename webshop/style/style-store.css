@@ -24,6 +24,7 @@
     transition: color 0.3s ease; /* Voeg een overgang toe voor een soepel effect */
 }
 
+product-link
 /* Root variables */
 :root {
     --white: #ffffff;
@@ -48,7 +49,8 @@
     border-radius: 7px;
 }
 
-.pink_button_shop {
+.button_shop {
+    background-color: var(--dark_blue);
     color: var(--white);
     border: none;
     margin-right: 40px;
@@ -63,7 +65,7 @@
 }
 
 
-.pink_button_shop .material-icons-outlined {
+.button_shop .material-icons-outlined {
     margin-left: 8px;
 }
 
@@ -589,8 +591,16 @@
     }
 }
 
-/* Voor telefoons (max-width: 767px) */
 @media screen and (max-width: 630px) {
+
+    .button_shop {
+        margin-right: 35px;
+        width: 140px;
+        font-size: 12px;
+    }
+    
+
+    
 /* Suggestie tekst */
     #suggestion-text {
         display: flex; /* Zet het element op flexbox */
@@ -1088,4 +1098,3 @@ main .pink_button {
         font-size: 2rem; /* Kleinere iconen */
     }
 }
-

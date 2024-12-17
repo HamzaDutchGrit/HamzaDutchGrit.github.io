@@ -1,54 +1,50 @@
 :root {
-    --white: #ffffff;
-    /* white */
-    --black: #000000;
-    /* black */
-    --green: #7ded89;
-    /* green */
-    --antracite: #60625f;
-    /* Subheaders & Paragraph */
-    --light_gray: #edebea;
-    /* Background color */
-    --light_blue: #42bedd;
-    /* Primary brand color */
-    --dark_blue: #2f7193;
-    /* Secondary brand color */
-    --pink: #EB6363;
-    /* Contrast color */
+    /* Define the color variables for the website */
+    --white: #ffffff; /* White color */
+    --black: #000000; /* Black color */
+    --green: #7ded89; /* Green color */
+    --antracite: #60625f; /* Color for subheaders and paragraphs */
+    --light_gray: #edebea; /* Light gray background color */
+    --light_blue: #42bedd; /* Primary brand color (light blue) */
+    --dark_blue: #2f7193; /* Secondary brand color (dark blue) */
+    --pink: #EB6363; /* Contrast color (pink) */
 }
 
-#user-icon{
-    padding: 10px 20px;
+
+#user-icon {
+    padding: 10px 20px; /* Padding for user icon */
 }
 
+/* Dropdown menu styles */
 .dropdown {
-    display: none; /* Standaard verberg de dropdown */
+    display: none;
     position: absolute;
-    background-color: white; /* Achtergrondkleur */
+    background-color: white;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     z-index: 100;
-    min-width: 100px; /* Pas de breedte aan naar wens */
-    border-radius: 5px; /* Afgeronde hoeken */
-    opacity: 0; /* Begin met onzichtbaar */
-    transition: opacity 0.3s ease; /* Overgang voor zichtbaarheid */
+    min-width: 100px;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
     width: 100%;
 }
 
+/* Show dropdown when active */
 .dropdown.show {
-    display: block; /* Toegepast als de dropdown zichtbaar is */
-    opacity: 1; /* Maak het zichtbaar */
+    display: block;
+    opacity: 1;
 }
 
-/* Styling voor de dropdown links */
+/* Styling for dropdown links */
 .dropdown a {
     display: block;
     padding: 8px 16px;
     color: var(--antracite);
     text-decoration: none;
-    margin-right: 0px;
     background-color: var(--white);
 }
 
+/* Hover effect for dropdown links */
 .dropdown a:hover {
-    background-color: #42bedd77; /* Hover effect */
+    background-color: #42bedd77;
 }

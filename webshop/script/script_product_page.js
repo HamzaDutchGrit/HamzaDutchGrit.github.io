@@ -67,44 +67,6 @@ function displayFrequentlyBoughtTogether(recommendedProducts) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function truncatefreq(title, maxLength = 15) {
     return title.length > maxLength ? title.slice(0, maxLength) + '...' : title;
 }
@@ -113,14 +75,14 @@ function truncatefreq(title, maxLength = 15) {
 document.querySelector('.add-to-cart').addEventListener('click', function () {
     const productTitle = document.querySelector('#product-title').textContent;
     const productImage = document.querySelector('#product-image').src;
-    const shortDescription = document.querySelector('#product-description').textContent;
+    const short_description = product.short_description;
 
     const quantityInput = document.querySelector('#quantity-input'); // Zorg ervoor dat je een input hebt met deze ID
     const quantity = quantityInput ? parseInt(quantityInput.value, 10) : 1; // Standaard naar 1 als er geen input is
 
     const productPrice = product.price; // Gebruik de prijs uit het globale product object
 
-    addToCart(productTitle, productCode, productPrice, productImage, shortDescription, quantity);
+    addToCart(productTitle, productCode, productPrice, productImage, short_description, quantity);
 });
 
 function addToCart(productTitle, productCode, productPrice, productImage, short_description = 'Geen beschrijving beschikbaar.', quantity = 1, fromPopup = false) {
@@ -128,7 +90,7 @@ function addToCart(productTitle, productCode, productPrice, productImage, short_
         return; // Stop de functie als informatie ontbreekt of onjuist is
     }
 
-    console.log("Adding to cart:", { title: productTitle, code: productCode, price: productPrice, description: short_description, quantity });
+    console.log("Adding to cart:", { title: productTitle, code: productCode, price: productPrice, short_description: short_description, quantity });
 
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     let existingProduct = cart.find(item => item.code === productCode);
@@ -141,7 +103,7 @@ function addToCart(productTitle, productCode, productPrice, productImage, short_
             code: productCode,
             price: productPrice,
             image: productImage,
-            description: short_description,
+            short_description: short_description,
             quantity: quantity
         };
         cart.push(product);
@@ -190,7 +152,8 @@ async function fetchRecommendedProducts(productCode) {
                 code: product.code,
                 product: product.product,
                 price: product.price || 'Price not available',
-                image: product.image || "https://via.placeholder.com/150"
+                image: product.image || "https://via.placeholder.com/150",
+                short_description: product.short_description || 'Geen beschrijving beschikbaar.'
             }));
     } catch (error) {
         console.error("Error loading products.json:", error);
@@ -198,7 +161,8 @@ async function fetchRecommendedProducts(productCode) {
     }
 }
 
-async function showPopup(productName, productPrice, productImage, short_description, recommendedProducts) {
+async function showPopup(productName, productPrice, productImage, short_description, recommendedProducts,) {
+    console.log(product.short_description);
     console.log("Showing popup for product:", productName);
 
     const popup = document.getElementById('popup');

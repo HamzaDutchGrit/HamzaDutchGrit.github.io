@@ -6,10 +6,12 @@ const cookieBox = document.querySelector(".cookie-wrapper"),
     popupOverlay = document.querySelector("#popupOverlay"),
     closePopup = document.querySelector("#closePopup");
 
+// Function to hide popup
 const hidePopup = () => {
-    popupOverlay.style.display = "none"; // Sluit popup
+    popupOverlay.style.display = "none"; // Close popup
 };
 
+// Function to set cookies
 const setCookie = (name, value, days) => {
     let expires = "";
     if (days) {
@@ -20,50 +22,51 @@ const setCookie = (name, value, days) => {
     document.cookie = name + "=" + (value || "") + expires + "; path=/";
 };
 
-// Nieuwe functie om de cookie-status te controleren
+// Function to get cookie by name
 const getCookie = (name) => {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
     if (parts.length === 2) return parts.pop().split(';').shift();
 };
 
+// Execute functions when the page is loaded
 const executeCodes = () => {
     const cookieConsent = getCookie("cookieConsent");
 
-    // Toon de cookie-box als er geen cookie is of als deze is geweigerd
+    // Show the cookie box if no cookie or rejected
     if (!cookieConsent || cookieConsent === "rejected") {
         cookieBox.classList.add("show");
     }
 
-    // Verberg de cookie-box bij 'Accept'
+    // Accept button: set cookie and hide cookie box
     acceptButton.addEventListener("click", () => {
-        setCookie("cookieConsent", "accepted", 30); // Sla acceptatie op voor 30 dagen
-        cookieBox.classList.remove("show"); // Verberg de cookie-box
+        setCookie("cookieConsent", "accepted", 30); // Save consent for 30 days
+        cookieBox.classList.remove("show"); // Hide cookie box
     });
 
-    // Toon de settings popup bij 'Info & settings'
+    // Show settings popup when 'Info & settings' is clicked
     infoButton.addEventListener("click", () => {
         popupOverlay.style.display = "flex";
     });
 
-    // Verberg popup en stel cookie in als geweigerd bij 'Anonymous Browsing'
+    // Handle anonymous browsing option
     anonymousButton.addEventListener("click", () => {
-        setCookie("cookieConsent", "rejected", 30); // Sla afwijzing op voor 30 dagen
-        hidePopup(); // Verberg de popup
-        cookieBox.classList.remove("show"); // Verberg de cookie-box
+        setCookie("cookieConsent", "rejected", 30); // Reject cookies for 30 days
+        hidePopup(); // Hide popup
+        cookieBox.classList.remove("show"); // Hide cookie box
     });
 
-    // Verberg popup en accepteer cookies bij 'Fully Functioning Website'
+    // Fully functioning website option: accept cookies
     fullFunctionButton.addEventListener("click", () => {
-        setCookie("cookieConsent", "accepted", 30); // Sla acceptatie op voor 30 dagen
-        hidePopup(); // Verberg de popup
-        cookieBox.classList.remove("show"); // Verberg de cookie-box
+        setCookie("cookieConsent", "accepted", 30); // Accept cookies for 30 days
+        hidePopup(); // Hide popup
+        cookieBox.classList.remove("show"); // Hide cookie box
     });
 
-    // Sluit popup bij klikken op kruisje
+    // Close popup on clicking close button
     closePopup.addEventListener("click", hidePopup);
 
-    // Sluit popup bij klikken buiten de box
+    // Close popup when clicking outside the box
     popupOverlay.addEventListener("click", (e) => {
         if (e.target === popupOverlay) {
             hidePopup();
@@ -71,14 +74,13 @@ const executeCodes = () => {
     });
 };
 
-// Voer de functie uit wanneer de pagina volledig geladen is
+// Run the script when the page is fully loaded
 window.addEventListener("load", executeCodes);
 
+// Handle privacy info link to show popup
 document.addEventListener("DOMContentLoaded", () => {
     const infoprivacy = document.getElementById("infoprivacy");
-    const popupOverlay = document.getElementById("popupOverlay"); // Zorg ervoor dat je het juiste element selecteert
-    const popupbtn = document.getElementsByClassName("popup-options")
-
+    
     infoprivacy.addEventListener("click", () => {
         popupOverlay.style.display = "flex";
     });

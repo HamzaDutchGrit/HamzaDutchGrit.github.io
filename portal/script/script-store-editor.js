@@ -1,18 +1,19 @@
-let disciplineGroups = {};  // Object om de groepen en hun producten te laden
-let selectedGroup = "";     // Huidige geselecteerde groep
-let selectedProductIndex = null; // Geselecteerd product om te bewerken
+let disciplineGroups = {};  // Object to load the groups and their products
+let selectedGroup = "";     // Currently selected group
+let selectedProductIndex = null; // Selected product for editing
 
 document.addEventListener("DOMContentLoaded", async function() {
     await loadDisciplineGroups();
     populateDropdown();
-    // Zet het flag in sessionStorage wanneer de pagina geladen wordt
+    // Set the flag in sessionStorage when the page is loaded
     sessionStorage.setItem('unsavedChanges', 'false');
 });
 
-// Functie om de wijzigingen bij te houden
+// Function to track changes
 function markUnsavedChanges() {
     sessionStorage.setItem('unsavedChanges', 'true');
 }
+
 async function loadDisciplineGroups() {
     try {
         const response = await fetch('../webshop/products.json');
@@ -25,14 +26,14 @@ async function loadDisciplineGroups() {
 
 function populateDropdown() {
     const dropdown = document.getElementById("discipline-dropdown");
-    dropdown.innerHTML = ''; // Maak de dropdown leeg
+    dropdown.innerHTML = ''; // Clear the dropdown
 
-    // Voeg een standaard "Pick a Group" optie toe
+    // Add a default "Pick a Group" option
     const defaultOption = document.createElement("option");
     defaultOption.value = "";
     defaultOption.textContent = "Pick a Group";
-    defaultOption.disabled = true; // Zorg ervoor dat deze niet geselecteerd kan worden
-    defaultOption.selected = true; // Zorg ervoor dat deze standaard geselecteerd is
+    defaultOption.disabled = true; // Make sure this cannot be selected
+    defaultOption.selected = true; // Make sure it's selected by default
     dropdown.appendChild(defaultOption);
 
     for (const group in disciplineGroups) {
@@ -64,7 +65,7 @@ function showGroupProducts(groupName) {
     const product_button = document.getElementById("product-container-buttons");
     const productList = document.getElementById("product-list");
     document.getElementById("selected-group-title").textContent = `Group: ${groupName}`;
-    productList.innerHTML = ''; // Reset de lijst
+    productList.innerHTML = ''; // Reset the list
 
     const products = disciplineGroups[groupName] || [];
     products.forEach((product, index) => {
@@ -85,30 +86,30 @@ function showGroupProducts(groupName) {
         </div>
     `;
 
-
         productDiv.onclick = () => toggleProductDetail(productDiv, index);
         productList.appendChild(productDiv);
     });
 
-    productContainer.style.display = "block"; // Toon de productcontainer
-    product_button.style.display = "block";
+    productContainer.style.display = "block"; // Show the product container
+    product_button.style.display = "block";  // Show the product buttons
 }
 
 function toggleProductDetail(productDiv, index) {
-    // Controleer of het product al is uitgebreid
+    // Check if the product is already expanded
     const isExpanded = productDiv.classList.contains("expanded");
 
-    // Als het product al is uitgebreid, sluit het dan
+    // If the product is already expanded, close it
     if (isExpanded) {
         productDiv.classList.remove("expanded");
     } else {
-        // Voeg de 'expanded' class toe om het product uit te vouwen
+        // Add the 'expanded' class to unfold the product
         productDiv.classList.add("expanded");
-        // Bewerk het product (open de bewerkingsmodal)
+        // Edit the product (open the edit modal)
         editProduct(index);
     }
 }
 
+// Opens the product modal to edit a product by index.
 function editProduct(index) {
     const product = disciplineGroups[selectedGroup][index];
     document.getElementById("product-modal-title").textContent = "Edit Item";
@@ -121,11 +122,10 @@ function editProduct(index) {
     document.getElementById("product-quantity").value = product.quantity;
     selectedProductIndex = index;
     document.getElementById("product-modal").style.display = "block";
-
-    // Markeer dat er onopgeslagen wijzigingen zijn
-    markUnsavedChanges();
+    markUnsavedChanges(); // Track unsaved changes
 }
 
+// Saves the product after creating or editing it.
 function saveProduct() {
     const code = document.getElementById("product-code").value.trim();
     const name = document.getElementById("product-name").value.trim();
@@ -140,51 +140,46 @@ function saveProduct() {
     const newProduct = { code, product: name, price, short_description: shortDescription, long_description: longDescription, image, quantity };
 
     if (selectedProductIndex === null) {
-        disciplineGroups[selectedGroup].push(newProduct); // Voeg nieuw product toe
+        disciplineGroups[selectedGroup].push(newProduct); // Add new product
     } else {
-        disciplineGroups[selectedGroup][selectedProductIndex] = newProduct; // Bewerk bestaand product
+        disciplineGroups[selectedGroup][selectedProductIndex] = newProduct; // Update existing product
     }
 
-    closeProductModal();
-    showGroupProducts(selectedGroup); // Herlaad de productenlijst
+    closeProductModal(); // Close the modal after saving
+    showGroupProducts(selectedGroup); // Reload the product list
 }
 
+// Opens the modal to add a new product and shows a loader.
 function openProductModal() {
     document.getElementById("product-modal-title").textContent = "Add Item";
     document.getElementById("product-modal").style.display = "block";
-    selectedProductIndex = null;
-    sessionStorage.setItem('unsavedChanges', 'true');
+    selectedProductIndex = null; // No product is selected for editing
+    sessionStorage.setItem('unsavedChanges', 'true'); // Flag for unsaved changes
+    showLoader(true); // Show the loader while the form loads
 
-    // Toon de loader wanneer het formulier wordt geladen
-    showLoader(true);
-
-    // Wacht een korte tijd voordat de loader verdwijnt (voorbeeld van simuleren van een laadproces)
+    // Hide loader after a short simulated delay
     setTimeout(() => {
-        showLoader(false);
-    }, 500); // Verberg loader na 0.5 seconden
+        showLoader(false); 
+    }, 500);
 }
 
+// Shows or hides a loading spinner.
 function showLoader(show) {
     const loader = document.getElementById("loader");
-    if (show) {
-        loader.style.display = "block";
-    } else {
-        loader.style.display = "none";
-    }
+    loader.style.display = show ? "block" : "none";
 }
 
+// Closes the product modal and resets the form.
 function closeProductModal() {
     document.getElementById("product-modal").style.display = "none";
     
-    // Zoek naar het product-item dat de class 'expanded' heeft
+    // Remove the 'expanded' class from any currently expanded product
     const expandedProduct = document.querySelector(".product-item.expanded");
-    
-    // Als zo'n product-item bestaat, verwijder dan de class 'expanded'
     if (expandedProduct) {
         expandedProduct.classList.remove("expanded");
     }
 
-    // Reset het formulier om ervoor te zorgen dat de velden leeg zijn bij het sluiten van de modal
+    // Reset all form fields
     document.getElementById("product-code").value = "";
     document.getElementById("product-name").value = "";
     document.getElementById("product-price").value = "";
@@ -194,67 +189,59 @@ function closeProductModal() {
     document.getElementById("product-quantity").value = "";
 }
 
+// Warns the user about unsaved changes when trying to leave the page.
 window.addEventListener('beforeunload', function (event) {
     if (sessionStorage.getItem('unsavedChanges') === 'true') {
         event.preventDefault();
-        event.returnValue = ''; // Dit toont een bevestigingsbericht
+        event.returnValue = ''; // Shows confirmation message on page unload
     }
 });
 
-
+// Opens the group modal and sets the dropdown value to "add-new" for creating a new group.
 function openGroupModal() {
-    // Zet de display van de group-modal naar 'block' om het zichtbaar te maken
-    document.getElementById("group-modal").style.display = "block";
-    
-    // Zet de geselecteerde waarde van de dropdown naar "add-new" als je op "Add New Group" hebt geklikt
-    document.getElementById("discipline-dropdown").value = "add-new";
+    document.getElementById("group-modal").style.display = "block"; // Show the modal
+    document.getElementById("discipline-dropdown").value = "add-new"; // Set the dropdown to "add-new"
 }
 
-
+// Creates a new group based on the user input in the modal.
 function createNewGroup() {
     const newGroupName = document.getElementById("new-discipline-name").value.trim();
-    if (!newGroupName) return alert("Please enter a group name.");
+    if (!newGroupName) return alert("Please enter a group name."); // Check for empty input
     
-    if (!disciplineGroups[newGroupName]) {
-        disciplineGroups[newGroupName] = [];
-        populateDropdown();  // Update dropdown
-        sessionStorage.setItem('unsavedChanges', 'true');
+    if (!disciplineGroups[newGroupName]) { // Check if the group already exists
+        disciplineGroups[newGroupName] = []; // Add the new group
+        populateDropdown(); // Update the dropdown with the new group
+        sessionStorage.setItem('unsavedChanges', 'true'); // Flag unsaved changes
     }
-    closeGroupModal();
+    closeGroupModal(); // Close the modal after creating the group
 }
 
+// Closes the group modal and resets the dropdown selection.
 function closeGroupModal() {
-    // Zet de display van de group-modal naar 'none' om het te verbergen
-    document.getElementById("group-modal").style.display = "none";
-    
-    // Reset de geselecteerde waarde van de dropdown naar een standaardwaarde (bijv. de eerste optie)
-    document.getElementById("discipline-dropdown").value = ""; // Of zet dit naar de eerste groep als dat gewenst is
+    document.getElementById("group-modal").style.display = "none"; // Hide the modal
+    document.getElementById("discipline-dropdown").value = ""; // Reset dropdown selection
 }
 
-// Functie om de JSON data op te slaan als een bestand
+// Saves the current data (disciplineGroups) as a JSON file.
 function saveJsonToFile() {
-    const token = sessionStorage.getItem("token"); // Haal het token op uit de session storage
+    const token = sessionStorage.getItem("token"); // Retrieve the token from session storage
 
     if (!token) {
-        console.error("Geen token gevonden in session storage.");
-        return; // Stop de functie als er geen token is
+        console.error("Geen token gevonden in session storage."); // Log error if no token
+        return; // Exit the function if there's no token
     }
 
-    // Zet de actuele data om naar JSON formaat
-    const jsonData = JSON.stringify(disciplineGroups, null, 2);
+    const jsonData = JSON.stringify(disciplineGroups, null, 2); // Convert the data to JSON format
 
-    // Maak een blob van de JSON data
-    const blob = new Blob([jsonData], { type: 'application/json' });
+    const blob = new Blob([jsonData], { type: 'application/json' }); // Create a Blob with the JSON data
 
-    // Maak een tijdelijke link voor het downloaden van de JSON file
-    const link = document.createElement("a");
+    const link = document.createElement("a"); // Create a temporary link for the download
     link.href = URL.createObjectURL(blob);
-    link.download = "products.json"; // Bestandsnaam voor het gedownloade bestand
+    link.download = "products.json"; // Set the default file name for the download
 
-    // Voeg de link toe aan de DOM, trigger de download en verwijder de link
-    document.body.appendChild(link);
+    document.body.appendChild(link); // Add the link to the DOM, trigger download, and remove it
     link.click();
     document.body.removeChild(link);
 
-    sessionStorage.setItem('unsavedChanges', 'false');
+    sessionStorage.setItem('unsavedChanges', 'false'); // Reset the unsaved changes flag
 }

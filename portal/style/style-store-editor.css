@@ -1,18 +1,16 @@
-/* Zorg ervoor dat de body en html de volledige hoogte van de pagina vullen */
+/* Ensure that the body and html fill the full height of the page */
 html, body {
     height: 100%;
     margin: 0;
 }
 
-/* Zorg ervoor dat de container van de pagina de volledige hoogte in beslag neemt */
+/* Ensure that the page container takes up the full height */
 .main-content {
-    min-height: 100%; /* Zorgt ervoor dat de inhoud minimaal de volledige hoogte van het scherm heeft */
-    padding-bottom: 60px; /* Geef ruimte voor de footer */
+    min-height: 100%; /* Ensures the content takes up at least the full height of the screen */
+    padding-bottom: 60px; /* Adds space for the footer */
 }
 
-
-
-/* Zorg ervoor dat de footer altijd onderaan staat als er niet genoeg inhoud is */
+/* Ensure the footer always stays at the bottom when there isn't enough content */
 body {
     display: flex;
     flex-direction: column;
@@ -30,7 +28,7 @@ footer {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dark background */
 }
 
 .modal-content {
@@ -62,11 +60,11 @@ footer {
     cursor: pointer;
 }
 
-/* Styling voor product items */
+/* Styling for product items */
 .product-item {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Zorgt ervoor dat prijs rechts staat */
+    justify-content: space-between; /* Ensures the price is aligned to the right */
     background-color: #fff;
     border-radius: 10px;
     padding: 20px;
@@ -74,19 +72,19 @@ footer {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Hover effect voor product-item */
+/* Hover effect for product-item */
 .product-item:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px); /* Slightly lifts the item */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* Hover effect reset */
+/* Reset hover effect */
 .product-item .product-item:hover {
-    transform: translateY(0);
-    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    transform: translateY(0); /* Resets transform when hover ends */
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0); /* Resets box-shadow */
 }
 
-/* Stijl voor product afbeelding aan de linkerkant */
+/* Style for product image on the left */
 .product-item img {
     width: 100px;
     height: auto;
@@ -95,12 +93,12 @@ footer {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Stijl voor product-informatie (tekstgedeelte) */
+/* Style for product information (text section) */
 .product-info {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    flex-grow: 1; /* Zorgt ervoor dat de info de ruimte opvult */
+    flex-grow: 1; /* Ensures the info takes up the remaining space */
 }
 
 .product-code {
@@ -116,7 +114,7 @@ footer {
     line-height: 1.5;
 }
 
-/* Nieuwe container voor de prijs, rechts uitgelijnd */
+/* New container for price, aligned to the right */
 .product-price-container {
     display: flex;
     align-items: center;
@@ -130,7 +128,7 @@ footer {
     font-weight: bold;
 }
 
-/* Overige styling */
+/* Additional styling */
 #product-container {
     margin-top: 20px;
 }
@@ -193,6 +191,7 @@ footer {
     color: #888;
 }
 
+/* Styling for form groups */
 .form-group {
     display: flex;
     flex-direction: column;
@@ -215,36 +214,35 @@ footer {
     border-radius: 5px;
 }
 
-
-/* Basis styling voor de add item knop */
+/* Base styling for the add item button */
 .style-btn {
     display: inline-block;
-    background-color: var(--light_blue); /* Een mooie roze kleur */
+    background-color: var(--light_blue); /* A nice light blue color */
     color: white;
-    padding: 12px 30px; /* Ruimte rondom de tekst */
+    padding: 12px 30px; /* Padding around the text */
     font-size: 16px;
     font-weight: bold;
     text-align: center;
-    border-radius: 10px; /* Ronde hoeken voor een moderne uitstraling */
+    border-radius: 10px; /* Rounded corners for a modern look */
     border: none;
     cursor: pointer;
-    transition: all 0.3s ease-in-out; /* Soepele overgangseffecten */
-    text-transform: uppercase; /* Maakt de tekst hoofdletters */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Schaduw voor diepte-effect */
+    transition: all 0.3s ease-in-out; /* Smooth transition effects */
+    text-transform: uppercase; /* Makes the text uppercase */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth effect */
     margin-bottom: 20px;
     margin-top: 10px;
     margin-left: 25px;
 }
 
-/* Hover effect - maakt de knop donkerder en groter */
+/* Hover effect - makes the button darker and larger */
 .style-btn:hover {
-    background-color: var(--dark_blue); /* Donkerder roze bij hover */
-    transform: scale(1.05); /* Knop wordt iets groter bij hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Iets grotere schaduw */
+    background-color: var(--dark_blue); /* Darker blue on hover */
+    transform: scale(1.05); /* Makes the button slightly larger */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Larger shadow */
 }
 
-/* Actief effect (wanneer knop wordt ingedrukt) */
+/* Active effect (when the button is pressed) */
 .style-btn:active {
-    transform: scale(0.98); /* Knop krimpt een beetje */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Schaduw wordt kleiner */
+    transform: scale(0.98); /* The button shrinks slightly */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Smaller shadow */
 }
